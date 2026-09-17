@@ -741,6 +741,51 @@
       background: rgba(255, 87, 34, 0.08);
     }
 
+    /* 2-Photo Story Dedicated Controls Card */
+    .story-special-card {
+      border-left: 3px solid var(--accent-color);
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(255, 87, 34, 0.03) 100%);
+      animation: fadeInStoryCard 0.2s ease;
+    }
+
+    @keyframes fadeInStoryCard {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quick-pill-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .quick-pill-btn {
+      flex: 1;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 5px 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+
+    .quick-pill-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--text-main);
+    }
+
+    .quick-pill-btn.active {
+      background: rgba(255, 87, 34, 0.12);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
     /* Workspace / Preview Canvas Area */
     section.preview-area {
       background: var(--preview-bg);
@@ -1712,17 +1757,84 @@
             <option value="tall">🦒 Viral Tall Pin (1:2 • 1000 × 2000 px - High CTR)</option>
           </select>
         </div>
+      </div>
 
-        <!-- 2-Photo Story Banner Style Selector -->
-        <div class="control-group" id="bannerStyleGroup" style="margin-top: 10px;">
-          <label class="control-label" for="storyBannerStyle">
-            <span>2-Story Banner Theme</span>
-            <span class="value-pill">Viral Pin Style</span>
-          </label>
+      <!-- 2.1 Dedicated 2-Photo Story Options (Dynamic: shown ONLY when 2-Photo Story template is active) -->
+      <div class="control-card story-special-card" id="storyTemplateControlsCard" style="display: none;">
+        <div class="card-heading">
+          <div class="card-heading-left">
+            <i class="fa-solid fa-table-columns"></i> 2-Photo Story Settings
+          </div>
+          <span class="value-pill" style="background: rgba(255, 87, 34, 0.15); color: var(--accent-color); border: 1px solid rgba(255, 87, 34, 0.3);">Active Template</span>
+        </div>
+
+        <!-- 1. Bottom Photo Auto & Manual Zoom -->
+        <div class="control-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="control-label" for="storyBottomZoomSlider" style="margin-bottom: 0;">
+              <span>Bottom Photo Zoom</span>
+            </label>
+            <span class="value-pill" id="storyBottomZoomVal">1.6x (Auto Close-up)</span>
+          </div>
+          <input type="range" id="storyBottomZoomSlider" min="10" max="28" value="16" step="1">
+          <div class="quick-pill-row">
+            <button type="button" class="quick-pill-btn" onclick="setStoryBottomZoom(10)">1.0x Normal</button>
+            <button type="button" class="quick-pill-btn active" id="btnZoom16" onclick="setStoryBottomZoom(16)">1.6x Close-Up</button>
+            <button type="button" class="quick-pill-btn" onclick="setStoryBottomZoom(22)">2.2x Macro Bite</button>
+          </div>
+        </div>
+
+        <!-- 2. Independent Top & Bottom Framing Pan -->
+        <div class="control-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="control-label" for="storyBottomPanSlider" style="margin-bottom: 0;">
+              <span>Bottom Photo Pan (Bite Focus)</span>
+            </label>
+            <span class="value-pill" id="storyBottomPanVal">+25%</span>
+          </div>
+          <input type="range" id="storyBottomPanSlider" min="-80" max="80" value="25" step="5">
+        </div>
+
+        <div class="control-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="control-label" for="storyTopPanSlider" style="margin-bottom: 0;">
+              <span>Top Photo Pan (Hero Spread)</span>
+            </label>
+            <span class="value-pill" id="storyTopPanVal">-25%</span>
+          </div>
+          <input type="range" id="storyTopPanSlider" min="-80" max="80" value="-25" step="5">
+        </div>
+
+        <!-- 3. Split Proportion Layout -->
+        <div class="control-group">
+          <label class="control-label" for="storySplitRatioSelect">Story Split Ratio</label>
+          <select id="storySplitRatioSelect">
+            <option value="50-50" selected>⚖️ Balanced 50 / 50 (Classic Viral Split)</option>
+            <option value="60-40">📸 60 / 40 Top-Heavy (Large Hero Dish Overview)</option>
+            <option value="40-60">🍴 40 / 60 Bottom-Heavy (Large Plated Texture Focus)</option>
+          </select>
+        </div>
+
+        <!-- 4. Story Dividing Banner Theme -->
+        <div class="control-group">
+          <label class="control-label" for="storyBannerStyle">Center Banner Theme</label>
           <select id="storyBannerStyle">
-            <option value="white" selected>⚪ Crisp White Card (Viral Style - Pumpkin Cake Pin)</option>
-            <option value="dark">⚫ Midnight Charcoal (High Contrast - Lemon Muffin Pin)</option>
+            <option value="white" selected>⚪ Crisp White Card (Viral Style)</option>
+            <option value="dark">⚫ Midnight Charcoal (High Contrast)</option>
             <option value="accent">🎨 Solid Brand Accent Color</option>
+            <option value="glass">🪟 Frosted Glass Panel</option>
+          </select>
+        </div>
+
+        <!-- 5. Story Micro-Badges / Step Tags -->
+        <div class="control-group">
+          <label class="control-label" for="storyMicroBadgesSelect">Photo Step / Story Badges</label>
+          <select id="storyMicroBadgesSelect">
+            <option value="none" selected>-- No Photo Badges --</option>
+            <option value="prep-serve">⏱️ "STEP 1: PREP" &amp; "STEP 2: SERVE"</option>
+            <option value="ingredients-dish">🥗 "THE INGREDIENTS" &amp; "THE FINISHED DISH"</option>
+            <option value="recipe-bite">✨ "EASY RECIPE" &amp; "PERFECT BITE"</option>
+            <option value="secret">🔥 "THE SECRET" &amp; "CRISPY &amp; TENDER"</option>
           </select>
         </div>
       </div>
@@ -2789,15 +2901,84 @@
       render();
     }
 
-    // Template Selector
+    // Template Selector & Dynamic 2-Photo Story Controls Visibility
+    function updateStoryControlsVisibility() {
+      const storyCard = document.getElementById('storyTemplateControlsCard');
+      if (storyCard) {
+        storyCard.style.display = (currentTemplate === 'dual-split') ? 'flex' : 'none';
+      }
+    }
+
     document.querySelectorAll('.template-option').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.template-option').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentTemplate = btn.getAttribute('data-template');
         metaTemplateDisplay.textContent = btn.querySelector('span').textContent;
+        updateStoryControlsVisibility();
         render();
       });
+    });
+
+    // 2-Photo Story Special Options Handlers
+    window.setStoryBottomZoom = function(val) {
+      const slider = document.getElementById('storyBottomZoomSlider');
+      if (slider) {
+        slider.value = val;
+        updateStoryBottomZoomDisplay(val);
+        render();
+      }
+    };
+
+    function updateStoryBottomZoomDisplay(val) {
+      const zoomValEl = document.getElementById('storyBottomZoomVal');
+      if (zoomValEl) {
+        const x = (val / 10).toFixed(1);
+        let tag = '';
+        if (val === 10) tag = ' (Normal)';
+        else if (val <= 18) tag = ' (Auto Close-up)';
+        else tag = ' (Macro Bite)';
+        zoomValEl.textContent = `${x}x${tag}`;
+      }
+      document.querySelectorAll('.quick-pill-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`(${val})`);
+        btn.classList.toggle('active', !!isMatch);
+      });
+    }
+
+    const storyBottomZoomSlider = document.getElementById('storyBottomZoomSlider');
+    if (storyBottomZoomSlider) {
+      storyBottomZoomSlider.addEventListener('input', () => {
+        updateStoryBottomZoomDisplay(parseInt(storyBottomZoomSlider.value, 10));
+        render();
+      });
+    }
+
+    const storyBottomPanSlider = document.getElementById('storyBottomPanSlider');
+    const storyBottomPanVal = document.getElementById('storyBottomPanVal');
+    if (storyBottomPanSlider) {
+      storyBottomPanSlider.addEventListener('input', () => {
+        const val = parseInt(storyBottomPanSlider.value, 10);
+        if (storyBottomPanVal) storyBottomPanVal.textContent = `${val > 0 ? '+' : ''}${val}%`;
+        render();
+      });
+    }
+
+    const storyTopPanSlider = document.getElementById('storyTopPanSlider');
+    const storyTopPanVal = document.getElementById('storyTopPanVal');
+    if (storyTopPanSlider) {
+      storyTopPanSlider.addEventListener('input', () => {
+        const val = parseInt(storyTopPanSlider.value, 10);
+        if (storyTopPanVal) storyTopPanVal.textContent = `${val > 0 ? '+' : ''}${val}%`;
+        render();
+      });
+    }
+
+    ['storySplitRatioSelect', 'storyBannerStyle', 'storyMicroBadgesSelect'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('change', render);
+      }
     });
 
     // Filter Buttons
@@ -3195,27 +3376,81 @@
       if (toggleWatermark.checked) drawFloatingBrandBadge(CANVAS_WIDTH - 360, CANVAS_HEIGHT - 75);
     }
 
+    // Helper: 2-Photo Story Floating Micro Tag
+    function drawStoryPhotoTag(x, y, text) {
+      if (!text) return;
+      ctx.save();
+      ctx.font = '700 19px Inter, sans-serif';
+      const textW = ctx.measureText(text.toUpperCase()).width;
+      const tagW = textW + 36;
+      const tagH = 40;
+
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 14;
+      ctx.shadowOffsetY = 4;
+
+      ctx.fillStyle = 'rgba(15, 17, 24, 0.85)';
+      ctx.beginPath();
+      ctx.roundRect(x, y, tagW, tagH, 20);
+      ctx.fill();
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text.toUpperCase(), x + (tagW / 2), y + (tagH / 2) + 1);
+      ctx.restore();
+    }
+
     // 3. Template: 2-Photo Story Split (Viral Pinterest Format)
     function renderDualSplit(zoom, pan, darkness = 0.5) {
-      const isTall = CANVAS_HEIGHT >= 1900;
-      const topPhotoH = isTall ? 750 : 540;
-      const bannerH = isTall ? 500 : 430;
-      const bannerY = isTall ? 750 : 535;
-      const botPhotoY = bannerY + bannerH;
-      const botPhotoH = CANVAS_HEIGHT - botPhotoY;
+      const splitRatioEl = document.getElementById('storySplitRatioSelect');
+      const splitRatio = (splitRatioEl && splitRatioEl.value) || '50-50';
 
-      // 1. Top Photo Window (Upper 36%)
-      applyCanvasFilter();
-      if (secondaryImage) {
-        drawPhoto(secondaryImage, 0, 0, CANVAS_WIDTH, topPhotoH, 1.0, pan !== 0 ? pan : 0);
+      const isTall = CANVAS_HEIGHT >= 1900;
+      const bannerH = isTall ? 490 : 425;
+      const availablePhotoH = CANVAS_HEIGHT - bannerH;
+
+      let topPhotoH, botPhotoH;
+      if (splitRatio === '60-40') {
+        topPhotoH = Math.round(availablePhotoH * 0.58);
+        botPhotoH = availablePhotoH - topPhotoH;
+      } else if (splitRatio === '40-60') {
+        topPhotoH = Math.round(availablePhotoH * 0.42);
+        botPhotoH = availablePhotoH - topPhotoH;
       } else {
-        // Auto-crop top section with focus on hero/action ingredient or preparation
-        drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, topPhotoH, zoom, pan !== 0 ? pan - 0.25 : -0.32);
+        // Balanced 50 / 50
+        topPhotoH = Math.round(availablePhotoH * 0.50);
+        botPhotoH = availablePhotoH - topPhotoH;
       }
 
-      // 2. Bottom Photo Window (Lower 36%)
-      // Auto-crop bottom section with focus on plated dish / bite
-      drawPhoto(baseImage, 0, botPhotoY, CANVAS_WIDTH, botPhotoH, zoom, pan !== 0 ? pan + 0.25 : 0.28);
+      const bannerY = topPhotoH;
+      const botPhotoY = bannerY + bannerH;
+
+      // Independent Zoom & Pan Adjustments
+      const bottomZoomSlider = document.getElementById('storyBottomZoomSlider');
+      // Default bottom photo zoom is 1.6x (auto-zoomed macro texture / delicious bite)
+      const bottomZoom = bottomZoomSlider ? (parseInt(bottomZoomSlider.value, 10) / 10) : 1.6;
+
+      const topPanSlider = document.getElementById('storyTopPanSlider');
+      const topPan = topPanSlider ? (parseInt(topPanSlider.value, 10) / 100) : (pan !== 0 ? pan - 0.25 : -0.28);
+
+      const bottomPanSlider = document.getElementById('storyBottomPanSlider');
+      const bottomPan = bottomPanSlider ? (parseInt(bottomPanSlider.value, 10) / 100) : (pan !== 0 ? pan + 0.25 : 0.28);
+
+      // 1. Top Photo Window (Hero Dish / Overview)
+      applyCanvasFilter();
+      if (secondaryImage) {
+        drawPhoto(secondaryImage, 0, 0, CANVAS_WIDTH, topPhotoH, zoom, topPan);
+      } else {
+        drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, topPhotoH, zoom, topPan);
+      }
+
+      // 2. Bottom Photo Window (Auto-zoomed Close-up Texture / Plated Bite)
+      drawPhoto(baseImage, 0, botPhotoY, CANVAS_WIDTH, botPhotoH, bottomZoom, bottomPan);
       ctx.filter = 'none';
 
       if (darkness > 0) {
@@ -3224,16 +3459,37 @@
         ctx.fillRect(0, botPhotoY, CANVAS_WIDTH, botPhotoH);
       }
 
-      // 3. Center Dividing Title Banner
+      // 3. Optional Photo Step / Story Badges (Micro-tags)
+      const microBadgesEl = document.getElementById('storyMicroBadgesSelect');
+      const microStyle = (microBadgesEl && microBadgesEl.value) || 'none';
+      if (microStyle !== 'none') {
+        let topLabel = 'STEP 1: PREP';
+        let botLabel = 'STEP 2: SERVE';
+        if (microStyle === 'ingredients-dish') {
+          topLabel = 'THE INGREDIENTS';
+          botLabel = 'THE FINISHED DISH';
+        } else if (microStyle === 'recipe-bite') {
+          topLabel = 'EASY RECIPE';
+          botLabel = 'PERFECT BITE';
+        } else if (microStyle === 'secret') {
+          topLabel = 'THE SECRET';
+          botLabel = 'CRISPY & TENDER';
+        }
+        drawStoryPhotoTag(36, 36, topLabel);
+        drawStoryPhotoTag(36, botPhotoY + 36, botLabel);
+      }
+
+      // 4. Center Dividing Title Banner
       const bannerStyleEl = document.getElementById('storyBannerStyle');
       const bannerStyle = (bannerStyleEl && bannerStyleEl.value) || 'white';
       const isWhite = bannerStyle === 'white';
       const isAccent = bannerStyle === 'accent';
+      const isGlass = bannerStyle === 'glass';
 
-      const bannerBg = isWhite ? '#FFFFFF' : (isAccent ? currentBadgeColor : '#12141c');
+      const bannerBg = isWhite ? '#FFFFFF' : (isAccent ? currentBadgeColor : (isGlass ? 'rgba(18, 20, 28, 0.90)' : '#12141c'));
       const primaryTextColor = isWhite ? '#141418' : '#FFFFFF';
-      const subheadTextColor = isWhite ? '#555566' : (isAccent ? 'rgba(255,255,255,0.88)' : '#b4b4c6');
-      const domainTextColor = isWhite ? '#6c6c80' : (isAccent ? 'rgba(255,255,255,0.85)' : '#9a9ab0');
+      const subheadTextColor = isWhite ? '#555566' : (isAccent ? 'rgba(255,255,255,0.88)' : (isGlass ? 'rgba(255,255,255,0.85)' : '#b4b4c6'));
+      const domainTextColor = isWhite ? '#6c6c80' : (isAccent ? 'rgba(255,255,255,0.85)' : (isGlass ? 'rgba(255,255,255,0.75)' : '#9a9ab0'));
       const dividerColor = isAccent ? '#FFFFFF' : currentBadgeColor;
 
       // Card shadow casting onto both photos
@@ -4144,6 +4400,7 @@
 
     // Initialize
     document.fonts.ready.then(() => {
+      updateStoryControlsVisibility();
       filterAndPopulateRecipes();
       if (typeof RECIPES_DB !== 'undefined' && RECIPES_DB.length > 0) {
         recipeSelect.value = RECIPES_DB[0].id;
