@@ -18,7 +18,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,700;1,400;1,700&family=Montserrat:wght@700;800;900&family=Oswald:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,700;0,6..96,800;1,6..96,700&family=Caveat:wght@600;700&family=Cinzel:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;0,700;1,600&family=Merriweather:ital,wght@0,700;1,400;1,700&family=Montserrat:wght@700;800;900&family=Oswald:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -448,26 +448,69 @@
     /* Color Grid */
     .color-grid {
       display: flex;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 7px;
       align-items: center;
     }
 
     .color-swatch {
-      width: 28px;
-      height: 28px;
+      width: 27px;
+      height: 27px;
       border-radius: 50%;
       cursor: pointer;
       border: 2px solid transparent;
-      transition: transform 0.15s, border-color 0.15s;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
     }
 
     .color-swatch:hover {
-      transform: scale(1.15);
+      transform: scale(1.18);
     }
 
     .color-swatch.active {
       border-color: #ffffff;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
+      box-shadow: 0 0 0 2px var(--accent-color, #ff5722);
+      transform: scale(1.1);
+    }
+
+    .custom-color-btn {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      border: 1.5px dashed var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.15s ease;
+    }
+
+    .custom-color-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      transform: scale(1.15);
+    }
+
+    .custom-color-btn.active {
+      border-color: #ffffff;
+      box-shadow: 0 0 0 2px var(--accent-color, #ff5722);
+    }
+
+    .custom-color-btn input[type="color"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      padding: 0;
+      border: none;
     }
 
     /* Toggle Switches / Checkboxes */
@@ -1739,13 +1782,28 @@
         <div class="control-group">
           <label class="control-label" for="fontSelect">Headline Font</label>
           <select id="fontSelect">
-            <option value="Playfair Display">Playfair Display (Editorial Serif)</option>
-            <option value="Outfit">Outfit (Clean Bold Sans)</option>
-            <option value="Montserrat">Montserrat (High-Impact Modern)</option>
-            <option value="Cormorant Garamond">Cormorant Garamond (Luxury Classic)</option>
-            <option value="Oswald">Oswald (Tall & Condensed)</option>
-            <option value="Merriweather">Merriweather (Warm Traditional)</option>
-            <option value="Inter">Inter (Ultra-Minimal Clean)</option>
+            <optgroup label="Editorial &amp; Magazine Serifs">
+              <option value="Playfair Display" selected>Playfair Display (Editorial Serif)</option>
+              <option value="Abril Fatface">Abril Fatface (Bold Pinterest Display)</option>
+              <option value="Bodoni Moda">Bodoni Moda (Vogue Luxury Serif)</option>
+              <option value="Cormorant Garamond">Cormorant Garamond (Luxury Classic)</option>
+              <option value="Cinzel">Cinzel (Cinematic &amp; Dramatic)</option>
+              <option value="Lora">Lora (Cozy Storybook Serif)</option>
+              <option value="Merriweather">Merriweather (Warm Traditional)</option>
+            </optgroup>
+            <optgroup label="Modern &amp; High-Impact Sans">
+              <option value="Outfit">Outfit (Clean Bold Sans)</option>
+              <option value="Bebas Neue">Bebas Neue (Viral Tall Condensed)</option>
+              <option value="Poppins">Poppins (Friendly Geometric)</option>
+              <option value="Montserrat">Montserrat (High-Impact Modern)</option>
+              <option value="Oswald">Oswald (Tall &amp; Compressed)</option>
+              <option value="Anton">Anton (Ultra Heavy Impact)</option>
+              <option value="Inter">Inter (Ultra-Minimal Clean)</option>
+            </optgroup>
+            <optgroup label="Cursive &amp; Script Accents">
+              <option value="Caveat">Caveat (Playful Homemade Script)</option>
+              <option value="Dancing Script">Dancing Script (Flowing Casual Script)</option>
+            </optgroup>
           </select>
         </div>
       </div>
@@ -1825,15 +1883,31 @@
         </div>
 
         <div class="control-group">
-          <label class="control-label">Accent Color Theme</label>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="control-label" style="margin-bottom: 0;">Accent Color Theme</label>
+            <span class="value-pill" id="activeColorHex">#275c3d</span>
+          </div>
           <div class="color-grid">
-            <div class="color-swatch active" style="background:#275c3d;" data-color="#275c3d"></div>
-            <div class="color-swatch" style="background:#e53935;" data-color="#e53935"></div>
-            <div class="color-swatch" style="background:#ffb300;" data-color="#ffb300"></div>
-            <div class="color-swatch" style="background:#00897b;" data-color="#00897b"></div>
-            <div class="color-swatch" style="background:#43a047;" data-color="#43a047"></div>
-            <div class="color-swatch" style="background:#8e24aa;" data-color="#8e24aa"></div>
-            <div class="color-swatch" style="background:#263238;" data-color="#263238"></div>
+            <div class="color-swatch active" style="background:#275c3d;" data-color="#275c3d" title="Emerald Forest (Brand)"></div>
+            <div class="color-swatch" style="background:#e53935;" data-color="#e53935" title="Sriracha Crimson"></div>
+            <div class="color-swatch" style="background:#e60023;" data-color="#e60023" title="Pinterest Coral Red"></div>
+            <div class="color-swatch" style="background:#e65100;" data-color="#e65100" title="Paprika Terracotta"></div>
+            <div class="color-swatch" style="background:#ff9800;" data-color="#ff9800" title="Golden Honey"></div>
+            <div class="color-swatch" style="background:#fbc02d;" data-color="#fbc02d" title="Dijon Yellow"></div>
+            <div class="color-swatch" style="background:#43a047;" data-color="#43a047" title="Fresh Basil Lime"></div>
+            <div class="color-swatch" style="background:#558b2f;" data-color="#558b2f" title="Herb Olive"></div>
+            <div class="color-swatch" style="background:#00897b;" data-color="#00897b" title="Mediterranean Teal"></div>
+            <div class="color-swatch" style="background:#0288d1;" data-color="#0288d1" title="Coastal Sky Blue"></div>
+            <div class="color-swatch" style="background:#1a237e;" data-color="#1a237e" title="Midnight Navy"></div>
+            <div class="color-swatch" style="background:#8e24aa;" data-color="#8e24aa" title="Berry Violet"></div>
+            <div class="color-swatch" style="background:#d81b60;" data-color="#d81b60" title="Raspberry Rose"></div>
+            <div class="color-swatch" style="background:#795548;" data-color="#795548" title="Rustic Cinnamon"></div>
+            <div class="color-swatch" style="background:#d4af37;" data-color="#d4af37" title="Warm Luxury Gold"></div>
+            <div class="color-swatch" style="background:#263238;" data-color="#263238" title="Slate Charcoal"></div>
+            <label class="custom-color-btn" title="Pick any custom hex color">
+              <input type="color" id="customColorPicker" value="#275c3d">
+              <i class="fa-solid fa-eye-dropper"></i>
+            </label>
           </div>
         </div>
 
@@ -2736,15 +2810,58 @@
       });
     });
 
-    // Color Swatches
+    // Color Swatches & Custom Eye-Dropper Picker
+    const activeColorHexPill = document.getElementById('activeColorHex');
+    const customColorPicker = document.getElementById('customColorPicker');
+    const customColorBtn = customColorPicker ? customColorPicker.closest('.custom-color-btn') : null;
+
+    function applyAccentColor(hex) {
+      currentBadgeColor = hex;
+      if (activeColorHexPill) activeColorHexPill.textContent = hex;
+      render();
+    }
+
     document.querySelectorAll('.color-swatch').forEach(swatch => {
       swatch.addEventListener('click', () => {
         document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+        if (customColorBtn) {
+          customColorBtn.classList.remove('active');
+          customColorBtn.style.background = 'var(--card-bg)';
+          customColorBtn.style.borderColor = 'var(--border-color)';
+          customColorBtn.style.color = 'var(--text-muted)';
+        }
         swatch.classList.add('active');
-        currentBadgeColor = swatch.getAttribute('data-color');
-        render();
+        const color = swatch.getAttribute('data-color');
+        if (customColorPicker) customColorPicker.value = color;
+        applyAccentColor(color);
       });
     });
+
+    if (customColorPicker) {
+      customColorPicker.addEventListener('input', (e) => {
+        const picked = e.target.value;
+        document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+        if (customColorBtn) {
+          customColorBtn.classList.add('active');
+          customColorBtn.style.background = picked;
+          customColorBtn.style.borderColor = '#ffffff';
+          customColorBtn.style.color = '#ffffff';
+        }
+        applyAccentColor(picked);
+      });
+    }
+
+    // Dynamic Font Loader: Ensure newly selected web fonts render on Canvas immediately
+    if (fontSelect) {
+      fontSelect.addEventListener('change', () => {
+        const selectedFont = fontSelect.value;
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load(`bold 60px "${selectedFont}"`).then(() => render()).catch(() => render());
+        } else {
+          render();
+        }
+      });
+    }
 
     // Smart contrast helper: picks high-contrast highlight when banner is accent color
     function getContrastingHighlightColor(bgColor) {
