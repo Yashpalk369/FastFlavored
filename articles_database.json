@@ -1,5 +1,31 @@
 [
   {
+    "id": "20-minute-garlic-butter-steak-bites",
+    "title": "Crispy Garlic Butter Steak Bites",
+    "slug": "20-minute-garlic-butter-steak-bites",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "15 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-17",
+    "image": "./assets/images/garlic-butter-steak-bites.jpg",
+    "excerpt": "Tender, juicy sirloin steak bites seared in foaming garlic herb butter with a crispy golden crust in just 15 minutes."
+  },
+  {
+    "id": "20-minute-lemon-herb-butter-chicken",
+    "title": "Crispy Lemon Herb Butter Chicken",
+    "slug": "20-minute-lemon-herb-butter-chicken",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-17",
+    "image": "./assets/images/lemon-herb-chicken.jpg",
+    "excerpt": "Golden pan-seared chicken cutlets bathed in a vibrant garlic, fresh rosemary, oregano, lemon, and butter pan sauce."
+  },
+  {
     "id": "15-minute-korean-ground-beef-bowls",
     "title": "15-Minute Korean Ground Beef Bowls",
     "slug": "15-minute-korean-ground-beef-bowls",
