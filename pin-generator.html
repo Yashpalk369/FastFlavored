@@ -555,18 +555,19 @@
     }
 
     .btn {
-      padding: 12px 14px;
+      padding: 12px 10px;
       border-radius: var(--radius-sm);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       font-weight: 700;
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 7px;
       transition: all 0.15s ease;
       font-family: inherit;
+      white-space: nowrap;
     }
 
     .btn-accent {
@@ -589,6 +590,112 @@
     .btn-secondary:hover {
       background: var(--border-color);
       color: var(--text-main);
+    }
+
+    /* Advanced Options Accordion */
+    details.advanced-accordion {
+      padding: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    details.advanced-accordion summary.advanced-summary {
+      list-style: none;
+      padding: 13px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: var(--text-main);
+      background: var(--card-bg);
+      transition: background 0.15s ease;
+    }
+
+    details.advanced-accordion summary.advanced-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.advanced-accordion summary.advanced-summary:hover {
+      background: var(--input-bg);
+    }
+
+    details.advanced-accordion[open] summary.advanced-summary {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    details.advanced-accordion summary .advanced-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    details.advanced-accordion summary .advanced-title i {
+      color: var(--accent-color);
+    }
+
+    details.advanced-accordion summary .toggle-icon {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    details.advanced-accordion[open] summary .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .advanced-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--text-muted);
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .advanced-content {
+      padding: 14px 16px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .reset-pill-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+
+    .reset-pill-btn:hover {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+      background: rgba(255, 87, 34, 0.08);
     }
 
     /* Workspace / Preview Canvas Area */
@@ -1736,64 +1843,81 @@
         </div>
       </div>
 
-      <!-- 6. Toggleable Layout Elements (Fine Control) -->
-      <div class="control-card">
-        <div class="card-heading"><i class="fa-solid fa-toggle-on"></i> Toggle Elements</div>
-        <div class="toggle-list">
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleBadge" checked> Show Badge
-          </label>
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleSubhead" checked> Show Subhead
-          </label>
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleWatermark" checked> Show Branding
-          </label>
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleCta" checked> Show CTA Button
-          </label>
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleUppercase" checked> ALL CAPS Title
-          </label>
-        </div>
-      </div>
+      <!-- 6. Advanced Options (Expandable Accordion) -->
+      <details class="control-card advanced-accordion">
+        <summary class="advanced-summary">
+          <span class="advanced-title">
+            <i class="fa-solid fa-sliders"></i> Advanced Options
+          </span>
+          <span class="advanced-badge">Elements &amp; Photo</span>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </summary>
+        <div class="advanced-content">
+          <!-- Toggleable Layout Elements -->
+          <div class="advanced-section">
+            <div class="section-subtitle"><i class="fa-solid fa-toggle-on"></i> Toggle Elements</div>
+            <div class="toggle-list">
+              <label class="toggle-item">
+                <input type="checkbox" id="toggleBadge" checked> Show Badge
+              </label>
+              <label class="toggle-item">
+                <input type="checkbox" id="toggleSubhead" checked> Show Subhead
+              </label>
+              <label class="toggle-item">
+                <input type="checkbox" id="toggleWatermark" checked> Show Branding
+              </label>
+              <label class="toggle-item">
+                <input type="checkbox" id="toggleCta" checked> Show CTA Button
+              </label>
+              <label class="toggle-item">
+                <input type="checkbox" id="toggleUppercase" checked> ALL CAPS Title
+              </label>
+            </div>
+          </div>
 
-      <!-- 7. Photo Framing & Position -->
-      <div class="control-card">
-        <div class="card-heading"><i class="fa-solid fa-sliders"></i> Photo Adjustments</div>
-        
-        <div class="control-group">
-          <label class="control-label">Vertical Pan Position <span class="value-pill" id="panVal">0%</span></label>
-          <input type="range" id="panSlider" min="-80" max="80" value="0">
-        </div>
+          <!-- Photo Framing & Position -->
+          <div class="advanced-section" style="margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div class="section-subtitle" style="margin-bottom: 0;"><i class="fa-solid fa-crop-simple"></i> Photo Adjustments</div>
+              <button type="button" id="resetAdjustmentsBtn" class="reset-pill-btn" title="Reset adjustments to default">↺ Reset</button>
+            </div>
 
-        <div class="control-group">
-          <label class="control-label">Zoom Scale <span class="value-pill" id="zoomVal">1.0x</span></label>
-          <input type="range" id="zoomSlider" min="10" max="22" value="10">
-        </div>
+            <div class="control-group">
+              <label class="control-label">Vertical Pan Position <span class="value-pill" id="panVal">0%</span></label>
+              <input type="range" id="panSlider" min="-80" max="80" value="0">
+            </div>
 
-        <div class="control-group">
-          <label class="control-label">Vignette Darkness <span class="value-pill" id="darkVal">50%</span></label>
-          <input type="range" id="darkSlider" min="0" max="90" value="50">
-        </div>
-      </div>
+            <div class="control-group">
+              <label class="control-label">Zoom Scale <span class="value-pill" id="zoomVal">1.0x</span></label>
+              <input type="range" id="zoomSlider" min="10" max="22" value="10">
+            </div>
 
-      <!-- Action Buttons -->
+            <div class="control-group">
+              <label class="control-label">Vignette Darkness <span class="value-pill" id="darkVal">50%</span></label>
+              <input type="range" id="darkSlider" min="0" max="90" value="50">
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Action Buttons (Paired in 2-Column Rows) -->
       <div class="action-buttons">
-        <button class="btn btn-accent" id="downloadPngBtn">
-          <i class="fa-solid fa-download"></i> Download High-Res PNG
-        </button>
         <div class="btn-row">
+          <button class="btn btn-accent" id="downloadPngBtn">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </button>
           <button class="btn btn-secondary" id="downloadJpgBtn">
             <i class="fa-regular fa-image"></i> Download JPG
           </button>
+        </div>
+        <div class="btn-row">
           <button class="btn btn-secondary" id="copyClipboardBtn">
             <i class="fa-regular fa-copy"></i> Copy Pin
           </button>
+          <button class="btn btn-secondary" id="sidebarSeoBtn" style="border-color: #e60023; color: var(--text-main); font-weight: 700;">
+            <i class="fa-brands fa-pinterest" style="color: #e60023;"></i> Pinterest SEO
+          </button>
         </div>
-        <button class="btn btn-secondary" id="sidebarSeoBtn" style="border-color: #e60023; color: var(--text-main); font-weight: 700;">
-          <i class="fa-brands fa-pinterest" style="color: #e60023;"></i> Pinterest SEO Copy & Tags
-        </button>
       </div>
 
     </aside>
@@ -2463,6 +2587,19 @@
       render();
     });
 
+    const resetAdjustmentsBtn = document.getElementById('resetAdjustmentsBtn');
+    if (resetAdjustmentsBtn) {
+      resetAdjustmentsBtn.addEventListener('click', () => {
+        panSlider.value = 0;
+        panVal.textContent = '0%';
+        zoomSlider.value = 10;
+        zoomVal.textContent = '1.0x';
+        darkSlider.value = 50;
+        darkVal.textContent = '50%';
+        render();
+      });
+    }
+
     // Text Shadow, Backdrop & Positioning Controls
     if (textShadowSelect) {
       textShadowSelect.addEventListener('change', () => {
@@ -2802,9 +2939,9 @@
       if (currentTemplate === 'bottom-card') {
         renderBottomCard(zoom, panPercent, darkness);
       } else if (currentTemplate === 'split-editorial') {
-        renderSplitEditorial(zoom, panPercent);
+        renderSplitEditorial(zoom, panPercent, darkness);
       } else if (currentTemplate === 'dual-split') {
-        renderDualSplit(zoom, panPercent);
+        renderDualSplit(zoom, panPercent, darkness);
       } else if (currentTemplate === 'center-float') {
         renderCenterFloat(zoom, panPercent, darkness);
       } else if (currentTemplate === 'bold-minimalist') {
@@ -2897,7 +3034,7 @@
     }
 
     // 2. Template: Editorial Split
-    function renderSplitEditorial(zoom, pan) {
+    function renderSplitEditorial(zoom, pan, darkness = 0.5) {
       const headerH = 550;
 
       ctx.fillStyle = '#14141a';
@@ -2930,6 +3067,11 @@
       drawPhoto(baseImage, 0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH, zoom, pan);
       ctx.filter = 'none';
 
+      if (darkness > 0) {
+        ctx.fillStyle = `rgba(0, 0, 0, ${darkness * 0.55})`;
+        ctx.fillRect(0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH);
+      }
+
       ctx.fillStyle = currentBadgeColor;
       ctx.fillRect(0, headerH - 3, CANVAS_WIDTH, 4);
 
@@ -2937,7 +3079,7 @@
     }
 
     // 3. Template: 2-Photo Story Split (Viral Pinterest Format)
-    function renderDualSplit(zoom, pan) {
+    function renderDualSplit(zoom, pan, darkness = 0.5) {
       const isTall = CANVAS_HEIGHT >= 1900;
       const topPhotoH = isTall ? 750 : 540;
       const bannerH = isTall ? 500 : 430;
@@ -2958,6 +3100,12 @@
       // Auto-crop bottom section with focus on plated dish / bite
       drawPhoto(baseImage, 0, botPhotoY, CANVAS_WIDTH, botPhotoH, zoom, pan !== 0 ? pan + 0.25 : 0.28);
       ctx.filter = 'none';
+
+      if (darkness > 0) {
+        ctx.fillStyle = `rgba(0, 0, 0, ${darkness * 0.5})`;
+        ctx.fillRect(0, 0, CANVAS_WIDTH, topPhotoH);
+        ctx.fillRect(0, botPhotoY, CANVAS_WIDTH, botPhotoH);
+      }
 
       // 3. Center Dividing Title Banner
       const bannerStyleEl = document.getElementById('storyBannerStyle');
@@ -3347,6 +3495,10 @@
       applyCanvasFilter();
       drawPhoto(baseImage, photoX, photoY, photoW, photoH, zoom, pan);
       ctx.filter = 'none';
+      if (darkness > 0) {
+        ctx.fillStyle = `rgba(0, 0, 0, ${darkness * 0.5})`;
+        ctx.fillRect(photoX, photoY, photoW, photoH);
+      }
       ctx.restore();
 
       // Polaroid Bottom Note Area (Handwritten-style subtitle)
@@ -3398,7 +3550,7 @@
     }
 
     // 10. Template: Top Banner Headline (Clean White/Dark Top Header + Full Bleed Bottom Photo)
-    function renderTopBanner(zoom, pan, darkness) {
+    function renderTopBanner(zoom, pan, darkness = 0.5) {
       const headerH = 540;
 
       // Clean Solid Header (Top 36%)
@@ -3433,6 +3585,11 @@
       applyCanvasFilter();
       drawPhoto(baseImage, 0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH, zoom, pan);
       ctx.filter = 'none';
+
+      if (darkness > 0) {
+        ctx.fillStyle = `rgba(0, 0, 0, ${darkness * 0.55})`;
+        ctx.fillRect(0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH);
+      }
 
       // Dividing gold/accent rule line
       ctx.fillStyle = currentBadgeColor;
@@ -3573,29 +3730,40 @@
       ctx.restore();
     }
 
-    // Helper: Draw Pan/Zoom Photo
-    function drawPhoto(img, x, y, w, h, zoom, panPercent) {
+    // Helper: Draw Pan/Zoom Photo (Smooth, boundary-safe & aspect-ratio agnostic)
+    function drawPhoto(img, x, y, w, h, zoom = 1.0, panPercent = 0) {
+      if (!img || !img.width || !img.height) return;
       const imgRatio = img.width / img.height;
       const targetRatio = w / h;
 
+      // Ensure headroom so vertical panning works smoothly on both landscape & portrait photos
+      const effectiveZoom = Math.max(1.0, (zoom || 1.0)) * 1.18;
       let sWidth, sHeight, sx, sy;
 
       if (imgRatio > targetRatio) {
-        sHeight = img.height / zoom;
-        sWidth = (img.height / zoom) * targetRatio;
-        sx = ((img.width - sWidth) / 2);
-        sy = ((img.height - sHeight) / 2) + (panPercent * (img.height - sHeight) / 2);
+        sHeight = img.height / effectiveZoom;
+        sWidth = sHeight * targetRatio;
+        sx = (img.width - sWidth) / 2;
+        const maxPanY = (img.height - sHeight) / 2;
+        sy = ((img.height - sHeight) / 2) + ((panPercent || 0) * maxPanY);
       } else {
-        sWidth = img.width / zoom;
-        sHeight = (img.width / zoom) / targetRatio;
-        sx = ((img.width - sWidth) / 2);
-        sy = ((img.height - sHeight) / 2) + (panPercent * (img.height - sHeight) / 2);
+        sWidth = img.width / effectiveZoom;
+        sHeight = sWidth / targetRatio;
+        sx = (img.width - sWidth) / 2;
+        const maxPanY = (img.height - sHeight) / 2;
+        sy = ((img.height - sHeight) / 2) + ((panPercent || 0) * maxPanY);
       }
 
+      // Hard boundary safety clamp (never sample outside source image)
       sx = Math.max(0, Math.min(img.width - sWidth, sx));
       sy = Math.max(0, Math.min(img.height - sHeight, sy));
 
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(x, y, w, h);
+      ctx.clip();
       ctx.drawImage(img, sx, sy, sWidth, sHeight, x, y, w, h);
+      ctx.restore();
     }
 
     // Helper: Pill Badge
