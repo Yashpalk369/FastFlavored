@@ -1,4 +1,30 @@
-﻿[
+[
+  {
+    "id": "15-minute-korean-ground-beef-bowls",
+    "title": "15-Minute Korean Ground Beef Bowls",
+    "slug": "15-minute-korean-ground-beef-bowls",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "15 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-17",
+    "image": "./assets/images/korean-beef-bowls.jpg",
+    "excerpt": "Sweet, savory, and garlicky Korean ground beef simmered in soy sauce, sesame oil, and ginger over steamed jasmine rice. Ready in 15 minutes!"
+  },
+  {
+    "id": "20-minute-creamy-garlic-parmesan-pasta",
+    "title": "Creamy Garlic Parmesan Mushroom Pasta",
+    "slug": "20-minute-creamy-garlic-parmesan-pasta",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-17",
+    "image": "./assets/images/garlic-parmesan-pasta.jpg",
+    "excerpt": "Tender fettuccine tossed with golden sautéed cremini mushrooms in a velvety garlic parmesan cream sauce in just 20 minutes!"
+  },
   {
     "id": "15-minute-garlic-butter-shrimp-scampi",
     "title": "Garlic Butter Shrimp Scampi",

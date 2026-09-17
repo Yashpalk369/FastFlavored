@@ -1,0 +1,3680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBPEDTLCPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MBPEDTLCPJ');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinterest Pin Studio Pro - FastFlavored</title>
+  <meta name="description" content="Professional Pinterest Pin Studio with 7 viral layouts, live food filters, keyword highlighting, mobile feed simulator, and 1-click recipe auto-fill.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,700;1,400;1,700&family=Montserrat:wght@700;800;900&family=Oswald:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Light Mode (DEFAULT) */
+    :root {
+      --bg-dark: #f5f5f7;
+      --panel-bg: #ffffff;
+      --card-bg: #fbfbfd;
+      --input-bg: #ffffff;
+      --border-color: #e2e2ea;
+      --border-card: #e5e5ee;
+      --border-focus: #275c3d;
+      --text-main: #1c1c24;
+      --text-muted: #6e6e82;
+      --accent-color: #275c3d;
+      --accent-hover: #1e4b31;
+      --nav-bg: #ffffff;
+      --chip-bg: #f0f0f4;
+      --chip-text: #4a4a5a;
+      --chip-border: #dcdce6;
+      --preview-bg: #e8e8ee;
+      --modal-bg: #ffffff;
+      --modal-box-bg: #f4f4f8;
+      --btn-sec-bg: #edeef2;
+      --btn-sec-text: #22222d;
+      --btn-sec-border: #d8d8e2;
+      --meta-bar-bg: rgba(255, 255, 255, 0.92);
+      --meta-bar-border: #e0e0ea;
+      --meta-bar-text: #1a1a22;
+      --scrollbar-thumb: #c8c8d4;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+      --theme-transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Dark Mode Theme */
+    [data-theme="dark"] {
+      --bg-dark: #09090b;
+      --panel-bg: #121216;
+      --card-bg: #1a1a22;
+      --input-bg: #111115;
+      --border-color: #272732;
+      --border-card: #272732;
+      --border-focus: #275c3d;
+      --text-main: #f4f4f8;
+      --text-muted: #8c8c9e;
+      --accent-color: #275c3d;
+      --accent-hover: #1e4b31;
+      --nav-bg: #0f0f13;
+      --chip-bg: #131317;
+      --chip-text: #a4a4b8;
+      --chip-border: #2e2e3c;
+      --preview-bg: #08080a;
+      --modal-bg: #16161e;
+      --modal-box-bg: #101014;
+      --btn-sec-bg: #202028;
+      --btn-sec-text: #e0e0ea;
+      --btn-sec-border: #363646;
+      --meta-bar-bg: rgba(18, 18, 24, 0.92);
+      --meta-bar-border: #282834;
+      --meta-bar-text: #ffffff;
+      --scrollbar-thumb: #2a2a38;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--theme-transition);
+    }
+
+    /* Header Nav */
+    header.tool-header {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+      transition: var(--theme-transition);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #275c3d, #3ba26b);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .brand-title span.highlight {
+      color: var(--accent-color);
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .view-toggle-group {
+      display: flex;
+      background: var(--chip-bg);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .view-toggle-btn {
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 6px;
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .view-toggle-btn.active {
+      background: var(--card-bg);
+      color: var(--text-main);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-btn {
+      padding: 7px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-focus);
+      background: var(--chip-bg);
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    /* Main Container */
+    main.tool-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      overflow: hidden;
+    }
+
+    /* Sidebar Controls */
+    aside.sidebar {
+      background: var(--panel-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      transition: var(--theme-transition);
+    }
+
+    aside.sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    aside.sidebar::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border-radius: 3px;
+    }
+
+    /* Control Card Box */
+    .control-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: var(--theme-transition);
+    }
+
+    .card-heading {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-heading-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .control-label span.value-pill {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Inputs */
+    input[type="text"], select, textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+    }
+
+    /* Range Sliders */
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: var(--border-color);
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.1s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Chips */
+    .chip-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip-btn {
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--chip-text);
+      padding: 5px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .chip-btn:hover {
+      background: var(--border-color);
+      color: var(--text-main);
+    }
+
+    .chip-btn.active {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+
+    /* Template Grid - 7 Templates */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .template-option {
+      background: var(--input-bg);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .template-option:hover {
+      border-color: var(--border-focus);
+      color: var(--text-main);
+    }
+
+    .template-option.active {
+      border-color: var(--accent-color);
+      background: rgba(255, 87, 34, 0.08);
+      color: var(--accent-color);
+    }
+
+    .template-option i {
+      font-size: 1.15rem;
+      color: var(--accent-color);
+    }
+
+    /* Filter Options Grid */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .filter-btn {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 8px 4px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-focus);
+    }
+
+    .filter-btn.active {
+      border-color: var(--accent-color);
+      background: rgba(255,87,34,0.1);
+      color: var(--accent-color);
+    }
+
+    /* Color Grid */
+    .color-grid {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .color-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+
+    .color-swatch:hover {
+      transform: scale(1.15);
+    }
+
+    .color-swatch.active {
+      border-color: #ffffff;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
+    }
+
+    /* Toggle Switches / Checkboxes */
+    .toggle-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-item input[type="checkbox"] {
+      accent-color: var(--accent-color);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .toggle-item:hover {
+      color: #fff;
+    }
+
+    /* Dropzones */
+    .dropzone-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .file-dropzone {
+      border: 2px dashed var(--border-color);
+      background: var(--input-bg);
+      border-radius: var(--radius-sm);
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .file-dropzone:hover {
+      border-color: var(--accent-color);
+      background: var(--chip-bg);
+    }
+
+    .file-dropzone i {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .file-dropzone span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-accent {
+      background: var(--accent-color);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--btn-sec-bg);
+      color: var(--btn-sec-text);
+      border: 1px solid var(--btn-sec-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border-color);
+      color: var(--text-main);
+    }
+
+    /* Workspace / Preview Canvas Area */
+    section.preview-area {
+      background: var(--preview-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--theme-transition);
+    }
+
+    .canvas-wrapper {
+      height: 82vh;
+      aspect-ratio: 2 / 3;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #141418;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    canvas#pinCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Mobile Feed Simulator Mockup */
+    .mobile-simulator {
+      display: none;
+      width: 380px;
+      background: var(--panel-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 36px;
+      padding: 16px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+      position: relative;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-simulator.active {
+      display: flex;
+    }
+
+    .mobile-notch {
+      width: 110px;
+      height: 18px;
+      background: #000;
+      border-radius: 12px;
+      align-self: center;
+      margin-bottom: 6px;
+    }
+
+    .mobile-pin-card {
+      background: #1b1b22;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .mobile-save-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #e60023;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .mobile-pin-meta {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mobile-pin-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .mobile-author-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .mobile-author-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ff5722;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .mobile-author-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #d1d1dc;
+    }
+
+    /* Bottom Info Bar */
+    .canvas-meta-bar {
+      position: absolute;
+      bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--meta-bar-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--meta-bar-border);
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: var(--theme-transition);
+    }
+
+    .meta-item {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .meta-val {
+      font-weight: 700;
+      color: var(--meta-bar-text);
+    }
+
+    /* SEO Copy Drawer Modal */
+    .seo-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .seo-modal.active {
+      display: flex;
+    }
+
+    .seo-modal-card {
+      background: var(--modal-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 650px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+      transition: var(--theme-transition);
+    }
+
+    .seo-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+    }
+
+    .seo-modal-header h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .close-modal-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+    .close-modal-btn:hover {
+      color: var(--text-main);
+    }
+
+    .copy-box {
+      background: var(--modal-box-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      position: relative;
+    }
+
+    .copy-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .copy-mini-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .copy-mini-btn:hover {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+
+    .copy-box-text {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.5;
+      user-select: all;
+      word-break: break-word;
+    }
+
+    #seoTitleText {
+      color: var(--text-main) !important;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    /* Mobile & Tablet Responsive Optimizations */
+    .mobile-action-bar {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        height: 100vh !important;
+        height: 100dvh !important;
+        overflow: hidden !important;
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      header.tool-header {
+        padding: 8px 12px;
+        gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      header.tool-header::-webkit-scrollbar {
+        display: none;
+      }
+
+      .brand-title {
+        font-size: 0.92rem;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .brand-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+      }
+
+      .header-controls {
+        gap: 6px;
+        flex-shrink: 0;
+      }
+
+      .view-toggle-btn {
+        padding: 5px 9px;
+        font-size: 0.72rem;
+        white-space: nowrap;
+      }
+
+      .nav-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+      }
+
+      .theme-toggle-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.82rem;
+        flex-shrink: 0;
+      }
+
+      main.tool-body {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 1 0% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: hidden !important;
+      }
+
+      section.preview-area {
+        order: 1 !important; /* Pinned Pin Preview: DOES NOT SCROLL AWAY! */
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        height: 38vh !important;
+        min-height: 210px !important;
+        max-height: 340px !important;
+        padding: 10px 8px !important;
+        background: var(--preview-bg);
+        border-bottom: 2px solid var(--border-color);
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        z-index: 10;
+      }
+
+      .canvas-wrapper {
+        height: 100% !important;
+        max-height: 100% !important;
+        width: auto !important;
+        margin: 0 auto;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22) !important;
+        border-radius: var(--radius-sm) !important;
+      }
+
+      .canvas-meta-bar {
+        display: none !important;
+      }
+
+      .mobile-simulator {
+        max-height: 100% !important;
+        width: auto !important;
+        max-width: 280px !important;
+        margin: 0 auto;
+        padding: 8px !important;
+      }
+
+      aside.sidebar {
+        order: 2 !important; /* Controls scroll below pinned preview */
+        flex: 1 1 0% !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-right: none !important;
+        padding: 12px 12px 32px 12px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+      }
+
+      .control-card {
+        padding: 13px 12px !important;
+        border-radius: var(--radius-md) !important;
+      }
+
+      .template-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+      }
+
+      .template-option {
+        padding: 10px 4px !important;
+        font-size: 0.74rem !important;
+        gap: 4px !important;
+      }
+
+      .template-option i {
+        font-size: 1rem !important;
+      }
+
+      .filter-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 4px !important;
+      }
+
+      .filter-btn {
+        padding: 8px 1px !important;
+        font-size: 0.68rem !important;
+      }
+
+      .dropzone-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+      }
+
+      .file-dropzone {
+        padding: 10px 4px !important;
+        font-size: 0.74rem !important;
+      }
+
+      .chip-cloud {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .chip-cloud::-webkit-scrollbar {
+        display: none;
+      }
+
+      .chip-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 6px 12px !important;
+        font-size: 0.74rem !important;
+      }
+
+      .color-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+
+      .color-swatch {
+        width: 34px !important;
+        height: 34px !important;
+      }
+
+      .toggle-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+
+      .toggle-item {
+        font-size: 0.75rem !important;
+        padding: 6px 4px;
+      }
+
+      /* Removed sticky mobile action bar for more viewport space */
+      .mobile-action-bar {
+        display: none !important;
+      }
+
+      /* SEO Modal on Mobile */
+      .seo-modal {
+        padding: 10px !important;
+      }
+
+      .seo-modal-card {
+        padding: 16px !important;
+        max-height: 92vh !important;
+        border-radius: var(--radius-md) !important;
+      }
+
+      .seo-modal-header h3 {
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section.preview-area {
+        height: 35vh !important;
+        min-height: 190px !important;
+        max-height: 290px !important;
+        padding: 6px 4px !important;
+      }
+
+      .brand-title span.highlight {
+        display: none;
+      }
+    }
+
+    /* Full Screen Button in Pin Preview Section */
+    .preview-fullscreen-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      z-index: 25;
+      background: rgba(20, 20, 26, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .preview-fullscreen-btn:hover, .preview-fullscreen-btn:active {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    /* Fullscreen Pin Modal */
+    .fullscreen-pin-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .fullscreen-pin-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .fullscreen-pin-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .fullscreen-pin-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 98vh;
+      max-width: 98vw;
+      width: auto;
+      gap: 8px;
+    }
+
+    .fullscreen-pin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 480px;
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 8px;
+    }
+
+    .fullscreen-close-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .fullscreen-close-btn:hover, .fullscreen-close-btn:active {
+      background: #e53935;
+      border-color: #e53935;
+    }
+
+    .fullscreen-pin-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 82vh;
+      max-width: 100%;
+    }
+
+    #fullscreenPinImg {
+      max-height: 80vh;
+      max-width: 92vw;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      object-fit: contain;
+    }
+
+    .fullscreen-pin-footer {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    /* Pin Fullscreen Floating Glass Button inside Canvas Wrapper */
+    .pin-fullscreen-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 15;
+      background: rgba(18, 18, 24, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .pin-fullscreen-btn:hover, .pin-fullscreen-btn:active {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    /* Lightbox Modal */
+    .pin-lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .pin-lightbox-modal.active {
+      display: flex;
+    }
+
+    .pin-lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 14, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .pin-lightbox-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-height: 98vh;
+      max-height: 98dvh;
+      width: 100%;
+      gap: 10px;
+    }
+
+    .pin-lightbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 92vw;
+      box-sizing: border-box;
+      color: #ffffff;
+      padding: 4px 6px;
+    }
+
+    .pin-lightbox-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pin-lightbox-title i {
+      color: var(--accent-color);
+    }
+
+    .pin-lightbox-close {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .pin-lightbox-close:hover, .pin-lightbox-close:active {
+      background: #e53935;
+      border-color: #e53935;
+    }
+
+    .pin-lightbox-card {
+      height: 80vh;
+      height: 80dvh;
+      max-height: 80vh;
+      aspect-ratio: 2 / 3;
+      max-width: 94vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #141418;
+      margin: 0 auto;
+    }
+
+    canvas#fullscreenPinCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .pin-lightbox-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Nav -->
+  <header class="tool-header">
+    <a href="./index.html" class="brand-title" style="text-decoration: none; color: inherit;">
+      <div class="brand-icon"><i class="fa-solid fa-utensils"></i></div>
+      <span>FastFlavored <span class="highlight">Pin Studio</span></span>
+    </a>
+
+    <div class="header-controls">
+      <!-- View Mode Switcher -->
+      <div class="view-toggle-group">
+        <button class="view-toggle-btn active" id="viewStudioBtn"><i class="fa-solid fa-palette"></i> Canvas Studio</button>
+        <button class="view-toggle-btn" id="viewMobileBtn"><i class="fa-solid fa-mobile-screen"></i> Pinterest Feed Mockup</button>
+      </div>
+
+      <button class="nav-btn" id="openSeoModalBtn">
+        <i class="fa-brands fa-pinterest" style="color: #e60023;"></i>
+        Pinterest SEO Copy
+      </button>
+
+      <!-- Theme Mode Toggle (Default: Light Mode) -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light / Dark Mode" title="Toggle Light / Dark Mode">
+        <i class="fa-solid fa-moon" id="themeToggleIcon"></i>
+      </button>
+      <a href="./index.html" class="nav-btn">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tool-body">
+    
+    <!-- Sidebar Controls -->
+    <aside class="sidebar">
+      
+      <!-- 1. Recipe Auto-Picker & Live Search -->
+      <div class="control-card">
+        <div class="card-heading">
+          <div class="card-heading-left"><i class="fa-solid fa-bolt"></i> 1-Click Recipe Auto-Fill</div>
+          <span id="recipeCountBadge" style="color:var(--text-muted);font-weight:600;">153 recipes</span>
+        </div>
+
+        <div class="control-group">
+          <input type="text" id="recipeSearchInput" placeholder="🔍 Search by name or ingredient...">
+        </div>
+
+        <!-- Category Chips Filter -->
+        <div class="chip-cloud" id="categoryChips">
+          <button class="chip-btn active" data-cat="all">All</button>
+          <button class="chip-btn" data-cat="dinner">Dinner</button>
+          <button class="chip-btn" data-cat="soup">Soups</button>
+          <button class="chip-btn" data-cat="pasta">Pasta</button>
+          <button class="chip-btn" data-cat="dessert">Dessert</button>
+          <button class="chip-btn" data-cat="baking">Baking</button>
+          <button class="chip-btn" data-cat="quick">Quick (≤30m)</button>
+        </div>
+
+        <div class="control-group">
+          <select id="recipeSelect">
+            <option value="" selected>-- None (Manual Pin / Upload Custom Photo) --</option>
+          </select>
+        </div>
+
+        <!-- Dropzones: Primary & Secondary -->
+        <div class="control-group">
+          <label class="control-label">Or Custom Photos</label>
+          <div class="dropzone-container">
+            <div class="file-dropzone" id="primaryDropzone" onclick="document.getElementById('primaryPhotoInput').click()">
+              <i class="fa-solid fa-image"></i>
+              <span id="primaryPhotoText">Primary Dish</span>
+            </div>
+            <div class="file-dropzone" id="secondaryDropzone" onclick="document.getElementById('secondaryPhotoInput').click()">
+              <i class="fa-solid fa-images"></i>
+              <span id="secondaryPhotoText">2nd Photo (Collage)</span>
+            </div>
+          </div>
+          <input type="file" id="primaryPhotoInput" accept="image/*">
+          <input type="file" id="secondaryPhotoInput" accept="image/*">
+        </div>
+      </div>
+
+      <!-- 2. Template Layout Switcher (8 Core High-Converting Styles) -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-layer-group"></i> Pin Layout Template</div>
+        <div class="template-grid">
+          <div class="template-option active" data-template="bottom-card">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            <span>Modern Card</span>
+          </div>
+          <div class="template-option" data-template="split-editorial">
+            <i class="fa-solid fa-table-columns"></i>
+            <span>Editorial Split</span>
+          </div>
+          <div class="template-option" data-template="dual-split">
+            <i class="fa-solid fa-grip-vertical"></i>
+            <span>2-Photo Story</span>
+          </div>
+          <div class="template-option" data-template="center-float">
+            <i class="fa-solid fa-gem"></i>
+            <span>Luxury Frame</span>
+          </div>
+          <div class="template-option" data-template="bold-minimalist">
+            <i class="fa-solid fa-font"></i>
+            <span>Bold Minimal</span>
+          </div>
+          <div class="template-option" data-template="numbered-listicle">
+            <i class="fa-solid fa-list-ol"></i>
+            <span>Listicle Card</span>
+          </div>
+          <div class="template-option" data-template="polaroid-scrapbook">
+            <i class="fa-solid fa-camera-retro"></i>
+            <span>Polaroid Tilt</span>
+          </div>
+          <div class="template-option" data-template="top-banner">
+            <i class="fa-solid fa-heading"></i>
+            <span>Top Banner</span>
+          </div>
+        </div>
+
+        <!-- Pin Aspect Ratio / Size Selector (Standard 2:3 vs. Viral Tall 1:2) -->
+        <div class="control-group" id="pinSizeGroup" style="margin-top: 10px;">
+          <label class="control-label" for="pinSizeSelect">
+            <span>Pin Format & Aspect Ratio</span>
+            <span class="value-pill" id="pinSizeBadge">2:3 Standard</span>
+          </label>
+          <select id="pinSizeSelect">
+            <option value="standard" selected>📐 Standard Pin (2:3 • 1000 × 1500 px)</option>
+            <option value="tall">🦒 Viral Tall Pin (1:2 • 1000 × 2000 px - High CTR)</option>
+          </select>
+        </div>
+
+        <!-- 2-Photo Story Banner Style Selector -->
+        <div class="control-group" id="bannerStyleGroup" style="margin-top: 10px;">
+          <label class="control-label" for="storyBannerStyle">
+            <span>2-Story Banner Theme</span>
+            <span class="value-pill">Viral Pin Style</span>
+          </label>
+          <select id="storyBannerStyle">
+            <option value="white" selected>⚪ Crisp White Card (Viral Style - Pumpkin Cake Pin)</option>
+            <option value="dark">⚫ Midnight Charcoal (High Contrast - Lemon Muffin Pin)</option>
+            <option value="accent">🎨 Solid Brand Accent Color</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 3. Food Photography Filters -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-wand-magic-sparkles"></i> Food Photo Filters</div>
+        <div class="filter-grid">
+          <button class="filter-btn active" data-filter="none">Normal</button>
+          <button class="filter-btn" data-filter="warm">☀️ Warm</button>
+          <button class="filter-btn" data-filter="crisp">🥗 Crisp</button>
+          <button class="filter-btn" data-filter="moody">🍷 Moody</button>
+          <button class="filter-btn" data-filter="pop">⚡ Pop</button>
+        </div>
+      </div>
+
+      <!-- 4. Headline, Keyword Highlight & Text -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-pen-nib"></i> Headline & Typography</div>
+        
+        <div class="control-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+            <label class="control-label" for="pinTitle" style="margin-bottom: 0;">Pin Headline</label>
+            <span id="headlineAngleBadge" style="font-size: 0.72rem; font-weight: 700; color: var(--accent-color); background: rgba(255,87,34,0.1); padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,87,34,0.25);">Idea 1/5: Viral</span>
+          </div>
+
+          <div style="display: flex; gap: 6px; align-items: stretch;">
+            <input type="text" id="pinTitle" value="Viral Brown Butter Butternut Squash Pasta (Better Than Takeout!)" style="flex: 1;">
+            <button type="button" id="nextHeadlineBtn" class="btn btn-secondary" style="padding: 0 12px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; gap: 6px; flex-shrink: 0; border-color: var(--accent-color); color: var(--accent-color);" title="Cycle to next SEO title idea & highlight">
+              <i class="fa-solid fa-arrows-rotate"></i> Next Idea
+            </button>
+          </div>
+
+          <!-- 5 SEO Quick Angle Chips below Headline Field -->
+          <div class="chip-cloud" id="headlineAngleChips" style="margin-top: 6px; gap: 4px; padding-bottom: 2px;">
+            <button type="button" class="chip-btn active" onclick="applyHeadlineVariant(0)">1. Viral</button>
+            <button type="button" class="chip-btn" onclick="applyHeadlineVariant(1)">2. Quick</button>
+            <button type="button" class="chip-btn" onclick="applyHeadlineVariant(2)">3. Comfort</button>
+            <button type="button" class="chip-btn" onclick="applyHeadlineVariant(3)">4. Budget</button>
+            <button type="button" class="chip-btn" onclick="applyHeadlineVariant(4)">5. Healthy</button>
+          </div>
+        </div>
+
+        <div class="control-group" style="margin-top: 10px;">
+          <label class="control-label" for="keywordHighlight">
+            <span>Keyword Accent Highlight</span>
+            <span class="value-pill">Draws Mobile Eye</span>
+          </label>
+          <input type="text" id="keywordHighlight" value="Brown Butter Butternut Squash Pasta" placeholder="e.g. Butternut Squash, Tuscan, 20-Minute">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="pinSubhead">Subtitle / Hook Line</label>
+          <input type="text" id="pinSubhead" value="The Cozy 40-Minute Fall Dinner Taking Over Pinterest">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="fontSelect">Headline Font</label>
+          <select id="fontSelect">
+            <option value="Playfair Display">Playfair Display (Editorial Serif)</option>
+            <option value="Outfit">Outfit (Clean Bold Sans)</option>
+            <option value="Montserrat">Montserrat (High-Impact Modern)</option>
+            <option value="Cormorant Garamond">Cormorant Garamond (Luxury Classic)</option>
+            <option value="Oswald">Oswald (Tall & Condensed)</option>
+            <option value="Merriweather">Merriweather (Warm Traditional)</option>
+            <option value="Inter">Inter (Ultra-Minimal Clean)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="metaPillText">Recipe Time Badge</label>
+          <input type="text" id="metaPillText" value="⏱ READY IN 35 MINS">
+        </div>
+      </div>
+
+      <!-- 5. High-CTR Visual Stickers & Badges -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-certificate"></i> Badges & Stickers</div>
+        
+        <div class="control-group">
+          <label class="control-label" for="stickerSelect">Engagement Sticker</label>
+          <select id="stickerSelect">
+            <option value="none" selected>-- No Sticker --</option>
+            <option value="cooktime">⏱️ "Ready in 20 Mins" Clock</option>
+            <option value="save">📌 "SAVE FOR DINNER" Ribbon</option>
+            <option value="printable">🏷️ "FREE PRINTABLE RECIPE"</option>
+            <option value="viral">🔥 "VIRAL ON PINTEREST"</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="badgeTextInput">Pill Badge Text</label>
+          <input type="text" id="badgeTextInput" value="Trending Fall Dinner">
+        </div>
+
+        <div class="chip-cloud">
+          <button class="chip-btn" onclick="setBadge('🔥 Trending Tonight')">🔥 Trending</button>
+          <button class="chip-btn" onclick="setBadge('⏱️ 20-Minute Dinner')">⏱️ 20-Min</button>
+          <button class="chip-btn" onclick="setBadge('🍂 Cozy Autumn Comfort')">🍂 Autumn</button>
+          <button class="chip-btn" onclick="setBadge('✨ Family Favorite')">✨ Favorite</button>
+          <button class="chip-btn" onclick="setBadge('🌱 Healthy & Easy')">🌱 Healthy</button>
+          <button class="chip-btn" onclick="setBadge('FREE PRINTABLE')">Printable</button>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Accent Color Theme</label>
+          <div class="color-grid">
+            <div class="color-swatch active" style="background:#275c3d;" data-color="#275c3d"></div>
+            <div class="color-swatch" style="background:#e53935;" data-color="#e53935"></div>
+            <div class="color-swatch" style="background:#ffb300;" data-color="#ffb300"></div>
+            <div class="color-swatch" style="background:#00897b;" data-color="#00897b"></div>
+            <div class="color-swatch" style="background:#43a047;" data-color="#43a047"></div>
+            <div class="color-swatch" style="background:#8e24aa;" data-color="#8e24aa"></div>
+            <div class="color-swatch" style="background:#263238;" data-color="#263238"></div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="watermarkText">Website Branding</label>
+          <input type="text" id="watermarkText" value="FastFlavored.com">
+        </div>
+      </div>
+
+      <!-- 6. Toggleable Layout Elements (Fine Control) -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-toggle-on"></i> Toggle Elements</div>
+        <div class="toggle-list">
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleBadge" checked> Show Badge
+          </label>
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleSubhead" checked> Show Subhead
+          </label>
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleMetaPill" checked> Show Recipe Time
+          </label>
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleWatermark" checked> Show Branding
+          </label>
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleCta" checked> Show CTA Button
+          </label>
+          <label class="toggle-item">
+            <input type="checkbox" id="toggleUppercase" checked> ALL CAPS Title
+          </label>
+        </div>
+      </div>
+
+      <!-- 7. Photo Framing & Position -->
+      <div class="control-card">
+        <div class="card-heading"><i class="fa-solid fa-sliders"></i> Photo Adjustments</div>
+        
+        <div class="control-group">
+          <label class="control-label">Vertical Pan Position <span class="value-pill" id="panVal">0%</span></label>
+          <input type="range" id="panSlider" min="-80" max="80" value="0">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Zoom Scale <span class="value-pill" id="zoomVal">1.0x</span></label>
+          <input type="range" id="zoomSlider" min="10" max="22" value="10">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Vignette Darkness <span class="value-pill" id="darkVal">50%</span></label>
+          <input type="range" id="darkSlider" min="0" max="90" value="50">
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-accent" id="downloadPngBtn">
+          <i class="fa-solid fa-download"></i> Download High-Res PNG
+        </button>
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="downloadJpgBtn">
+            <i class="fa-regular fa-image"></i> Download JPG
+          </button>
+          <button class="btn btn-secondary" id="copyClipboardBtn">
+            <i class="fa-regular fa-copy"></i> Copy Pin
+          </button>
+        </div>
+        <button class="btn btn-secondary" id="sidebarSeoBtn" style="border-color: #e60023; color: var(--text-main); font-weight: 700;">
+          <i class="fa-brands fa-pinterest" style="color: #e60023;"></i> Pinterest SEO Copy & Tags
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- Canvas Preview Area -->
+    <section class="preview-area" id="previewArea">
+      
+      <!-- Studio Canvas View -->
+      <div class="canvas-wrapper" id="canvasWrapper">
+        <button type="button" class="pin-fullscreen-btn" id="pinFullscreenBtn" title="View Full Screen Pin Preview">
+          <i class="fa-solid fa-expand"></i> Full Screen
+        </button>
+        <canvas id="pinCanvas" width="1000" height="1500"></canvas>
+      </div>
+
+      <!-- Mobile Simulator View (Toggled) -->
+      <div class="mobile-simulator" id="mobileSimulator">
+        <div class="mobile-notch"></div>
+        <div class="mobile-pin-card">
+          <button class="mobile-save-btn">Save</button>
+          <img id="mobilePreviewImg" style="width:100%;aspect-ratio:2/3;object-fit:cover;" alt="Preview">
+          <div class="mobile-pin-meta">
+            <div class="mobile-pin-title" id="mobileSimTitle">Recipe Title Here</div>
+            <div class="mobile-author-row">
+              <div class="mobile-author-avatar">SS</div>
+              <span class="mobile-author-name">FastFlavored &bull; 45k monthly views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canvas Specs -->
+      <div class="canvas-meta-bar">
+        <div class="meta-item">
+          <span class="meta-label">Standard Size:</span>
+          <span class="meta-val" id="metaSizeDisplay">1000 × 1500 px (2:3)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Template:</span>
+          <span class="meta-val" id="metaTemplateDisplay">Modern Card</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Brand:</span>
+          <span class="meta-val" id="metaBrandDisplay">FastFlavored.com</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Bottom Action Bar for Mobile Viewports -->
+  <div class="mobile-action-bar">
+    <button class="btn btn-accent" id="mobileDownloadPngBtn">
+      <i class="fa-solid fa-download"></i> PNG
+    </button>
+    <button class="btn btn-secondary" id="mobileCopyBtn">
+      <i class="fa-regular fa-copy"></i> Copy
+    </button>
+    <button class="btn btn-secondary" id="mobileSeoBtn">
+      <i class="fa-brands fa-pinterest" style="color: #e60023;"></i> SEO
+    </button>
+  </div>
+
+  <!-- SEO Copy Modal -->
+  <div class="seo-modal" id="seoModal">
+    <div class="seo-modal-card">
+      <div class="seo-modal-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <h3><i class="fa-brands fa-pinterest" style="color: #e60023;"></i> Pinterest SEO Package</h3>
+          <span id="seoVariantBadge" style="font-size:0.75rem;padding:3px 10px;border-radius:12px;background:var(--chip-bg);color:var(--accent-color);font-weight:700;border:1px solid var(--border-color);">Option 1 of 5</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="nav-btn" id="seoShuffleBtn" style="padding:6px 14px;font-size:0.8rem;background:#275c3d;color:#fff;border:none;border-radius:var(--radius-sm);cursor:pointer;display:inline-flex;align-items:center;gap:6px;" title="Click to cycle through 5 title and description ideas">
+            <i class="fa-solid fa-rotate"></i> Next Idea (Shuffle)
+          </button>
+          <button class="close-modal-btn" id="closeSeoModalBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
+      <!-- Strategy Tabs -->
+      <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;" id="seoAngleTabs">
+        <button class="chip-btn active" onclick="switchSeoVariant(0)">1. Viral / Hook</button>
+        <button class="chip-btn" onclick="switchSeoVariant(1)">2. Quick & Easy</button>
+        <button class="chip-btn" onclick="switchSeoVariant(2)">3. Ultimate Comfort</button>
+        <button class="chip-btn" onclick="switchSeoVariant(3)">4. Budget / Family</button>
+        <button class="chip-btn" onclick="switchSeoVariant(4)">5. Healthy / Prep</button>
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-box-header">
+          <span>Search-Optimized Pin Title (<span id="seoTitleAngleLabel" style="color:var(--accent-color);">Viral / High CTR</span>)</span>
+          <button class="copy-mini-btn" onclick="copySnippet('seoTitleText')">Copy</button>
+        </div>
+        <div class="copy-box-text" id="seoTitleText" style="font-weight:800;font-size:1.05rem;color:var(--text-main);">Viral Brown Butter Butternut Squash Pasta</div>
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-box-header">
+          <span>Target Pinterest Board</span>
+          <button class="copy-mini-btn" onclick="copySnippet('seoBoardText')">Copy</button>
+        </div>
+        <div class="copy-box-text" id="seoBoardText">Cozy Autumn Dinners / 30-Minute Meals</div>
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-box-header">
+          <span>High-Converting Pin Description & CTA</span>
+          <button class="copy-mini-btn" onclick="copySnippet('seoDescText')">Copy</button>
+        </div>
+        <div class="copy-box-text" id="seoDescText">The cozy 40-minute fall dinner taking over Pinterest! Made with sweet roasted butternut squash, nutty brown butter, and crispy sage in a velvety garlic parmesan cream sauce. Tap to get the full recipe on FastFlavored!</div>
+      </div>
+
+      <div class="copy-box">
+        <div class="copy-box-header">
+          <span>Targeted Hashtag Cloud</span>
+          <button class="copy-mini-btn" onclick="copySnippet('seoTagsText')">Copy</button>
+        </div>
+        <div class="copy-box-text" id="seoTagsText">#butternutsquash #falldinner #pastalover #comfortfood #easyrecipes #dinnerideas #fallrecipes #quickmeals</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded Compact Recipes Database -->
+  <script>
+    const RECIPES_DB = [
+  {
+    "id": "15-minute-korean-ground-beef-bowls",
+    "title": "15-Minute Korean Ground Beef Bowls",
+    "subtitle": "Sweet, savory, and garlicky Korean ground beef simmered in soy sauce, sesame oil, and ginger over steamed jasmine rice. Ready in 15 minutes!",
+    "desc": "Sweet, savory, and garlicky Korean ground beef simmered in soy sauce, sesame oil, and ginger over steamed jasmine rice. Ready in 15 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/korean-beef-bowls.jpg",
+    "category": "30-Minute Meals",
+    "time": "15 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals one-pot-dinners"
+  },
+  {
+    "id": "20-minute-creamy-garlic-parmesan-pasta",
+    "title": "Creamy Garlic Parmesan Mushroom Pasta",
+    "subtitle": "Tender fettuccine tossed with golden sautéed cremini mushrooms in a velvety garlic parmesan cream sauce in just 20 minutes!",
+    "desc": "Tender fettuccine tossed with golden sautéed cremini mushrooms in a velvety garlic parmesan cream sauce in just 20 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/garlic-parmesan-pasta.jpg",
+    "category": "30-Minute Meals",
+    "time": "20 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food"
+  },
+  {
+    "id": "15-minute-garlic-butter-shrimp-scampi",
+    "title": "Garlic Butter Shrimp Scampi",
+    "subtitle": "Plump, juicy jumbo shrimp tossed in a silky white wine, garlic, and lemon butter pan sauce over al dente linguine. Ready in 15 minutes!",
+    "desc": "Plump, juicy jumbo shrimp tossed in a silky white wine, garlic, and lemon butter pan sauce over al dente linguine. Ready in 15 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/shrimp-scampi.jpg",
+    "category": "30-Minute Meals",
+    "time": "15 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals one-pot-dinners"
+  },
+  {
+    "id": "20-minute-beef-and-broccoli-skillet",
+    "title": "Crispy Beef and Broccoli Skillet",
+    "subtitle": "Tender velveted beef ribbons and vibrant crisp broccoli florets glazed in a savory garlic-ginger soy sauce in just 20 minutes.",
+    "desc": "Tender velveted beef ribbons and vibrant crisp broccoli florets glazed in a savory garlic-ginger soy sauce in just 20 minutes. Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/beef-and-broccoli.jpg",
+    "category": "30-Minute Meals",
+    "time": "20 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals one-pot-dinners"
+  },
+  {
+    "id": "sheet-pan-chicken-fajitas",
+    "title": "Sheet-Pan Chicken Fajitas",
+    "subtitle": "Juicy seasoned chicken breast strips, crisp bell peppers, and caramelized onions roasted together on one baking sheet in 25 minutes!",
+    "desc": "Juicy seasoned chicken breast strips, crisp bell peppers, and caramelized onions roasted together on one baking sheet in 25 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/chicken-fajitas.jpg",
+    "category": "Sheet Pan Suppers",
+    "time": "25 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all sheet-pan-suppers 30-minute-meals"
+  },
+  {
+    "id": "creamy-garlic-butter-tuscan-chicken",
+    "title": "Creamy Garlic Butter Tuscan Chicken",
+    "subtitle": "Tender golden chicken cutlets in a velvety garlic parmesan cream sauce with sun-dried tomatoes and spinach. One skillet, 25 minutes!",
+    "desc": "Tender golden chicken cutlets in a velvety garlic parmesan cream sauce with sun-dried tomatoes and spinach. One skillet, 25 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/tuscan-chicken.jpg",
+    "category": "30-Minute Meals",
+    "time": "25 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food"
+  },
+  {
+    "id": "honey-garlic-butter-salmon",
+    "title": "Honey Garlic Butter Glazed Salmon",
+    "subtitle": "Succulent salmon fillets and tender asparagus roasted on a single sheet pan with a caramelized honey garlic butter glaze.",
+    "desc": "Succulent salmon fillets and tender asparagus roasted on a single sheet pan with a caramelized honey garlic butter glaze. Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/honey-garlic-salmon.jpg",
+    "category": "Sheet Pan Suppers",
+    "time": "20 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all sheet-pan-suppers 30-minute-meals"
+  },
+  {
+    "id": "one-pot-creamy-tomato-tortellini",
+    "title": "One-Pot Creamy Tomato Basil Tortellini",
+    "subtitle": "Cheese tortellini simmered directly in rich garlic tomato cream with wilted spinach and parmesan. One pot, 15 minutes!",
+    "desc": "Cheese tortellini simmered directly in rich garlic tomato cream with wilted spinach and parmesan. One pot, 15 minutes! Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/tomato-basil-tortellini.jpg",
+    "category": "One-Pot Dinners",
+    "time": "15 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all one-pot-dinners 30-minute-meals comfort-food"
+  },
+  {
+    "id": "sheet-pan-sausage-gnocchi",
+    "title": "Crispy Sheet-Pan Sausage and Gnocchi",
+    "subtitle": "No boiling required! Potato gnocchi roasted crisp outside and pillowy inside with smoked sausage coins and sweet bell peppers.",
+    "desc": "No boiling required! Potato gnocchi roasted crisp outside and pillowy inside with smoked sausage coins and sweet bell peppers. Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/sheet-pan-gnocchi.jpg",
+    "category": "5-Ingredient Recipes",
+    "time": "25 min cook",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 5-ingredient-recipes sheet-pan-suppers 30-minute-meals"
+  },
+  {
+    "id": "welcome-guide",
+    "title": "The 15-Minute Pantry Playbook: Stock for Instant Dinners",
+    "subtitle": "Discover the 19 essential shelf-stable and freezer staples that unlock 50+ rapid weeknight meals with zero grocery stress.",
+    "desc": "Discover the 19 essential shelf-stable and freezer staples that unlock 50+ rapid weeknight meals with zero grocery stress. Tested and perfected for busy weeknights on FastFlavored!",
+    "image": "assets/images/pantry-guide.jpg",
+    "category": "Comfort Food",
+    "time": "6 min read",
+    "rating": "4.9",
+    "reviews": "150",
+    "cuisine": "Homestyle",
+    "categories_str": "all 30-minute-meals comfort-food"
+  }
+];
+  </script>
+
+  <script>
+    // Canvas & State
+    const canvas = document.getElementById('pinCanvas');
+    const ctx = canvas.getContext('2d');
+    let CANVAS_WIDTH = 1000;
+    let CANVAS_HEIGHT = 1500;
+
+    let currentTemplate = 'bottom-card';
+    let currentBadgeColor = '#275c3d';
+    let currentFilter = 'none';
+    let currentSticker = 'none';
+    let baseImage = null;
+    let secondaryImage = null;
+    let activeRecipe = null;
+    let activeCategory = 'all';
+
+    // Elements
+    const recipeSelect = document.getElementById('recipeSelect');
+    const recipeSearchInput = document.getElementById('recipeSearchInput');
+    const recipeCountBadge = document.getElementById('recipeCountBadge');
+    const primaryPhotoInput = document.getElementById('primaryPhotoInput');
+    const secondaryPhotoInput = document.getElementById('secondaryPhotoInput');
+    const primaryPhotoText = document.getElementById('primaryPhotoText');
+    const secondaryPhotoText = document.getElementById('secondaryPhotoText');
+    const pinTitle = document.getElementById('pinTitle');
+    const keywordHighlight = document.getElementById('keywordHighlight');
+    const pinSubhead = document.getElementById('pinSubhead');
+    const fontSelect = document.getElementById('fontSelect');
+    const badgeTextInput = document.getElementById('badgeTextInput');
+    const metaPillText = document.getElementById('metaPillText');
+    const stickerSelect = document.getElementById('stickerSelect');
+    const watermarkText = document.getElementById('watermarkText');
+    const metaBrandDisplay = document.getElementById('metaBrandDisplay');
+    const metaTemplateDisplay = document.getElementById('metaTemplateDisplay');
+    const panSlider = document.getElementById('panSlider');
+    const zoomSlider = document.getElementById('zoomSlider');
+    const darkSlider = document.getElementById('darkSlider');
+    const panVal = document.getElementById('panVal');
+    const zoomVal = document.getElementById('zoomVal');
+    const darkVal = document.getElementById('darkVal');
+
+    // Toggles
+    const toggleBadge = document.getElementById('toggleBadge');
+    const toggleSubhead = document.getElementById('toggleSubhead');
+    const toggleMetaPill = document.getElementById('toggleMetaPill');
+    const toggleWatermark = document.getElementById('toggleWatermark');
+    const toggleCta = document.getElementById('toggleCta');
+    const toggleUppercase = document.getElementById('toggleUppercase');
+
+    // Simulator Elements
+    const viewStudioBtn = document.getElementById('viewStudioBtn');
+    const viewMobileBtn = document.getElementById('viewMobileBtn');
+    const canvasWrapper = document.getElementById('canvasWrapper');
+    const mobileSimulator = document.getElementById('mobileSimulator');
+    const mobilePreviewImg = document.getElementById('mobilePreviewImg');
+    const mobileSimTitle = document.getElementById('mobileSimTitle');
+
+    // View Switcher
+    viewStudioBtn.addEventListener('click', () => {
+      viewStudioBtn.classList.add('active');
+      viewMobileBtn.classList.remove('active');
+      canvasWrapper.style.display = 'flex';
+      mobileSimulator.classList.remove('active');
+    });
+
+    viewMobileBtn.addEventListener('click', () => {
+      viewMobileBtn.classList.add('active');
+      viewStudioBtn.classList.remove('active');
+      canvasWrapper.style.display = 'none';
+      mobileSimulator.classList.add('active');
+      updateMobilePreview();
+    });
+
+    function updateMobilePreview() {
+      try {
+        mobilePreviewImg.src = canvas.toDataURL('image/jpeg', 0.85);
+        mobileSimTitle.textContent = pinTitle.value || 'Delicious Recipe';
+      } catch(e) {
+        console.warn('Could not update mobile simulator image:', e);
+      }
+    }
+
+    // Populate Recipe Dropdown with Live Search & Filter
+    function filterAndPopulateRecipes() {
+      const query = (recipeSearchInput.value || '').toLowerCase().trim();
+      recipeSelect.innerHTML = '<option value="">-- None (Manual Pin / Upload Custom Photo) --</option>';
+
+      let filtered = RECIPES_DB.filter(r => {
+        const matchesQuery = !query || 
+          r.title.toLowerCase().includes(query) || 
+          r.category.toLowerCase().includes(query) || 
+          r.id.toLowerCase().includes(query) ||
+          (r.categories_str && r.categories_str.toLowerCase().includes(query));
+
+        let matchesCat = true;
+        if (activeCategory === 'dinner') matchesCat = r.category.toLowerCase().includes('dinner');
+        else if (activeCategory === 'soup') matchesCat = r.category.toLowerCase().includes('soup');
+        else if (activeCategory === 'pasta') matchesCat = r.category.toLowerCase().includes('pasta') || (r.categories_str && r.categories_str.includes('pasta'));
+        else if (activeCategory === 'dessert') matchesCat = r.category.toLowerCase().includes('dessert');
+        else if (activeCategory === 'baking') matchesCat = r.category.toLowerCase().includes('baking');
+        else if (activeCategory === 'quick') matchesCat = r.time && parseInt(r.time) <= 30;
+
+        return matchesQuery && matchesCat;
+      });
+
+      recipeCountBadge.textContent = `${filtered.length} recipes`;
+
+      filtered.sort((a, b) => a.title.localeCompare(b.title)).forEach(r => {
+        const opt = document.createElement('option');
+        opt.value = r.id;
+        opt.textContent = `${r.title} (${r.category})`;
+        recipeSelect.appendChild(opt);
+      });
+    }
+
+    recipeSearchInput.addEventListener('input', filterAndPopulateRecipes);
+
+    // Category Filter Chips
+    document.querySelectorAll('#categoryChips .chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#categoryChips .chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.getAttribute('data-cat');
+        filterAndPopulateRecipes();
+      });
+    });
+
+    function loadRecipe(r) {
+      activeRecipe = r;
+      pinTitle.value = r.title;
+      pinSubhead.value = r.subtitle || r.desc.substring(0, 95);
+      
+      // Auto-badge based on category
+      if (r.category.toLowerCase().includes('dessert') || r.category.toLowerCase().includes('baking')) {
+        badgeTextInput.value = 'Trending Fall Baking';
+      } else if (r.category.toLowerCase().includes('soup')) {
+        badgeTextInput.value = 'Cozy Autumn Soup';
+      } else if (r.category.toLowerCase().includes('breakfast')) {
+        badgeTextInput.value = 'Weekend Brunch Favorite';
+      } else {
+        badgeTextInput.value = 'Trending Weeknight Dinner';
+      }
+
+      const rawTime = (r.time || '30 mins').trim();
+      const cleanTime = rawTime.toUpperCase().replace(/READY IN\s*/i, '');
+      metaPillText.value = `⏱ READY IN ${cleanTime}`;
+      
+      updateSeoModalData(r);
+      applyHeadlineVariant(0);
+
+      if (r.image) {
+        loadPrimaryImage(r.image.startsWith("./") || r.image.startsWith("assets/") ? r.image : "assets/images/" + r.image);
+      }
+    }
+
+    // Pinterest SEO Copy & Headline Generator with 5 Angles
+    let currentSeoIndex = 0;
+    let currentHeadlineVariantIndex = 0;
+    let seoVariants = [];
+
+    function generateSeoVariants(r) {
+      const cleanTitle = (r.title || 'Delicious Recipe').replace(/\s+/g, ' ').trim();
+      const timeStr = r.time ? r.time.replace(/[^0-9]/g, '') + '-Minute' : 'Quick';
+      const cuisine = r.cuisine || 'Homestyle';
+      const cat = r.category || 'Dinner';
+      const descSnippet = r.desc ? r.desc.split('.')[0] + '.' : (r.subtitle || '');
+
+      seoVariants = [
+        {
+          angle: "Viral / High CTR",
+          badgeLabel: "Viral Hook",
+          title: `Viral ${cleanTitle} (Better Than Takeout!)`,
+          keyword: cleanTitle,
+          desc: `The viral ${cleanTitle} everyone on Pinterest is obsessing over! ${descSnippet} Made with simple pantry ingredients for explosive flavor. Save this pin and tap through to grab the complete printable recipe!`,
+          board: `Viral Food Trends / Best ${cat} Ideas`
+        },
+        {
+          angle: "Quick & 30-Minute",
+          badgeLabel: "Quick & Easy",
+          title: `Easy ${timeStr} ${cleanTitle} (One-Pan Recipe)`,
+          keyword: `${timeStr} ${cleanTitle}`,
+          desc: `Need an easy ${timeStr.toLowerCase()} meal tonight? This ${cleanTitle} comes together effortlessly with minimal cleanup. Tender, flavorful, and a guaranteed hit with the entire family. Click through for ingredients & tips!`,
+          board: `${timeStr} Meals / Easy Weeknight Dinners`
+        },
+        {
+          angle: "Ultimate Comfort",
+          badgeLabel: "Ultimate Comfort",
+          title: `The BEST Homestyle ${cleanTitle} You'll Ever Make`,
+          keyword: `BEST Homestyle ${cleanTitle}`,
+          desc: `Pure cozy comfort in every single bite. This ultra-satisfying ${cleanTitle} delivers rich, authentic ${cuisine} flavors your whole family will crave. Detailed step-by-step instructions and chef tips on FastFlavored!`,
+          board: `Cozy Comfort Food / ${cuisine} Favorites`
+        },
+        {
+          angle: "Budget & Family Friendly",
+          badgeLabel: "Budget & Family",
+          title: `Crowd-Pleasing ${cleanTitle} (Kid-Approved & Budget-Friendly)`,
+          keyword: cleanTitle,
+          desc: `Struggling with what to cook? This delicious ${cleanTitle} is budget-friendly, incredibly simple to prepare, and a crowd favorite for busy weeknights or Sunday supper. Tap here for the recipe!`,
+          board: `Family Favorite Dinners / Budget Meals`
+        },
+        {
+          angle: "Meal Prep & Healthy",
+          badgeLabel: "Meal Prep",
+          title: `Wholesome ${cleanTitle} (Perfect for Meal Prep!)`,
+          keyword: `Wholesome ${cleanTitle}`,
+          desc: `Packed with vibrant flavors and wholesome ingredients, this delicious ${cleanTitle} stores and reheats beautifully for lunches all week long. Discover nutrition info and prep hacks on FastFlavored!`,
+          board: `Healthy Meal Prep / Clean Eating Dinners`
+        }
+      ];
+    }
+
+    // Apply specific SEO title & highlight keyword to Pin Headline & live preview
+    function applyHeadlineVariant(index) {
+      if (!seoVariants || seoVariants.length === 0) {
+        if (activeRecipe) {
+          generateSeoVariants(activeRecipe);
+        } else {
+          generateSeoVariants({
+            title: pinTitle.value.replace(/^(viral|easy\s+\d+-minute|the best homestyle|crowd-pleasing|wholesome)\s+/i, '').replace(/\s*\([^)]*\)$/, '').trim() || 'Delicious Dish',
+            time: '25 mins',
+            category: 'Dinner',
+            cuisine: 'Homestyle'
+          });
+        }
+      }
+
+      currentHeadlineVariantIndex = (index + seoVariants.length) % seoVariants.length;
+      currentSeoIndex = currentHeadlineVariantIndex;
+      const v = seoVariants[currentHeadlineVariantIndex];
+
+      // Update ONLY Headline and Keyword Accent Highlight
+      pinTitle.value = v.title;
+      keywordHighlight.value = v.keyword;
+
+      // Update badge label
+      const badge = document.getElementById('headlineAngleBadge');
+      if (badge) {
+        badge.textContent = `Idea ${currentHeadlineVariantIndex + 1}/5: ${v.badgeLabel || v.angle}`;
+      }
+
+      // Update headline quick chips
+      const chips = document.querySelectorAll('#headlineAngleChips .chip-btn');
+      chips.forEach((chip, i) => {
+        if (i === currentHeadlineVariantIndex) chip.classList.add('active');
+        else chip.classList.remove('active');
+      });
+
+      // Synchronize SEO modal data if opened
+      const seoVariantBadge = document.getElementById('seoVariantBadge');
+      if (seoVariantBadge) seoVariantBadge.textContent = `Option ${currentSeoIndex + 1} of 5`;
+      const seoTitleAngleLabel = document.getElementById('seoTitleAngleLabel');
+      if (seoTitleAngleLabel) seoTitleAngleLabel.textContent = v.angle;
+      const seoTitleText = document.getElementById('seoTitleText');
+      if (seoTitleText) seoTitleText.textContent = v.title;
+      const seoDescText = document.getElementById('seoDescText');
+      if (seoDescText) seoDescText.textContent = v.desc;
+      const seoBoardText = document.getElementById('seoBoardText');
+      if (seoBoardText) seoBoardText.textContent = v.board;
+      const modalTabs = document.querySelectorAll('#seoAngleTabs .chip-btn');
+      modalTabs.forEach((tab, i) => {
+        if (i === currentSeoIndex) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+
+      // Automatically redraw Pin preview live on canvas!
+      render();
+    }
+
+    function switchSeoVariant(index) {
+      applyHeadlineVariant(index);
+    }
+
+    function updateSeoModalData(r) {
+      generateSeoVariants(r);
+      switchSeoVariant(0);
+      
+      const tags = (r.categories_str || 'recipes dinner easy')
+        .split(' ')
+        .filter(t => t.length > 2)
+        .map(t => `#${t.replace(/[^a-z0-9]/g, '')}`)
+        .slice(0, 8)
+        .join(' ');
+      document.getElementById('seoTagsText').textContent = tags;
+    }
+
+    recipeSelect.addEventListener('change', () => {
+      const rid = recipeSelect.value;
+      if (!rid) {
+        // Reset to manual / custom photo mode
+        activeRecipe = null;
+        pinTitle.value = 'My Custom Recipe Pin';
+        pinSubhead.value = 'Easy & Delicious Weeknight Favorite';
+        keywordHighlight.value = 'Custom Recipe';
+        badgeTextInput.value = 'Trending Recipe';
+        metaPillText.value = '⏱ READY IN 25 MINS';
+        primaryPhotoText.textContent = 'Upload Custom Dish';
+        secondaryPhotoText.textContent = '2nd Photo (Optional)';
+        updateSeoModalData({
+          title: pinTitle.value,
+          desc: pinSubhead.value,
+          category: 'Dinner',
+          cuisine: 'Homestyle',
+          time: '25 mins',
+          categories_str: 'easy dinner quick delicious'
+        });
+        render();
+        return;
+      }
+      const r = RECIPES_DB.find(item => item.id === rid);
+      if (r) loadRecipe(r);
+    });
+
+    // Custom Photo Uploads (Fully Functional with Local File Readers)
+    primaryPhotoInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          const img = new Image();
+          img.onload = () => {
+            baseImage = img;
+            primaryPhotoText.textContent = file.name.length > 14 ? file.name.substring(0, 12) + '...' : file.name;
+            render();
+          };
+          img.onerror = () => {
+            alert('Failed to read image file. Please try another PNG or JPG.');
+          };
+          img.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+      // Reset input value so re-selecting same file works
+      primaryPhotoInput.value = '';
+    });
+
+    secondaryPhotoInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          const img = new Image();
+          img.onload = () => {
+            secondaryImage = img;
+            secondaryPhotoText.textContent = file.name.length > 14 ? file.name.substring(0, 12) + '...' : file.name;
+            render();
+          };
+          img.onerror = () => {
+            alert('Failed to read second image file.');
+          };
+          img.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+      secondaryPhotoInput.value = '';
+    });
+
+    function loadPrimaryImage(src) {
+      const img = new Image();
+      if (src.startsWith('http://') || src.startsWith('https://')) {
+        img.crossOrigin = 'anonymous';
+      }
+      img.onload = () => {
+        baseImage = img;
+        render();
+      };
+      img.onerror = () => {
+        console.warn('Could not load primary image: ' + src);
+      };
+      img.src = src;
+    }
+
+    // Sliders
+    panSlider.addEventListener('input', () => {
+      panVal.textContent = `${panSlider.value}%`;
+      render();
+    });
+
+    zoomSlider.addEventListener('input', () => {
+      zoomVal.textContent = `${(zoomSlider.value / 10).toFixed(1)}x`;
+      render();
+    });
+
+    darkSlider.addEventListener('input', () => {
+      darkVal.textContent = `${darkSlider.value}%`;
+      render();
+    });
+
+    // Inputs & Toggles
+    [pinTitle, keywordHighlight, pinSubhead, fontSelect, badgeTextInput, metaPillText, stickerSelect, document.getElementById('storyBannerStyle')].filter(Boolean).forEach(el => {
+      el.addEventListener('input', render);
+      el.addEventListener('change', render);
+    });
+
+    watermarkText.addEventListener('input', () => {
+      metaBrandDisplay.textContent = watermarkText.value || 'FastFlavored.com';
+      render();
+    });
+
+    [toggleBadge, toggleSubhead, toggleMetaPill, toggleWatermark, toggleCta, toggleUppercase].forEach(el => {
+      el.addEventListener('change', render);
+    });
+
+    function setBadge(text) {
+      badgeTextInput.value = text;
+      render();
+    }
+
+    // Template Selector
+    document.querySelectorAll('.template-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.template-option').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTemplate = btn.getAttribute('data-template');
+        metaTemplateDisplay.textContent = btn.querySelector('span').textContent;
+        render();
+      });
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        render();
+      });
+    });
+
+    // Color Swatches
+    document.querySelectorAll('.color-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        currentBadgeColor = swatch.getAttribute('data-color');
+        render();
+      });
+    });
+
+    // Smart contrast helper: picks high-contrast highlight when banner is accent color
+    function getContrastingHighlightColor(bgColor) {
+      const hex = (bgColor || '').toLowerCase();
+      if (hex === '#ffb300' || hex === '#ffc107') return '#B71C1C'; // Deep crimson on gold/yellow
+      return '#FFE500'; // Vibrant electric yellow/gold on red, orange, teal, green, purple, dark
+    }
+
+    // Helper: Multiline text with Dual-Color Keyword Accent Highlight
+    function drawHighlightedWrappedText(context, text, highlightTerm, x, y, maxWidth, lineHeight, align = 'center', defaultTextColor = '#FFFFFF', overrideHighlightColor = null) {
+      context.textBaseline = 'top';
+      const words = text.split(' ');
+      let line = '';
+      let lines = [];
+
+      for (let n = 0; n < words.length; n++) {
+        let testLine = line + words[n] + ' ';
+        let metrics = context.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          lines.push(line.trim());
+          line = words[n] + ' ';
+        } else {
+          line = testLine;
+        }
+      }
+      lines.push(line.trim());
+
+      const hlClean = (highlightTerm || '').trim().toLowerCase();
+      const highlightColor = overrideHighlightColor || currentBadgeColor;
+
+      lines.forEach((l, idx) => {
+        const curY = y + (idx * lineHeight);
+        if (!hlClean) {
+          context.fillStyle = defaultTextColor;
+          context.textAlign = align;
+          context.fillText(l, x, curY);
+        } else {
+          // Split line into word chunks and color matching words
+          const lineWords = l.split(' ');
+          const totalLineWidth = context.measureText(l).width;
+          let startX = align === 'center' ? x - (totalLineWidth / 2) : x;
+
+          context.textAlign = 'left';
+          lineWords.forEach(w => {
+            const pureW = w.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const isMatch = hlClean.includes(pureW) && pureW.length > 2;
+
+            context.fillStyle = isMatch ? highlightColor : defaultTextColor;
+            context.fillText(w, startX, curY);
+            startX += context.measureText(w + ' ').width;
+          });
+        }
+      });
+
+      return lines.length * lineHeight;
+    }
+
+    // Apply Filter to Canvas context
+    function applyCanvasFilter() {
+      if (currentFilter === 'warm') {
+        ctx.filter = 'brightness(104%) contrast(106%) saturate(125%) sepia(16%)';
+      } else if (currentFilter === 'crisp') {
+        ctx.filter = 'brightness(108%) contrast(116%) saturate(135%)';
+      } else if (currentFilter === 'moody') {
+        ctx.filter = 'brightness(93%) contrast(122%) saturate(108%)';
+      } else if (currentFilter === 'pop') {
+        ctx.filter = 'brightness(102%) contrast(114%) saturate(145%)';
+      } else {
+        ctx.filter = 'none';
+      }
+    }
+
+    // Main Canvas Render Engine
+    function render() {
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      ctx.filter = 'none';
+      ctx.fillStyle = '#0f0f12';
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+      if (!baseImage) {
+        ctx.fillStyle = '#666';
+        ctx.font = '700 32px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('Select or upload a photo to generate pin', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        return;
+      }
+
+      const zoom = zoomSlider.value / 10;
+      const panPercent = parseInt(panSlider.value, 10) / 100;
+      const darkness = parseInt(darkSlider.value, 10) / 100;
+
+      // Render Active Template (8 Styles)
+      if (currentTemplate === 'bottom-card') {
+        renderBottomCard(zoom, panPercent, darkness);
+      } else if (currentTemplate === 'split-editorial') {
+        renderSplitEditorial(zoom, panPercent);
+      } else if (currentTemplate === 'dual-split') {
+        renderDualSplit(zoom, panPercent);
+      } else if (currentTemplate === 'center-float') {
+        renderCenterFloat(zoom, panPercent, darkness);
+      } else if (currentTemplate === 'bold-minimalist') {
+        renderBoldMinimalist(zoom, panPercent, darkness);
+      } else if (currentTemplate === 'numbered-listicle') {
+        renderNumberedListicle(zoom, panPercent, darkness);
+      } else if (currentTemplate === 'polaroid-scrapbook') {
+        renderPolaroidScrapbook(zoom, panPercent, darkness);
+      } else if (currentTemplate === 'top-banner') {
+        renderTopBanner(zoom, panPercent, darkness);
+      }
+
+      // Draw Selected Sticker (Overlayed across any template)
+      drawSticker();
+
+      // Refresh Mobile Simulator
+      if (mobileSimulator.classList.contains('active')) {
+        updateMobilePreview();
+      }
+
+      // Refresh Fullscreen Lightbox Canvas if active
+      const fsModal = document.getElementById('pinLightboxModal');
+      const fsCanvas = document.getElementById('fullscreenPinCanvas');
+      if (fsModal && fsModal.classList.contains('active') && fsCanvas) {
+        fsCanvas.width = CANVAS_WIDTH;
+        fsCanvas.height = CANVAS_HEIGHT;
+        const fsCtx = fsCanvas.getContext('2d');
+        fsCtx.drawImage(canvas, 0, 0);
+      }
+    }
+
+    // 1. Template: Modern Bottom Card
+    function renderBottomCard(zoom, pan, darkness) {
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, zoom, pan);
+      ctx.filter = 'none';
+
+      // Gradients
+      const topGrad = ctx.createLinearGradient(0, 0, 0, 260);
+      topGrad.addColorStop(0, `rgba(0, 0, 0, ${0.65 * darkness * 1.5})`);
+      topGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = topGrad;
+      ctx.fillRect(0, 0, CANVAS_WIDTH, 260);
+
+      const botGrad = ctx.createLinearGradient(0, CANVAS_HEIGHT - 780, 0, CANVAS_HEIGHT);
+      botGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      botGrad.addColorStop(0.35, `rgba(0, 0, 0, ${darkness * 1.1})`);
+      botGrad.addColorStop(1, 'rgba(0, 0, 0, 0.95)');
+      ctx.fillStyle = botGrad;
+      ctx.fillRect(0, CANVAS_HEIGHT - 780, CANVAS_WIDTH, 780);
+
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, 75, badgeTextInput.value, currentBadgeColor);
+      }
+
+      // Card
+      const cardMargin = 55;
+      const cardW = CANVAS_WIDTH - (cardMargin * 2);
+      const cardH = 430;
+      const cardY = CANVAS_HEIGHT - cardH - 95;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.55)';
+      ctx.shadowBlur = 35;
+      ctx.shadowOffsetY = 15;
+      ctx.fillStyle = 'rgba(20, 20, 26, 0.9)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(cardMargin, cardY, cardW, cardH, 28);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+
+      // Title
+      const font = fontSelect.value;
+      ctx.font = `800 56px "${font}", serif`;
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = cardY + 55;
+      const titleHeight = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, cardW - 70, 68);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#b4b4c0';
+        ctx.font = '500 25px Inter, sans-serif';
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleHeight + 10, cardW - 80, 36);
+      }
+
+      if (toggleMetaPill.checked && metaPillText.value) {
+        drawMetaStatsPill(CANVAS_WIDTH / 2, cardY + cardH - 55);
+      }
+
+      if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 45);
+    }
+
+    // 2. Template: Editorial Split
+    function renderSplitEditorial(zoom, pan) {
+      const headerH = 550;
+
+      ctx.fillStyle = '#14141a';
+      ctx.fillRect(0, 0, CANVAS_WIDTH, headerH);
+
+      const grad = ctx.createRadialGradient(CANVAS_WIDTH / 2, 100, 50, CANVAS_WIDTH / 2, 200, 500);
+      grad.addColorStop(0, 'rgba(255, 87, 34, 0.15)');
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, CANVAS_WIDTH, headerH);
+
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, 65, badgeTextInput.value, currentBadgeColor);
+      }
+
+      const font = fontSelect.value;
+      ctx.font = `800 62px "${font}", serif`;
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, 150, CANVAS_WIDTH - 120, 74);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#9e9eb0';
+        ctx.font = '500 26px Inter, sans-serif';
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, 150 + titleH + 12, CANVAS_WIDTH - 140, 36);
+      }
+
+      if (toggleMetaPill.checked && metaPillText.value) {
+        ctx.fillStyle = currentBadgeColor;
+        ctx.font = '800 22px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, headerH - 45);
+      }
+
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH, zoom, pan);
+      ctx.filter = 'none';
+
+      ctx.fillStyle = currentBadgeColor;
+      ctx.fillRect(0, headerH - 3, CANVAS_WIDTH, 4);
+
+      if (toggleWatermark.checked) drawFloatingBrandBadge(CANVAS_WIDTH - 360, CANVAS_HEIGHT - 75);
+    }
+
+    // 3. Template: 2-Photo Story Split (Viral Pinterest Format)
+    function renderDualSplit(zoom, pan) {
+      const isTall = CANVAS_HEIGHT >= 1900;
+      const topPhotoH = isTall ? 750 : 540;
+      const bannerH = isTall ? 500 : 430;
+      const bannerY = isTall ? 750 : 535;
+      const botPhotoY = bannerY + bannerH;
+      const botPhotoH = CANVAS_HEIGHT - botPhotoY;
+
+      // 1. Top Photo Window (Upper 36%)
+      applyCanvasFilter();
+      if (secondaryImage) {
+        drawPhoto(secondaryImage, 0, 0, CANVAS_WIDTH, topPhotoH, 1.0, pan !== 0 ? pan : 0);
+      } else {
+        // Auto-crop top section with focus on hero/action ingredient or preparation
+        drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, topPhotoH, zoom, pan !== 0 ? pan - 0.25 : -0.32);
+      }
+
+      // 2. Bottom Photo Window (Lower 36%)
+      // Auto-crop bottom section with focus on plated dish / bite
+      drawPhoto(baseImage, 0, botPhotoY, CANVAS_WIDTH, botPhotoH, zoom, pan !== 0 ? pan + 0.25 : 0.28);
+      ctx.filter = 'none';
+
+      // 3. Center Dividing Title Banner
+      const bannerStyleEl = document.getElementById('storyBannerStyle');
+      const bannerStyle = (bannerStyleEl && bannerStyleEl.value) || 'white';
+      const isWhite = bannerStyle === 'white';
+      const isAccent = bannerStyle === 'accent';
+
+      const bannerBg = isWhite ? '#FFFFFF' : (isAccent ? currentBadgeColor : '#12141c');
+      const primaryTextColor = isWhite ? '#141418' : '#FFFFFF';
+      const subheadTextColor = isWhite ? '#555566' : (isAccent ? 'rgba(255,255,255,0.88)' : '#b4b4c6');
+      const domainTextColor = isWhite ? '#6c6c80' : (isAccent ? 'rgba(255,255,255,0.85)' : '#9a9ab0');
+      const dividerColor = isAccent ? '#FFFFFF' : currentBadgeColor;
+
+      // Card shadow casting onto both photos
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+      ctx.shadowBlur = 35;
+      ctx.shadowOffsetY = 4;
+      ctx.fillStyle = bannerBg;
+      ctx.fillRect(0, bannerY, CANVAS_WIDTH, bannerH);
+      ctx.restore();
+
+      // Top & Bottom Accent Border Separators (5px each)
+      ctx.fillStyle = dividerColor;
+      ctx.fillRect(0, bannerY, CANVAS_WIDTH, 5);
+      ctx.fillRect(0, bannerY + bannerH - 5, CANVAS_WIDTH, 5);
+
+      // Subtle luxury inner stroke
+      ctx.save();
+      ctx.strokeStyle = isWhite ? 'rgba(0,0,0,0.06)' : (isAccent ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)');
+      ctx.lineWidth = 1;
+      ctx.strokeRect(18, bannerY + 12, CANVAS_WIDTH - 36, bannerH - 24);
+      ctx.restore();
+
+      // Pill Badge (straddling top divider) - high contrast against accent banner
+      if (toggleBadge.checked && badgeTextInput.value) {
+        const pillBg = isAccent ? '#FFFFFF' : currentBadgeColor;
+        const pillTextColor = isAccent ? currentBadgeColor : '#FFFFFF';
+        drawPillBadge(CANVAS_WIDTH / 2, bannerY, badgeTextInput.value, pillBg, pillTextColor);
+      }
+
+      // --- DYNAMIC VERTICAL BALANCING (Eliminates All Empty Space!) ---
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+
+      // Bold, mouth-watering typography sizes (scales up for tall format)
+      const baseFont = isTall ? 72 : 66;
+      const fontSize = title.length > 38 ? (baseFont - 12) : (title.length > 24 ? baseFont : (baseFont + 8));
+      const lineHeight = fontSize + (isTall ? 16 : 14);
+      const font = fontSelect.value;
+      ctx.font = `800 ${fontSize}px "${font}", serif`;
+
+      // Pre-calculate wrapped title lines
+      const words = title.split(' ');
+      let line = '';
+      let titleLinesCount = 0;
+      for (let n = 0; n < words.length; n++) {
+        let testLine = line + words[n] + ' ';
+        if (ctx.measureText(testLine).width > (CANVAS_WIDTH - 140) && n > 0) {
+          titleLinesCount++;
+          line = words[n] + ' ';
+        } else {
+          line = testLine;
+        }
+      }
+      titleLinesCount++;
+      const titleHeight = titleLinesCount * lineHeight;
+
+      const hasSub = toggleSubhead.checked && !!pinSubhead.value;
+      const hasTime = toggleMetaPill.checked && !!metaPillText.value;
+      const hasDomain = toggleWatermark.checked;
+
+      // Total content group height
+      let contentH = titleHeight;
+      if (hasSub) contentH += 34 + 14; // subhead + gap
+      if (hasTime) contentH += 40 + 16; // time pill + gap
+      if (hasDomain) contentH += 22 + 14; // domain + gap
+
+      // Symmetrically center content inside the banner!
+      const availableSpace = bannerH - contentH;
+      let cursorY = bannerY + Math.max(32, Math.floor(availableSpace / 2));
+
+      // 1. Pre-title Hook
+      if (hasSub) {
+        ctx.save();
+        ctx.fillStyle = subheadTextColor;
+        ctx.font = '700 23px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        let subText = pinSubhead.value.trim();
+        if (subText.length > 55) subText = subText.substring(0, 52) + '...';
+        ctx.letterSpacing = '3px';
+        ctx.fillText(subText.toUpperCase(), CANVAS_WIDTH / 2, cursorY);
+        ctx.restore();
+        cursorY += 34 + 14;
+      }
+
+      // 2. Big Hero Recipe Headline
+      ctx.font = `800 ${fontSize}px "${font}", serif`;
+      // When banner is Solid Brand Accent Color, highlight in vibrant gold/yellow so it pops and NEVER disappears!
+      const storyHighlightColor = isAccent ? getContrastingHighlightColor(currentBadgeColor) : currentBadgeColor;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, cursorY, CANVAS_WIDTH - 140, lineHeight, 'center', primaryTextColor, storyHighlightColor);
+      cursorY += titleH + 16;
+
+      // 3. Recipe Time Badge (Clean, Punchy, No Star Ratings)
+      if (hasTime && cursorY < (bannerY + bannerH - 55)) {
+        ctx.save();
+        const pillW = Math.min(CANVAS_WIDTH - 200, 360);
+        const pillH = 40;
+        const pillX = CANVAS_WIDTH / 2 - (pillW / 2);
+        const pillY = cursorY;
+
+        ctx.fillStyle = isWhite ? 'rgba(0,0,0,0.05)' : (isAccent ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.08)');
+        ctx.strokeStyle = isWhite ? 'rgba(0,0,0,0.12)' : (isAccent ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.14)');
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(pillX, pillY, pillW, pillH, 20);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isWhite ? '#1e1e26' : (isAccent ? '#ffffff' : currentBadgeColor);
+        ctx.font = '700 18px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.letterSpacing = '1px';
+        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, pillY + (pillH / 2));
+        ctx.restore();
+        cursorY += pillH + 14;
+      }
+
+      // 4. Single Website Domain Strip Inside Banner (NO duplicate floating badge!)
+      if (hasDomain) {
+        ctx.save();
+        ctx.fillStyle = domainTextColor;
+        ctx.font = '700 18px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.letterSpacing = '3.5px';
+        const domainText = (watermarkText.value || 'FastFlavored.com').toUpperCase();
+        // Place cleanly above the bottom border
+        const domainY = Math.max(cursorY + 4, bannerY + bannerH - 30);
+        ctx.fillText(domainText, CANVAS_WIDTH / 2, domainY);
+        ctx.restore();
+      }
+    }
+
+    // 4. Template: Centered Luxury Frame
+    function renderCenterFloat(zoom, pan, darkness) {
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, zoom, pan);
+      ctx.filter = 'none';
+
+      ctx.fillStyle = `rgba(10, 10, 14, ${0.45 + darkness * 0.4})`;
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+      const boxW = 860;
+      const boxH = 680;
+      const boxX = (CANVAS_WIDTH - boxW) / 2;
+      const boxY = (CANVAS_HEIGHT - boxH) / 2;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.8)';
+      ctx.shadowBlur = 50;
+      ctx.fillStyle = 'rgba(18, 18, 24, 0.92)';
+      ctx.strokeStyle = currentBadgeColor;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.roundRect(boxX, boxY, boxW, boxH, 32);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(boxX + 16, boxY + 16, boxW - 32, boxH - 32, 22);
+      ctx.stroke();
+
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, boxY, badgeTextInput.value, currentBadgeColor);
+      }
+
+      const font = fontSelect.value;
+      ctx.font = `800 62px "${font}", serif`;
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = boxY + 110;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, boxW - 100, 72);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#cbcbd6';
+        ctx.font = '500 italic 26px Cormorant Garamond, serif';
+        drawHighlightedWrappedText(ctx, `"${pinSubhead.value}"`, '', CANVAS_WIDTH / 2, textY + titleH + 18, boxW - 120, 38);
+      }
+
+      if (toggleMetaPill.checked && metaPillText.value) {
+        ctx.fillStyle = '#ffb300';
+        ctx.font = '700 21px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, boxY + boxH - 45);
+      }
+
+      if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 45);
+    }
+
+    // 5. Template: Bold Minimalist
+    function renderBoldMinimalist(zoom, pan, darkness) {
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, zoom, pan);
+      ctx.filter = 'none';
+
+      const botGrad = ctx.createLinearGradient(0, CANVAS_HEIGHT - 850, 0, CANVAS_HEIGHT);
+      botGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      botGrad.addColorStop(0.3, `rgba(0, 0, 0, ${0.7 + darkness * 0.3})`);
+      botGrad.addColorStop(1, 'rgba(0, 0, 0, 0.98)');
+      ctx.fillStyle = botGrad;
+      ctx.fillRect(0, CANVAS_HEIGHT - 850, CANVAS_WIDTH, 850);
+
+      if (toggleBadge.checked) {
+        drawPillBadge(240, 80, badgeTextInput.value, currentBadgeColor);
+      }
+
+      const font = fontSelect.value;
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.9)';
+      ctx.shadowBlur = 20;
+      ctx.shadowOffsetY = 6;
+      ctx.font = `900 68px "${font}", sans-serif`;
+
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = CANVAS_HEIGHT - 480;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 78);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#f0f0f5';
+        ctx.font = '600 28px Inter, sans-serif';
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 16, CANVAS_WIDTH - 140, 38);
+      }
+      ctx.restore();
+
+      if (toggleCta.checked) {
+        const barY = CANVAS_HEIGHT - 100;
+        ctx.save();
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = currentBadgeColor;
+        ctx.beginPath();
+        ctx.roundRect(CANVAS_WIDTH / 2 - 180, barY - 24, 360, 56, 28);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 24px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('GET THE RECIPE →', CANVAS_WIDTH / 2, barY + 4);
+        ctx.restore();
+      }
+
+      if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 30);
+    }
+
+    // 8. Template: Numbered Listicle / Roundup Card
+    function renderNumberedListicle(zoom, pan, darkness) {
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, zoom, pan);
+      ctx.filter = 'none';
+
+      // Dark gradient overlay
+      const bgGrad = ctx.createLinearGradient(0, 0, 0, CANVAS_HEIGHT);
+      bgGrad.addColorStop(0, `rgba(10, 10, 14, ${0.65 + darkness * 0.35})`);
+      bgGrad.addColorStop(0.5, `rgba(12, 12, 18, ${0.82 + darkness * 0.18})`);
+      bgGrad.addColorStop(1, 'rgba(8, 8, 12, 0.98)');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+      // Top Number Circle / Hook Badge
+      const hookNum = '10';
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 24;
+      ctx.fillStyle = currentBadgeColor;
+      ctx.beginPath();
+      ctx.arc(CANVAS_WIDTH / 2, 120, 56, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '900 48px Outfit, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(hookNum, CANVAS_WIDTH / 2, 122);
+      ctx.restore();
+
+      // Category Pill
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, 210, badgeTextInput.value || 'RECIPE ROUNDUP', currentBadgeColor);
+      }
+
+      // Big Title
+      const font = fontSelect.value;
+      ctx.font = `800 60px "${font}", sans-serif`;
+      let title = pinTitle.value || 'Delicious Recipes';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = 275;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 68);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#b0b0c2';
+        ctx.font = '500 24px Inter, sans-serif';
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 34);
+      }
+
+      // 4 Listicle Feature Checklist Pills
+      const listStartY = textY + titleH + 75;
+      const listItems = [
+        '✓ Ready in under 30 minutes with simple pantry staples',
+        '✓ Tested & perfected for foolproof family-favorite results',
+        '✓ Make-ahead meal prep & freezer friendly storage tips',
+        '✓ Full printable step-by-step recipe cards & nutrition'
+      ];
+
+      const itemW = CANVAS_WIDTH - 130;
+      const itemH = 68;
+      const itemX = 65;
+
+      listItems.forEach((text, i) => {
+        const itemY = listStartY + (i * 84);
+        if (itemY + itemH > CANVAS_HEIGHT - 120) return;
+
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.07)';
+        ctx.strokeStyle = i === 0 ? currentBadgeColor : 'rgba(255, 255, 255, 0.12)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(itemX, itemY, itemW, itemH, 16);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = i === 0 ? '#FFFFFF' : '#e0e0ec';
+        ctx.font = '600 23px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, itemX + 26, itemY + (itemH / 2));
+        ctx.restore();
+      });
+
+      // Bottom CTA Bar
+      if (toggleCta.checked) {
+        const ctaY = CANVAS_HEIGHT - 85;
+        ctx.save();
+        ctx.fillStyle = currentBadgeColor;
+        ctx.beginPath();
+        ctx.roundRect(CANVAS_WIDTH / 2 - 200, ctaY - 24, 400, 52, 26);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 22px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('SEE THE FULL LIST →', CANVAS_WIDTH / 2, ctaY + 2);
+        ctx.restore();
+      }
+
+      if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 25);
+    }
+
+    // 9. Template: Polaroid Scrapbook (Tilted Photo + Washi Tape Accent)
+    function renderPolaroidScrapbook(zoom, pan, darkness) {
+      // Warm textured scrapbook background
+      ctx.fillStyle = '#121217';
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+      // Subtle textured geometric grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 1;
+      for (let x = 40; x < CANVAS_WIDTH; x += 40) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, CANVAS_HEIGHT);
+        ctx.stroke();
+      }
+      for (let y = 40; y < CANVAS_HEIGHT; y += 40) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(CANVAS_WIDTH, y);
+        ctx.stroke();
+      }
+
+      // Polaroid Card Dimensions
+      const polW = 840;
+      const polH = 920;
+      const polX = (CANVAS_WIDTH - polW) / 2;
+      const polY = 120;
+      const angle = -0.025; // Subtle organic tilt (-1.5 degrees)
+
+      ctx.save();
+      ctx.translate(CANVAS_WIDTH / 2, polY + polH / 2);
+      ctx.rotate(angle);
+      ctx.translate(-CANVAS_WIDTH / 2, -(polY + polH / 2));
+
+      // Polaroid Shadow & White Frame
+      ctx.shadowColor = 'rgba(0,0,0,0.65)';
+      ctx.shadowBlur = 45;
+      ctx.shadowOffsetY = 20;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect(polX, polY, polW, polH, 12);
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+
+      // Inner Photo Window
+      const photoPad = 32;
+      const photoW = polW - (photoPad * 2);
+      const photoH = 720;
+      const photoX = polX + photoPad;
+      const photoY = polY + photoPad;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(photoX, photoY, photoW, photoH);
+      ctx.clip();
+      applyCanvasFilter();
+      drawPhoto(baseImage, photoX, photoY, photoW, photoH, zoom, pan);
+      ctx.filter = 'none';
+      ctx.restore();
+
+      // Polaroid Bottom Note Area (Handwritten-style subtitle)
+      ctx.fillStyle = '#22222b';
+      ctx.font = '700 italic 30px "Cormorant Garamond", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const polNote = pinSubhead.value ? `"${pinSubhead.value.substring(0, 60)}"` : "Chef's Favorite Plating";
+      ctx.fillText(polNote, polX + (polW / 2), photoY + photoH + 75);
+
+      // Washi Tape Accent at Top Center of Polaroid
+      ctx.fillStyle = currentBadgeColor;
+      ctx.globalAlpha = 0.88;
+      ctx.beginPath();
+      ctx.roundRect(CANVAS_WIDTH / 2 - 90, polY - 18, 180, 36, 4);
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+      ctx.restore();
+
+      // Badge over Photo or Top
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, 70, badgeTextInput.value, currentBadgeColor);
+      }
+
+      // Bottom Dark Card for High-Impact Headline
+      const botCardY = 1080;
+      const botCardH = CANVAS_HEIGHT - botCardY - 60;
+      const botCardW = CANVAS_WIDTH - 100;
+      const botCardX = 50;
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(22, 22, 30, 0.96)';
+      ctx.strokeStyle = '#323244';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(botCardX, botCardY, botCardW, botCardH, 24);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+
+      const font = fontSelect.value;
+      ctx.font = `800 52px "${font}", serif`;
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = botCardY + 65;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, botCardW - 70, 60);
+
+      if (toggleMetaPill.checked && metaPillText.value) {
+        drawMetaStatsPill(CANVAS_WIDTH / 2, botCardY + botCardH - 45);
+      }
+
+      if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 25);
+    }
+
+    // 10. Template: Top Banner Headline (Clean White/Dark Top Header + Full Bleed Bottom Photo)
+    function renderTopBanner(zoom, pan, darkness) {
+      const headerH = 540;
+
+      // Clean Solid Header (Top 36%)
+      ctx.fillStyle = '#0f0f14';
+      ctx.fillRect(0, 0, CANVAS_WIDTH, headerH);
+
+      // Subtle accent glow
+      const grad = ctx.createRadialGradient(CANVAS_WIDTH / 2, 80, 20, CANVAS_WIDTH / 2, 160, 450);
+      grad.addColorStop(0, 'rgba(255, 87, 34, 0.12)');
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, CANVAS_WIDTH, headerH);
+
+      if (toggleBadge.checked) {
+        drawPillBadge(CANVAS_WIDTH / 2, 60, badgeTextInput.value, currentBadgeColor);
+      }
+
+      const font = fontSelect.value;
+      ctx.font = `900 66px "${font}", sans-serif`;
+      let title = pinTitle.value || 'Delicious Recipe';
+      if (toggleUppercase.checked) title = title.toUpperCase();
+      const textY = 150;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 72);
+
+      if (toggleSubhead.checked && pinSubhead.value) {
+        ctx.fillStyle = '#a6a6bc';
+        ctx.font = '500 24px Inter, sans-serif';
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36);
+      }
+
+      if (toggleMetaPill.checked && metaPillText.value) {
+        drawMetaStatsPill(CANVAS_WIDTH / 2, headerH - 45);
+      }
+
+      // Bottom Photo (Remaining 64%)
+      applyCanvasFilter();
+      drawPhoto(baseImage, 0, headerH, CANVAS_WIDTH, CANVAS_HEIGHT - headerH, zoom, pan);
+      ctx.filter = 'none';
+
+      // Dividing gold/accent rule line
+      ctx.fillStyle = currentBadgeColor;
+      ctx.fillRect(0, headerH - 3, CANVAS_WIDTH, 5);
+
+      // Bottom CTA Floating Pill & Watermark Footer (Properly Separated, Zero Collision)
+      if (toggleCta.checked) {
+        const ctaY = CANVAS_HEIGHT - 110;
+        ctx.save();
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = 'rgba(15, 15, 20, 0.94)';
+        ctx.strokeStyle = currentBadgeColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(CANVAS_WIDTH / 2 - 190, ctaY - 24, 380, 52, 26);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('PIN RECIPE FOR DINNER 📌', CANVAS_WIDTH / 2, ctaY + 2);
+        ctx.restore();
+      }
+
+      if (toggleWatermark.checked) {
+        drawFooter(CANVAS_HEIGHT - 40);
+      }
+    }
+
+    // Draw Engagement Sticker
+    function drawSticker() {
+      const val = stickerSelect.value;
+      if (val === 'none') return;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 20;
+      ctx.shadowOffsetY = 8;
+
+      if (val === 'stars') {
+        // Live Golden Star Rating Ribbon
+        const stW = 380;
+        const stH = 50;
+        const stX = CANVAS_WIDTH - stW - 40;
+        const stY = 60;
+        ctx.fillStyle = 'rgba(15, 15, 18, 0.92)';
+        ctx.strokeStyle = '#ffb300';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(stX, stY, stW, stH, 25);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffb300';
+        ctx.font = '700 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('★★★★★  4.9 (120+ REVIEWS)', stX + (stW / 2), stY + (stH / 2) + 1);
+
+      } else if (val === 'save') {
+        // PIN FOR DINNER Ribbon
+        const stW = 280;
+        const stH = 52;
+        const stX = CANVAS_WIDTH - stW - 40;
+        const stY = 60;
+        ctx.fillStyle = '#e60023'; // Pinterest Red
+        ctx.beginPath();
+        ctx.roundRect(stX, stY, stW, stH, 26);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 21px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('📌 PIN FOR DINNER', stX + (stW / 2), stY + (stH / 2) + 2);
+
+      } else if (val === 'cooktime') {
+        // ⏱ Ready in 20 Mins
+        const stW = 270;
+        const stH = 50;
+        const stX = 40;
+        const stY = 60;
+        ctx.fillStyle = 'rgba(15, 15, 18, 0.92)';
+        ctx.strokeStyle = currentBadgeColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(stX, stY, stW, stH, 25);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('⏱️ READY IN 20 MINS', stX + (stW / 2), stY + (stH / 2) + 2);
+
+      } else if (val === 'printable') {
+        // Printable Stamp
+        const stW = 320;
+        const stH = 50;
+        const stX = CANVAS_WIDTH - stW - 40;
+        const stY = 60;
+        ctx.fillStyle = currentBadgeColor;
+        ctx.beginPath();
+        ctx.roundRect(stX, stY, stW, stH, 25);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 20px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('FREE PRINTABLE RECIPE', stX + (stW / 2), stY + (stH / 2) + 2);
+
+      } else if (val === 'viral') {
+        // Viral on TikTok / Pinterest
+        const stW = 340;
+        const stH = 50;
+        const stX = CANVAS_WIDTH - stW - 40;
+        const stY = 60;
+        ctx.fillStyle = '#000000';
+        ctx.strokeStyle = '#00f2fe';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(stX, stY, stW, stH, 25);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '800 19px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('🔥 VIRAL ON PINTEREST', stX + (stW / 2), stY + (stH / 2) + 2);
+      }
+
+      ctx.restore();
+    }
+
+    // Helper: Draw Pan/Zoom Photo
+    function drawPhoto(img, x, y, w, h, zoom, panPercent) {
+      const imgRatio = img.width / img.height;
+      const targetRatio = w / h;
+
+      let sWidth, sHeight, sx, sy;
+
+      if (imgRatio > targetRatio) {
+        sHeight = img.height / zoom;
+        sWidth = (img.height / zoom) * targetRatio;
+        sx = ((img.width - sWidth) / 2);
+        sy = ((img.height - sHeight) / 2) + (panPercent * (img.height - sHeight) / 2);
+      } else {
+        sWidth = img.width / zoom;
+        sHeight = (img.width / zoom) / targetRatio;
+        sx = ((img.width - sWidth) / 2);
+        sy = ((img.height - sHeight) / 2) + (panPercent * (img.height - sHeight) / 2);
+      }
+
+      sx = Math.max(0, Math.min(img.width - sWidth, sx));
+      sy = Math.max(0, Math.min(img.height - sHeight, sy));
+
+      ctx.drawImage(img, sx, sy, sWidth, sHeight, x, y, w, h);
+    }
+
+    // Helper: Pill Badge
+    function drawPillBadge(centerX, centerY, text, color, textColor = '#FFFFFF') {
+      if (!text) return;
+      ctx.save();
+      ctx.font = '800 24px Inter, sans-serif';
+      const textWidth = ctx.measureText(text.toUpperCase()).width;
+      const pillW = textWidth + 56;
+      const pillH = 54;
+      const pillX = centerX - (pillW / 2);
+      const pillY = centerY - (pillH / 2);
+
+      ctx.shadowColor = 'rgba(0,0,0,0.5)';
+      ctx.shadowBlur = 18;
+      ctx.shadowOffsetY = 6;
+
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.roundRect(pillX, pillY, pillW, pillH, 27);
+      ctx.fill();
+
+      ctx.shadowColor = 'transparent';
+      ctx.fillStyle = textColor;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.letterSpacing = '1.5px';
+      ctx.fillText(text.toUpperCase(), centerX, centerY + 2);
+      ctx.restore();
+    }
+
+    // Helper: Meta Pill Inside Card
+    function drawMetaStatsPill(centerX, centerY) {
+      ctx.save();
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(centerX - 200, centerY - 20, 400, 40, 20);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffb300';
+      ctx.font = '700 19px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(metaPillText.value, centerX, centerY);
+      ctx.restore();
+    }
+
+    // Helper: Floating Brand Badge (e.g. Editorial Split)
+    function drawFloatingBrandBadge(x, y) {
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 15;
+      const brandW = 320;
+      const brandH = 48;
+
+      ctx.fillStyle = 'rgba(15, 15, 18, 0.92)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(x, y, brandW, brandH, 24);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 20px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(watermarkText.value || 'FastFlavored.com', x + (brandW / 2), y + (brandH / 2));
+      ctx.restore();
+    }
+
+    // Helper: Footer
+    function drawFooter(y) {
+      ctx.save();
+      ctx.fillStyle = '#d0d0dc';
+      ctx.font = '700 24px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.letterSpacing = '2px';
+      ctx.fillText(watermarkText.value || 'FastFlavored.com', CANVAS_WIDTH / 2, y);
+      ctx.restore();
+    }
+
+    // Export Actions
+    document.getElementById('downloadPngBtn').addEventListener('click', () => {
+      const link = document.createElement('a');
+      const filename = (pinTitle.value || 'pinterest-pin').toLowerCase().replace(/[^a-z0-9]/g, '-');
+      link.download = `${filename}-pin.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+
+    document.getElementById('downloadJpgBtn').addEventListener('click', () => {
+      const link = document.createElement('a');
+      const filename = (pinTitle.value || 'pinterest-pin').toLowerCase().replace(/[^a-z0-9]/g, '-');
+      link.download = `${filename}-pin.jpg`;
+      link.href = canvas.toDataURL('image/jpeg', 0.93);
+      link.click();
+    });
+
+    document.getElementById('copyClipboardBtn').addEventListener('click', async () => {
+      try {
+        canvas.toBlob(async (blob) => {
+          const item = new ClipboardItem({ 'image/png': blob });
+          await navigator.clipboard.write([item]);
+          alert('✅ Pin copied to clipboard! You can paste directly into Pinterest or Canva.');
+        });
+      } catch (err) {
+        alert('Could not copy automatically. Downloading image instead...');
+        document.getElementById('downloadPngBtn').click();
+      }
+    });
+
+    // SEO Modal Controls
+    const seoModal = document.getElementById('seoModal');
+    document.getElementById('openSeoModalBtn').addEventListener('click', () => {
+      if (activeRecipe) updateSeoModalData(activeRecipe);
+      seoModal.classList.add('active');
+    });
+
+    document.getElementById('seoShuffleBtn').addEventListener('click', () => {
+      switchSeoVariant(currentSeoIndex + 1);
+    });
+
+    document.getElementById('closeSeoModalBtn').addEventListener('click', () => {
+      seoModal.classList.remove('active');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === seoModal) seoModal.classList.remove('active');
+    });
+
+    // Pin Dimension Switcher (Standard 2:3 vs. Viral Tall 1:2)
+    const pinSizeSelect = document.getElementById('pinSizeSelect');
+    function updatePinDimensions() {
+      const isTall = pinSizeSelect && pinSizeSelect.value === 'tall';
+      CANVAS_HEIGHT = isTall ? 2000 : 1500;
+      canvas.width = CANVAS_WIDTH;
+      canvas.height = CANVAS_HEIGHT;
+      
+      const wrapper = document.getElementById('canvasWrapper');
+      if (wrapper) {
+        wrapper.style.aspectRatio = isTall ? '1 / 2' : '2 / 3';
+      }
+      
+      const badge = document.getElementById('pinSizeBadge');
+      if (badge) badge.textContent = isTall ? '1:2 Tall' : '2:3 Standard';
+      
+      const metaSize = document.getElementById('metaSizeDisplay');
+      if (metaSize) metaSize.textContent = isTall ? '1000 × 2000 px (1:2 Tall)' : '1000 × 1500 px (2:3)';
+      
+      render();
+    }
+    if (pinSizeSelect) {
+      pinSizeSelect.addEventListener('change', updatePinDimensions);
+    }
+
+    const sidebarSeoBtn = document.getElementById('sidebarSeoBtn');
+    if (sidebarSeoBtn) {
+      sidebarSeoBtn.addEventListener('click', () => {
+        document.getElementById('openSeoModalBtn').click();
+      });
+    }
+
+
+    // Pin Fullscreen Lightbox Controller
+    function openPinLightbox() {
+      const modal = document.getElementById('pinLightboxModal');
+      const fsCanvas = document.getElementById('fullscreenPinCanvas');
+      const srcCanvas = document.getElementById('pinCanvas');
+      const card = document.getElementById('pinLightboxCard');
+      if (!modal || !fsCanvas || !srcCanvas) return;
+
+      const isTall = CANVAS_HEIGHT >= 1900;
+      if (card) {
+        card.style.aspectRatio = isTall ? '1 / 2' : '2 / 3';
+      }
+
+      fsCanvas.width = srcCanvas.width;
+      fsCanvas.height = srcCanvas.height;
+      const fsCtx = fsCanvas.getContext('2d');
+      fsCtx.drawImage(srcCanvas, 0, 0);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePinLightbox() {
+      const modal = document.getElementById('pinLightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    const fsTrigger = document.getElementById('pinFullscreenBtn');
+    if (fsTrigger) fsTrigger.addEventListener('click', openPinLightbox);
+
+    const fsClose = document.getElementById('closePinLightboxBtn');
+    if (fsClose) fsClose.addEventListener('click', closePinLightbox);
+
+    const fsBackdrop = document.getElementById('pinLightboxBackdrop');
+    if (fsBackdrop) fsBackdrop.addEventListener('click', closePinLightbox);
+
+    const fsDownload = document.getElementById('lightboxDownloadBtn');
+    if (fsDownload) {
+      fsDownload.addEventListener('click', () => {
+        document.getElementById('downloadPngBtn').click();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePinLightbox();
+    });
+
+    const nextHeadlineBtn = document.getElementById('nextHeadlineBtn');
+    if (nextHeadlineBtn) {
+      nextHeadlineBtn.addEventListener('click', () => {
+        applyHeadlineVariant(currentHeadlineVariantIndex + 1);
+      });
+    }
+
+    // Fullscreen Pin Preview Lightbox Modal Handlers
+    const previewFullscreenBtn = document.getElementById('previewFullscreenBtn');
+    const fullscreenPinModal = document.getElementById('fullscreenPinModal');
+    const fullscreenPinImg = document.getElementById('fullscreenPinImg');
+    const closeFullscreenPinBtn = document.getElementById('closeFullscreenPinBtn');
+    const fullscreenPinBackdrop = document.getElementById('fullscreenPinBackdrop');
+    const fullscreenDownloadBtn = document.getElementById('fullscreenDownloadBtn');
+
+    function openFullscreenPin() {
+      if (!canvas) return;
+      try {
+        fullscreenPinImg.src = canvas.toDataURL('image/png');
+        fullscreenPinModal.classList.add('active');
+      } catch (e) {
+        console.warn('Could not open fullscreen pin:', e);
+      }
+    }
+
+    function closeFullscreenPin() {
+      if (fullscreenPinModal) {
+        fullscreenPinModal.classList.remove('active');
+      }
+    }
+
+    if (previewFullscreenBtn) {
+      previewFullscreenBtn.addEventListener('click', openFullscreenPin);
+    }
+    if (closeFullscreenPinBtn) {
+      closeFullscreenPinBtn.addEventListener('click', closeFullscreenPin);
+    }
+    if (fullscreenPinBackdrop) {
+      fullscreenPinBackdrop.addEventListener('click', closeFullscreenPin);
+    }
+    if (fullscreenDownloadBtn) {
+      fullscreenDownloadBtn.addEventListener('click', () => {
+        document.getElementById('downloadPngBtn').click();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && fullscreenPinModal && fullscreenPinModal.classList.contains('active')) {
+        closeFullscreenPin();
+      }
+    });
+
+
+    // Mobile Bottom Action Bar Bindings
+    document.getElementById('mobileDownloadPngBtn').addEventListener('click', () => {
+      document.getElementById('downloadPngBtn').click();
+    });
+    document.getElementById('mobileCopyBtn').addEventListener('click', () => {
+      document.getElementById('copyClipboardBtn').click();
+    });
+    document.getElementById('mobileSeoBtn').addEventListener('click', () => {
+      document.getElementById('openSeoModalBtn').click();
+    });
+
+    function copySnippet(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Copied to clipboard!');
+      }).catch(err => {
+        alert('Copy failed: ' + err);
+      });
+    }
+
+    // Theme Mode Manager (Default: Light Mode)
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleIcon = document.getElementById('themeToggleIcon');
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggleIcon.className = 'fa-solid fa-sun';
+        themeToggleIcon.style.color = '#ffb300';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggleIcon.className = 'fa-solid fa-moon';
+        themeToggleIcon.style.color = '';
+      }
+      localStorage.setItem('pin_studio_theme', theme);
+    }
+
+    // Default to 'light' mode unless the user previously explicitly chose dark
+    const savedPinTheme = localStorage.getItem('pin_studio_theme') || 'light';
+    applyTheme(savedPinTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+
+    // Initialize
+    document.fonts.ready.then(() => {
+      filterAndPopulateRecipes();
+      if (typeof RECIPES_DB !== 'undefined' && RECIPES_DB.length > 0) {
+        recipeSelect.value = RECIPES_DB[0].id;
+        loadRecipe(RECIPES_DB[0]);
+      } else {
+        render();
+      }
+    });
+  </script>
+  
+
+  <!-- Full Screen Pin Lightbox Modal -->
+  <div class="pin-lightbox-modal" id="pinLightboxModal">
+    <div class="pin-lightbox-backdrop" id="pinLightboxBackdrop"></div>
+    <div class="pin-lightbox-content">
+      <div class="pin-lightbox-bar">
+        <span class="pin-lightbox-title"><i class="fa-solid fa-expand"></i> Full Screen Pin</span>
+        <button type="button" class="pin-lightbox-close" id="closePinLightboxBtn">
+          <i class="fa-solid fa-xmark"></i> Close
+        </button>
+      </div>
+      <div class="pin-lightbox-card" id="pinLightboxCard">
+        <canvas id="fullscreenPinCanvas"></canvas>
+      </div>
+      <div class="pin-lightbox-actions">
+        <button type="button" class="btn btn-accent" id="lightboxDownloadBtn" style="padding: 10px 22px; font-size: 0.88rem;">
+          <i class="fa-solid fa-download"></i> Download High-Res PNG
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
