@@ -1,5 +1,18 @@
 [
   {
+    "id": "15-minute-creamy-lemon-basil-pasta",
+    "title": "15-Minute Creamy Lemon Basil Pasta",
+    "slug": "15-minute-creamy-lemon-basil-pasta",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food",
+    "read_time": "15 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-17",
+    "image": "./assets/images/creamy-lemon-basil-pasta.jpg",
+    "excerpt": "Silky fettuccine ribbons coated in a bright lemon and whole-milk ricotta cream with cracked pepper and sweet torn basil."
+  },
+  {
     "id": "20-minute-garlic-butter-steak-bites",
     "title": "Crispy Garlic Butter Steak Bites",
     "slug": "20-minute-garlic-butter-steak-bites",
