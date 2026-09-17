@@ -36,15 +36,27 @@ function initMobileMenu() {
   const navLinks = document.getElementById('navLinks');
   if (!menuBtn || !navLinks) return;
 
+  const closeMenu = () => {
+    navLinks.classList.remove('active');
+    menuBtn.classList.remove('active');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  };
+
   menuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    navLinks.classList.toggle('active');
+    const isExpanded = navLinks.classList.toggle('active');
+    menuBtn.classList.toggle('active', isExpanded);
+    menuBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
   });
 
   document.addEventListener('click', (e) => {
     if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
+      closeMenu();
     }
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
   });
 }
 

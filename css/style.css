@@ -205,6 +205,16 @@ body.dark-theme .theme-toggle .moon-icon { display: none; }
   padding: 0.5rem;
   flex-direction: column;
   gap: 5px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.mobile-menu-btn:hover {
+  background: var(--bg-secondary);
 }
 
 .mobile-menu-btn span {
@@ -212,7 +222,19 @@ body.dark-theme .theme-toggle .moon-icon { display: none; }
   width: 22px;
   height: 2px;
   background: var(--text-primary);
-  transition: transform var(--transition);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -630,6 +652,64 @@ body.dark-theme .theme-toggle .moon-icon { display: none; }
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .hero-section {
+    padding: 1.75rem 0 1.25rem;
+  }
+  .hero-grid {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+  }
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero-description {
+    font-size: 1rem;
+  }
+  .recipe-box {
+    padding: 1.25rem 1rem;
+    margin: 2rem 0;
+    border-radius: var(--radius-md);
+  }
+  .recipe-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .recipe-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 1rem 0.75rem;
+  }
+  .recipe-quick-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .recipe-quick-actions .btn-jump,
+  .recipe-quick-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  .category-chips {
+    gap: 0.4rem;
+  }
+  .cat-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
+  }
+  .newsletter-section {
+    padding: 2rem 1.25rem;
+  }
+  .newsletter-title {
+    font-size: 1.6rem;
+  }
+  .static-page-header h1 {
+    font-size: 2rem;
   }
 }
 
