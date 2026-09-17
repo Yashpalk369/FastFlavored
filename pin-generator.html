@@ -1778,6 +1778,17 @@
         <button class="chip-btn" onclick="switchSeoVariant(4)">5. Healthy / Prep</button>
       </div>
 
+      <div class="copy-box" style="border-left: 3px solid var(--accent-color);">
+        <div class="copy-box-header">
+          <span><i class="fa-solid fa-link" style="color:var(--accent-color);"></i> Recipe Destination URL (Pinterest Link)</span>
+          <div style="display:flex;gap:6px;">
+            <button class="copy-mini-btn" onclick="copySnippet('seoUrlText')">Copy Link</button>
+            <a href="https://fastflavored.com/" id="seoUrlOpenLink" target="_blank" rel="noopener" class="copy-mini-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Visit <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px;"></i></a>
+          </div>
+        </div>
+        <div class="copy-box-text" id="seoUrlText" style="font-family:monospace;font-size:0.92rem;color:var(--accent-color);word-break:break-all;">https://fastflavored.com/</div>
+      </div>
+
       <div class="copy-box">
         <div class="copy-box-header">
           <span>Search-Optimized Pin Title (<span id="seoTitleAngleLabel" style="color:var(--accent-color);">Viral / High CTR</span>)</span>
@@ -2224,6 +2235,12 @@
       generateSeoVariants(r);
       switchSeoVariant(0);
       
+      const recipeUrl = (r && r.id) ? `https://fastflavored.com/articles/${r.id}.html` : 'https://fastflavored.com/';
+      const seoUrlEl = document.getElementById('seoUrlText');
+      if (seoUrlEl) seoUrlEl.textContent = recipeUrl;
+      const seoUrlLink = document.getElementById('seoUrlOpenLink');
+      if (seoUrlLink) seoUrlLink.href = recipeUrl;
+
       const tags = (r.categories_str || 'recipes dinner easy')
         .split(' ')
         .filter(t => t.length > 2)
