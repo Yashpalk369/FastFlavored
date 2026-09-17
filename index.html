@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FastFlavored | Easy 30-Minute Weeknight Dinners</title>
+  <meta name="description" content="Simple, delicious, 30-minute weeknight dinner recipes that never compromise on flavor. Discover quick one-skillet meals, sheet pan suppers, and easy pantry guides.">
+  <meta name="author" content="Elena Bennett">
+  <link rel="canonical" href="https://fastflavored.com/">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FastFlavored | Easy 30-Minute Weeknight Dinners">
+  <meta property="og:description" content="Simple, tested weeknight dinner recipes ready in 30 minutes or less with minimal cleanup.">
+  <meta property="og:image" content="./assets/images/hero-dinner-spread.jpg">
+  <meta property="og:url" content="https://fastflavored.com/">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FastFlavored | Easy 30-Minute Weeknight Dinners">
+  <meta name="twitter:description" content="Simple, tested weeknight dinner recipes ready in 30 minutes or less with minimal cleanup.">
+  <meta name="twitter:image" content="./assets/images/hero-dinner-spread.jpg">
+
+  <!-- Schema.org WebSite JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FastFlavored",
+    "url": "https://fastflavored.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fastflavored.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="header glass-panel">
+    <div class="container navbar">
+      <a href="./index.html" class="logo">
+        <i class="fa-solid fa-utensils" style="color: var(--accent-color);"></i>
+        <span>FastFlavored</span>
+      </a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="./index.html" class="active">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-tag"><i class="fa-solid fa-fire-burner"></i> Fresh &amp; Fast Dinners</span>
+        <h1 class="hero-title">Weeknight Dinners, Made Effortless.</h1>
+        <p class="hero-description">
+          Say goodbye to 7 PM dinner dread and sink pileups. Explore triple-tested 30-minute recipes made with everyday supermarket staples that your whole family will devour.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="./articles/creamy-garlic-butter-tuscan-chicken.html" class="btn btn-primary">
+            Featured: Tuscan Chicken <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#recipes" class="btn" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+            Browse Recipes <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="./assets/images/hero-dinner-spread.jpg" alt="Cozy weeknight dinner spread with skillets and fresh ingredients" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER & SEARCH -->
+  <section class="container" id="recipes">
+    <div class="filter-section">
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" class="search-input" id="articleSearch" placeholder="Search by ingredient, cook time, or recipe name...">
+      </div>
+      
+      <div class="category-chips">
+        <button class="cat-btn active" data-category="all">All Recipes</button>
+        <button class="cat-btn" data-category="30-minute-meals">30-Minute Meals</button>
+        <button class="cat-btn" data-category="one-pot-dinners">One-Pot Dinners</button>
+        <button class="cat-btn" data-category="sheet-pan-suppers">Sheet Pan Suppers</button>
+        <button class="cat-btn" data-category="5-ingredient-recipes">5-Ingredient Recipes</button>
+        <button class="cat-btn" data-category="comfort-food">Comfort Food</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPES GRID -->
+  <main class="container">
+    <div class="article-grid" id="articleGrid">
+
+      <!-- Recipe Card: Garlic Butter Shrimp Scampi -->
+      <article class="article-card" data-categories="30-minute-meals one-pot-dinners">
+        <div class="card-image-wrap">
+          <span class="card-badge">15-Minute Meals</span>
+          <img src="./assets/images/shrimp-scampi.jpg" alt="Garlic Butter Shrimp Scampi pasta" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-shrimp"></i> Seafood</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 15 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/15-minute-garlic-butter-shrimp-scampi.html">Garlic Butter Shrimp Scampi</a>
+          </h2>
+          <p class="card-excerpt">
+            Plump, juicy jumbo shrimp tossed in a silky white wine, garlic, and lemon butter pan sauce over al dente linguine. Ready in 15 minutes!
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/15-minute-garlic-butter-shrimp-scampi.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card: Crispy Beef & Broccoli Skillet -->
+      <article class="article-card" data-categories="30-minute-meals one-pot-dinners">
+        <div class="card-image-wrap">
+          <span class="card-badge">20-Minute Meals</span>
+          <img src="./assets/images/beef-and-broccoli.jpg" alt="Crispy Beef and Broccoli Skillet" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-fire-burner"></i> Skillet</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 20 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/20-minute-beef-and-broccoli-skillet.html">Crispy Beef and Broccoli Skillet</a>
+          </h2>
+          <p class="card-excerpt">
+            Tender velveted beef ribbons and vibrant crisp broccoli florets glazed in a savory garlic-ginger soy sauce. Faster than takeout!
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/20-minute-beef-and-broccoli-skillet.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card: Sheet-Pan Chicken Fajitas -->
+      <article class="article-card" data-categories="sheet-pan-suppers 30-minute-meals">
+        <div class="card-image-wrap">
+          <span class="card-badge">Sheet Pan Suppers</span>
+          <img src="./assets/images/chicken-fajitas.jpg" alt="Easy Sheet-Pan Chicken Fajitas" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-layer-group"></i> 1-Pan Cleanup</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 25 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/sheet-pan-chicken-fajitas.html">Sheet-Pan Chicken Fajitas</a>
+          </h2>
+          <p class="card-excerpt">
+            Juicy seasoned chicken breast strips, crisp bell peppers, and caramelized onions roasted together on one baking sheet in 25 minutes!
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/sheet-pan-chicken-fajitas.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card 1: Tuscan Chicken -->
+      <article class="article-card" data-categories="30-minute-meals one-pot-dinners comfort-food">
+        <div class="card-image-wrap">
+          <span class="card-badge">30-Minute Meals</span>
+          <img src="./assets/images/tuscan-chicken.jpg" alt="Creamy Garlic Butter Tuscan Chicken" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-fire"></i> Skillet Dinner</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 25 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/creamy-garlic-butter-tuscan-chicken.html">Creamy Garlic Butter Tuscan Chicken</a>
+          </h2>
+          <p class="card-excerpt">
+            Tender golden chicken cutlets in a velvety garlic parmesan cream sauce with sun-dried tomatoes and fresh baby spinach. One skillet, 25 minutes!
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/creamy-garlic-butter-tuscan-chicken.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card 2: Honey Garlic Salmon -->
+      <article class="article-card" data-categories="sheet-pan-suppers 30-minute-meals">
+        <div class="card-image-wrap">
+          <span class="card-badge">Sheet Pan Suppers</span>
+          <img src="./assets/images/honey-garlic-salmon.jpg" alt="Honey Garlic Butter Glazed Salmon with asparagus" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-fish"></i> Seafood</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 20 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/honey-garlic-butter-salmon.html">Honey Garlic Butter Glazed Salmon</a>
+          </h2>
+          <p class="card-excerpt">
+            Succulent salmon fillets and tender asparagus roasted on a single sheet pan with a finger-licking caramelized garlic honey glaze.
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/honey-garlic-butter-salmon.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card 3: One-Pot Tomato Tortellini -->
+      <article class="article-card" data-categories="one-pot-dinners 30-minute-meals comfort-food">
+        <div class="card-image-wrap">
+          <span class="card-badge">One-Pot Dinners</span>
+          <img src="./assets/images/tomato-basil-tortellini.jpg" alt="One-Pot Creamy Tomato Basil Tortellini Soup" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-leaf"></i> Vegetarian</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 15 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/one-pot-creamy-tomato-tortellini.html">One-Pot Creamy Tomato Basil Tortellini</a>
+          </h2>
+          <p class="card-excerpt">
+            Cheese tortellini simmered directly in rich garlic tomato cream with wilted spinach and shaved parmesan. Ready in just 15 minutes!
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/one-pot-creamy-tomato-tortellini.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card 4: Sheet Pan Sausage & Gnocchi -->
+      <article class="article-card" data-categories="5-ingredient-recipes sheet-pan-suppers 30-minute-meals">
+        <div class="card-image-wrap">
+          <span class="card-badge">5-Ingredient Recipes</span>
+          <img src="./assets/images/sheet-pan-gnocchi.jpg" alt="Crispy Sheet-Pan Sausage and Gnocchi" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-kitchen-set"></i> 5 Ingredients</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 25 Mins</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/sheet-pan-sausage-gnocchi.html">Crispy Sheet-Pan Sausage and Gnocchi</a>
+          </h2>
+          <p class="card-excerpt">
+            No boiling required! Potato gnocchi roasted crisp outside and pillowy inside with smoked sausage coins and caramelized bell peppers.
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/sheet-pan-sausage-gnocchi.html" class="read-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recipe Card 5: 15-Minute Pantry Playbook -->
+      <article class="article-card" data-categories="30-minute-meals comfort-food">
+        <div class="card-image-wrap">
+          <span class="card-badge">Kitchen Foundations</span>
+          <img src="./assets/images/pantry-guide.jpg" alt="15-Minute Dinner Pantry Playbook" loading="lazy">
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-book-open"></i> Pantry Guide</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 6 Min Read</span>
+          </div>
+          <h2 class="card-title">
+            <a href="./articles/welcome-guide.html">The 15-Minute Pantry Playbook</a>
+          </h2>
+          <p class="card-excerpt">
+            Discover the 19 essential shelf-stable and freezer staples that unlock 50+ rapid weeknight meals with zero last-minute grocery runs.
+          </p>
+          <div class="card-footer">
+            <span>By Elena Bennett</span>
+            <a href="./articles/welcome-guide.html" class="read-link">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- NEWSLETTER -->
+  <section class="container">
+    <div class="newsletter-section">
+      <h2 class="newsletter-title">Get 5 Fast Dinners Every Sunday</h2>
+      <p class="newsletter-desc">Join 28,000+ busy home cooks who receive our weekly dinner meal plan, shopping checklist, and 30-minute recipes.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+        <button type="submit" class="btn btn-primary">Send My Dinners</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">
+          <i class="fa-solid fa-utensils" style="color: var(--accent-color);"></i>
+          <span>FastFlavored</span>
+        </div>
+        <p class="footer-desc">Simple, Delicious 30-Minute Weeknight Dinners for Real Life. Triple-tested recipes with minimal sink cleanup.</p>
+      </div>
+      <div>
+        <h4 class="footer-links-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-links-title">Legal &amp; Safety</h4>
+        <ul class="footer-links">
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+          <li><a href="./terms.html">Terms &amp; Food Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 FastFlavored. All rights reserved.</p>
+      <p>High-speed zero-build culinary architecture.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿{
+  "forest_adventure": {
+    "name": "Forest & Sand (Outdoors / Travel / Camping)",
+    "font_heading": "'Playfair Display', Georgia, serif",
+    "font_body": "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "light": {
+      "bg_primary": "hsl(140, 20%, 97%)",
+      "bg_secondary": "hsl(140, 15%, 93%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(150, 20%, 12%)",
+      "text_secondary": "hsl(150, 10%, 38%)",
+      "accent_color": "hsl(142, 45%, 32%)",
+      "accent_hover": "hsl(142, 45%, 25%)",
+      "accent_light": "hsl(142, 40%, 92%)",
+      "badge_color": "hsl(35, 75%, 45%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(150, 15%, 8%)",
+      "bg_secondary": "hsl(150, 12%, 12%)",
+      "bg_card": "hsl(150, 10%, 15%)",
+      "text_primary": "hsl(140, 15%, 92%)",
+      "text_secondary": "hsl(140, 8%, 70%)",
+      "accent_color": "hsl(142, 50%, 48%)",
+      "accent_hover": "hsl(142, 50%, 58%)",
+      "accent_light": "hsl(142, 30%, 18%)",
+      "badge_color": "hsl(35, 80%, 55%)"
+    }
+  },
+  "tech_indigo": {
+    "name": "Indigo & Slate (Tech / AI / Coding / Productivity)",
+    "font_heading": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "font_body": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "light": {
+      "bg_primary": "hsl(220, 30%, 98%)",
+      "bg_secondary": "hsl(220, 25%, 94%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(222, 47%, 11%)",
+      "text_secondary": "hsl(215, 16%, 38%)",
+      "accent_color": "hsl(243, 75%, 59%)",
+      "accent_hover": "hsl(243, 75%, 50%)",
+      "accent_light": "hsl(243, 80%, 95%)",
+      "badge_color": "hsl(175, 80%, 35%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(222, 47%, 9%)",
+      "bg_secondary": "hsl(222, 40%, 13%)",
+      "bg_card": "hsl(222, 35%, 17%)",
+      "text_primary": "hsl(210, 40%, 96%)",
+      "text_secondary": "hsl(215, 20%, 72%)",
+      "accent_color": "hsl(243, 90%, 68%)",
+      "accent_hover": "hsl(243, 90%, 76%)",
+      "accent_light": "hsl(243, 50%, 20%)",
+      "badge_color": "hsl(175, 75%, 45%)"
+    }
+  },
+  "emerald_finance": {
+    "name": "Emerald & Navy (Personal Finance / Investing / Wealth)",
+    "font_heading": "'Outfit', sans-serif",
+    "font_body": "'Inter', sans-serif",
+    "light": {
+      "bg_primary": "hsl(160, 20%, 97%)",
+      "bg_secondary": "hsl(160, 15%, 93%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(210, 30%, 12%)",
+      "text_secondary": "hsl(210, 15%, 38%)",
+      "accent_color": "hsl(160, 84%, 33%)",
+      "accent_hover": "hsl(160, 84%, 25%)",
+      "accent_light": "hsl(160, 70%, 92%)",
+      "badge_color": "hsl(43, 90%, 45%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(210, 30%, 8%)",
+      "bg_secondary": "hsl(210, 25%, 12%)",
+      "bg_card": "hsl(210, 20%, 15%)",
+      "text_primary": "hsl(160, 15%, 95%)",
+      "text_secondary": "hsl(210, 10%, 70%)",
+      "accent_color": "hsl(160, 75%, 45%)",
+      "accent_hover": "hsl(160, 75%, 55%)",
+      "accent_light": "hsl(160, 40%, 18%)",
+      "badge_color": "hsl(43, 85%, 55%)"
+    }
+  },
+  "terracotta_warm": {
+    "name": "Terracotta & Sage (Food / Recipes / Home / Lifestyle)",
+    "font_heading": "'Playfair Display', Georgia, serif",
+    "font_body": "'Outfit', sans-serif",
+    "light": {
+      "bg_primary": "hsl(33, 30%, 97%)",
+      "bg_secondary": "hsl(33, 20%, 94%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(210, 11%, 15%)",
+      "text_secondary": "hsl(210, 8%, 40%)",
+      "accent_color": "hsl(14, 62%, 57%)",
+      "accent_hover": "hsl(14, 62%, 47%)",
+      "accent_light": "hsl(14, 62%, 93%)",
+      "badge_color": "hsl(150, 25%, 35%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(210, 11%, 10%)",
+      "bg_secondary": "hsl(210, 11%, 14%)",
+      "bg_card": "hsl(210, 11%, 16%)",
+      "text_primary": "hsl(33, 20%, 94%)",
+      "text_secondary": "hsl(210, 5%, 75%)",
+      "accent_color": "hsl(14, 62%, 62%)",
+      "accent_hover": "hsl(14, 62%, 70%)",
+      "accent_light": "hsl(14, 25%, 20%)",
+      "badge_color": "hsl(150, 25%, 45%)"
+    }
+  },
+  "rose_lifestyle": {
+    "name": "Rose & Cream (Beauty / Wellness / Parenting / Fashion)",
+    "font_heading": "'Cormorant Garamond', Georgia, serif",
+    "font_body": "'Plus Jakarta Sans', sans-serif",
+    "light": {
+      "bg_primary": "hsl(25, 40%, 98%)",
+      "bg_secondary": "hsl(25, 30%, 94%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(340, 15%, 15%)",
+      "text_secondary": "hsl(340, 10%, 42%)",
+      "accent_color": "hsl(345, 60%, 55%)",
+      "accent_hover": "hsl(345, 60%, 45%)",
+      "accent_light": "hsl(345, 60%, 94%)",
+      "badge_color": "hsl(280, 50%, 50%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(340, 20%, 9%)",
+      "bg_secondary": "hsl(340, 18%, 13%)",
+      "bg_card": "hsl(340, 15%, 17%)",
+      "text_primary": "hsl(25, 25%, 94%)",
+      "text_secondary": "hsl(340, 10%, 72%)",
+      "accent_color": "hsl(345, 70%, 65%)",
+      "accent_hover": "hsl(345, 70%, 75%)",
+      "accent_light": "hsl(345, 30%, 20%)",
+      "badge_color": "hsl(280, 60%, 65%)"
+    }
+  },
+  "sunset_fitness": {
+    "name": "Sunset Amber & Charcoal (Fitness / Gym / Health / Athletics)",
+    "font_heading": "'Montserrat', sans-serif",
+    "font_body": "'Inter', sans-serif",
+    "light": {
+      "bg_primary": "hsl(0, 0%, 98%)",
+      "bg_secondary": "hsl(0, 0%, 94%)",
+      "bg_card": "hsl(0, 0%, 100%)",
+      "text_primary": "hsl(220, 20%, 12%)",
+      "text_secondary": "hsl(220, 10%, 40%)",
+      "accent_color": "hsl(18, 95%, 52%)",
+      "accent_hover": "hsl(18, 95%, 45%)",
+      "accent_light": "hsl(18, 95%, 93%)",
+      "badge_color": "hsl(190, 85%, 40%)"
+    },
+    "dark": {
+      "bg_primary": "hsl(220, 15%, 8%)",
+      "bg_secondary": "hsl(220, 12%, 12%)",
+      "bg_card": "hsl(220, 10%, 15%)",
+      "text_primary": "hsl(0, 0%, 95%)",
+      "text_secondary": "hsl(220, 10%, 70%)",
+      "accent_color": "hsl(18, 95%, 58%)",
+      "accent_hover": "hsl(18, 95%, 65%)",
+      "accent_light": "hsl(18, 40%, 20%)",
+      "badge_color": "hsl(190, 80%, 50%)"
+    }
+  }
+}

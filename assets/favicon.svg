@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="oliveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d6a4f" />
+      <stop offset="100%" stop-color="#1b4332" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#oliveGrad)" />
+  <!-- Cooking Pot / Cloche with steam and fork/spoon details in warm honey and white -->
+  <path d="M50 22 C47 22 45 24 45 27 C45 28.5 46 30 47.5 30.6 C32 32 25 43 25 50 L75 50 C75 43 68 32 52.5 30.6 C54 30 55 28.5 55 27 C55 24 53 22 50 22 Z" fill="#ffffff" />
+  <rect x="23" y="52" width="54" height="6" rx="3" fill="#f09e0a" />
+  <!-- Steam ripples in honey gold -->
+  <path d="M42 16 Q45 13 42 10" stroke="#f09e0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9" />
+  <path d="M50 15 Q53 12 50 9" stroke="#f09e0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9" />
+  <path d="M58 16 Q61 13 58 10" stroke="#f09e0a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9" />
+  <!-- Plate / Bowl base -->
+  <path d="M28 62 L32 76 C33 79 36 81 40 81 L60 81 C64 81 67 79 68 76 L72 62 Z" fill="#ffffff" opacity="0.95" />
+</svg>

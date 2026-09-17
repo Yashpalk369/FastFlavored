@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pinterest Pin Graphic Template (1000x1500)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .pin-canvas {
+      width: 1000px;
+      height: 1500px;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 70px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .badge-pill {
+      align-self: flex-start;
+      background: #4f46e5;
+      color: #ffffff;
+      padding: 16px 36px;
+      border-radius: 9999px;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .pin-title {
+      font-size: 82px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #0f172a;
+      margin: 40px 0 20px;
+    }
+    .pin-title span.highlight {
+      color: #4f46e5;
+      background: #e0e7ff;
+      padding: 4px 16px;
+      border-radius: 12px;
+    }
+    .pin-subtitle {
+      font-size: 38px;
+      line-height: 1.4;
+      color: #475569;
+      font-weight: 600;
+    }
+    .pin-image-box {
+      width: 100%;
+      height: 600px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      margin: 40px 0;
+    }
+    .pin-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pin-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 3px solid #e2e8f0;
+      padding-top: 35px;
+    }
+    .pin-domain {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.02em;
+    }
+    .pin-cta {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 18px 40px;
+      border-radius: 9999px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pin-canvas">
+    <div>
+      <div class="badge-pill">Field Tested & Ranked</div>
+      <h1 class="pin-title">10 Best <span class="highlight">Hiking Boots</span> in 2026</h1>
+      <p class="pin-subtitle">Traction, waterproofing, and comfort compared after 500+ miles.</p>
+    </div>
+
+    <div class="pin-image-box">
+      <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1000&q=80" alt="Pin feature">
+    </div>
+
+    <div class="pin-footer">
+      <div class="pin-domain">thehikersguide.com</div>
+      <div class="pin-cta">Read Full Review &rarr;</div>
+    </div>
+  </div>
+
+</body>
+</html>

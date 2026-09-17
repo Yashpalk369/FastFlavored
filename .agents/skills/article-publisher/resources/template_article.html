@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>{{POST_TITLE}} | {{BLOG_NAME}}</title>
+  <meta name="description" content="{{POST_META_DESC}}">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <link rel="canonical" href="{{SITE_URL}}/articles/{{SLUG}}.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_META_DESC}}">
+  <meta property="og:image" content="../assets/{{IMAGE_NAME}}">
+  <meta property="og:url" content="{{SITE_URL}}/articles/{{SLUG}}.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_META_DESC}}">
+  <meta name="twitter:image" content="../assets/{{IMAGE_NAME}}">
+
+  <!-- Schema.org BlogPosting + FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_META_DESC}}",
+        "author": {
+          "@type": "Person",
+          "name": "{{AUTHOR_NAME}}"
+        },
+        "datePublished": "{{DATE_PUBLISHED}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "image": "{{SITE_URL}}/assets/{{IMAGE_NAME}}",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{SITE_URL}}/articles/{{SLUG}}.html"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {{FAQ_SCHEMA_JSON}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Editorial Deep-Dive Styling */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    
+    .toc-sticky {
+      position: sticky;
+      top: 95px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .toc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+    }
+    .toc-list a {
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      display: block;
+      line-height: 1.4;
+    }
+    .toc-list a:hover {
+      color: var(--accent-color);
+      transform: translateX(3px);
+    }
+
+    .key-takeaways {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .key-takeaways h4 {
+      color: var(--accent-color);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.15rem;
+    }
+    .key-takeaways ul {
+      padding-left: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+    }
+
+    .article-body {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .article-body h2 {
+      color: var(--text-primary);
+      font-size: 1.85rem;
+      margin-top: 1.5rem;
+      scroll-margin-top: 90px;
+    }
+    .article-body h3 {
+      color: var(--text-primary);
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      scroll-margin-top: 90px;
+    }
+
+    .pro-tip-box {
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 4px solid #3b82f6;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem 1.5rem;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+    .caution-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem 1.5rem;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .editorial-quote {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-primary);
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--bg-card);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .share-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2.5rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .share-btn:hover {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+
+    @media (max-width: 900px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+      .toc-sticky {
+        position: static;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header glass-panel">
+    <div class="container navbar">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-bolt" style="color: var(--accent-color);"></i>
+        <span>{{BLOG_NAME}}</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="container" style="max-width: 1100px; padding-top: 3.5rem; margin-bottom: 5rem;">
+    <!-- Breadcrumbs -->
+    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+      <a href="../index.html">Home</a> &gt; <a href="../index.html#articles">{{CATEGORY}}</a> &gt; <span>Current Article</span>
+    </div>
+
+    <!-- Article Header -->
+    <header style="margin-bottom: 2.5rem;">
+      <span class="hero-tag">{{CATEGORY}}</span>
+      <h1 style="font-size: 2.7rem; margin: 1rem 0 1.25rem; line-height: 1.2;">{{POST_TITLE}}</h1>
+      <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 850px;">{{POST_SUBTITLE}}</p>
+      
+      <div style="display: flex; gap: 1.25rem; color: var(--text-muted); font-size: 0.9rem; align-items: center; flex-wrap: wrap;">
+        <span>By <strong>{{AUTHOR_NAME}}</strong></span>
+        <span>&bull;</span>
+        <span><i class="fa-regular fa-clock"></i> {{READ_TIME}}</span>
+        <span>&bull;</span>
+        <span><i class="fa-regular fa-calendar"></i> {{DATE_DISPLAY}}</span>
+      </div>
+    </header>
+
+    <!-- Featured Image Banner -->
+    <div style="border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; max-height: 520px; box-shadow: var(--shadow-md);">
+      <img src="../assets/{{IMAGE_NAME}}" alt="{{POST_TITLE}}" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- 2-Column Grid: TOC + Content -->
+    <div class="article-layout">
+      <!-- Sticky Table of Contents -->
+      <aside class="toc-sticky">
+        <div class="toc-title"><i class="fa-solid fa-list-ul" style="color: var(--accent-color);"></i> In This Guide</div>
+        <ul class="toc-list">
+          {{TOC_ITEMS_HTML}}
+        </ul>
+      </aside>
+
+      <!-- Content Column -->
+      <article>
+        <!-- Key Takeaways Box -->
+        <div class="key-takeaways">
+          <h4><i class="fa-solid fa-lightbulb"></i> Key Takeaways</h4>
+          <ul>
+            {{KEY_TAKEAWAYS_HTML}}
+          </ul>
+        </div>
+
+        <!-- Social Share Bar -->
+        <div class="share-bar">
+          <span style="font-weight: 600; font-size: 0.9rem; margin-right: 0.5rem;">Share:</span>
+          <a href="https://pinterest.com/pin/create/button/?url={{SITE_URL}}/articles/{{SLUG}}.html&media={{SITE_URL}}/assets/{{IMAGE_NAME}}&description={{POST_TITLE}}" target="_blank" rel="noopener" class="share-btn"><i class="fa-brands fa-pinterest" style="color: #e60023;"></i> Pin</a>
+          <a href="https://twitter.com/intent/tweet?text={{POST_TITLE}}&url={{SITE_URL}}/articles/{{SLUG}}.html" target="_blank" rel="noopener" class="share-btn"><i class="fa-brands fa-x-twitter"></i> Post</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{SITE_URL}}/articles/{{SLUG}}.html" target="_blank" rel="noopener" class="share-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Share</a>
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          {{ARTICLE_BODY_HTML}}
+        </div>
+
+        <!-- FAQ Section -->
+        <section style="margin: 4rem 0 2rem;">
+          <h2 style="font-size: 1.85rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-question" style="color: var(--accent-color);"></i> Frequently Asked Questions</h2>
+          {{FAQ_ITEMS_HTML}}
+        </section>
+
+        <!-- Author Credential Box -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; margin: 3.5rem 0; display: flex; gap: 1.5rem; align-items: center;">
+          <div style="width: 70px; height: 70px; border-radius: var(--radius-full); background: var(--accent-light); color: var(--accent-color); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; flex-shrink: 0;">
+            {{AUTHOR_INITIALS}}
+          </div>
+          <div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Written by {{AUTHOR_NAME}}</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">{{AUTHOR_BIO}}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 {{BLOG_NAME}}. All rights reserved.</p>
+      <a href="../index.html" class="read-link">&larr; Back to all guides</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

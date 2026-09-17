@@ -1,0 +1,80 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcf6f0" />
+      <stop offset="50%" stop-color="#faeee3" />
+      <stop offset="100%" stop-color="#edd9cb" />
+    </linearGradient>
+    <linearGradient id="skilletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c3036" />
+      <stop offset="100%" stop-color="#191c20" />
+    </linearGradient>
+    <linearGradient id="sauceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e36338" />
+      <stop offset="100%" stop-color="#c84b23" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)" />
+
+  <!-- Subtle rustic background rings -->
+  <circle cx="400" cy="250" r="230" fill="none" stroke="#e8d3c2" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.6"/>
+  <circle cx="400" cy="250" r="210" fill="#fff" opacity="0.45" />
+
+  <!-- Skillet handle & body with drop shadow -->
+  <g filter="url(#shadow)">
+    <!-- Cast iron skillet handle -->
+    <path d="M570 240 L700 240 C710 240 718 245 718 250 C718 255 710 260 700 260 L570 260 Z" fill="#202328" />
+    <circle cx="695" cy="250" r="6" fill="#faeee3" />
+
+    <!-- Skillet outer ring -->
+    <circle cx="400" cy="250" r="175" fill="url(#skilletGrad)" />
+    <!-- Skillet lip -->
+    <circle cx="400" cy="250" r="162" fill="#32373f" />
+    <!-- Skillet cooking interior -->
+    <circle cx="400" cy="250" r="152" fill="#25282e" />
+  </g>
+
+  <!-- Simmering dinner sauce / pan contents -->
+  <circle cx="400" cy="250" r="145" fill="url(#sauceGrad)" opacity="0.9" />
+
+  <!-- Garlic cloves, tomatoes, basil garnish details -->
+  <!-- Garlic / chicken pieces -->
+  <ellipse cx="360" cy="220" rx="32" ry="24" fill="#f8eedb" transform="rotate(-15 360 220)" />
+  <ellipse cx="435" cy="215" rx="36" ry="26" fill="#eed9bf" transform="rotate(25 435 215)" />
+  <ellipse cx="390" cy="285" rx="38" ry="28" fill="#f4e4ce" transform="rotate(5 390 285)" />
+
+  <!-- Cherry tomatoes -->
+  <circle cx="340" cy="275" r="14" fill="#c02619" />
+  <circle cx="450" cy="270" r="13" fill="#b91c1c" />
+  <circle cx="395" cy="190" r="12" fill="#dc2626" />
+  <circle cx="465" cy="225" r="11" fill="#c02619" />
+
+  <!-- Fresh basil / herbs -->
+  <path d="M360 215 Q375 205 385 220 Q370 225 360 215 Z" fill="#2d6a4f" />
+  <path d="M420 280 Q435 270 445 285 Q430 295 420 280 Z" fill="#1b4332" />
+  <path d="M380 250 Q395 240 405 255 Q390 262 380 250 Z" fill="#40916c" />
+  <path d="M430 200 Q445 190 450 205 Q438 212 430 200 Z" fill="#2d6a4f" />
+
+  <!-- Pepper specks & herb flakes -->
+  <circle cx="370" cy="240" r="2" fill="#1a1a1a" />
+  <circle cx="410" cy="230" r="2.5" fill="#1a1a1a" />
+  <circle cx="425" cy="255" r="2" fill="#1a1a1a" />
+  <circle cx="355" cy="260" r="2" fill="#2d6a4f" />
+  <circle cx="415" cy="295" r="2" fill="#2d6a4f" />
+
+  <!-- Steam curves -->
+  <path d="M375 160 Q365 130 380 100" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65" />
+  <path d="M400 150 Q415 120 400 90" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.75" />
+  <path d="M425 158 Q440 128 425 98" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65" />
+
+  <!-- Badge banner overlay at bottom -->
+  <rect x="250" y="420" width="300" height="42" rx="21" fill="#ffffff" filter="url(#shadow)" />
+  <text x="400" y="446" font-family="'Playfair Display', Georgia, serif" font-size="16" font-weight="700" fill="#c84b23" text-anchor="middle" letter-spacing="1">
+    FASTFLAVORED &bull; FRESH &amp; FAST
+  </text>
+</svg>
