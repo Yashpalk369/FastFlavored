@@ -699,7 +699,7 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: #ff5722;
+      background: var(--accent-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3516,7 +3516,7 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function closePinLightbox() {
+        function closePinLightbox() {
       const modal = document.getElementById('pinLightboxModal');
       if (modal) {
         modal.classList.remove('active');
@@ -3551,61 +3551,25 @@
       });
     }
 
-    // Fullscreen Pin Preview Lightbox Modal Handlers
-    const previewFullscreenBtn = document.getElementById('previewFullscreenBtn');
-    const fullscreenPinModal = document.getElementById('fullscreenPinModal');
-    const fullscreenPinImg = document.getElementById('fullscreenPinImg');
-    const closeFullscreenPinBtn = document.getElementById('closeFullscreenPinBtn');
-    const fullscreenPinBackdrop = document.getElementById('fullscreenPinBackdrop');
-    const fullscreenDownloadBtn = document.getElementById('fullscreenDownloadBtn');
-
-    function openFullscreenPin() {
-      if (!canvas) return;
-      try {
-        fullscreenPinImg.src = canvas.toDataURL('image/png');
-        fullscreenPinModal.classList.add('active');
-      } catch (e) {
-        console.warn('Could not open fullscreen pin:', e);
-      }
-    }
-
-    function closeFullscreenPin() {
-      if (fullscreenPinModal) {
-        fullscreenPinModal.classList.remove('active');
-      }
-    }
-
-    if (previewFullscreenBtn) {
-      previewFullscreenBtn.addEventListener('click', openFullscreenPin);
-    }
-    if (closeFullscreenPinBtn) {
-      closeFullscreenPinBtn.addEventListener('click', closeFullscreenPin);
-    }
-    if (fullscreenPinBackdrop) {
-      fullscreenPinBackdrop.addEventListener('click', closeFullscreenPin);
-    }
-    if (fullscreenDownloadBtn) {
-      fullscreenDownloadBtn.addEventListener('click', () => {
+    // Mobile Bottom Action Bar Bindings
+    const mDownloadBtn = document.getElementById('mobileDownloadPngBtn');
+    if (mDownloadBtn) {
+      mDownloadBtn.addEventListener('click', () => {
         document.getElementById('downloadPngBtn').click();
       });
     }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && fullscreenPinModal && fullscreenPinModal.classList.contains('active')) {
-        closeFullscreenPin();
-      }
-    });
-
-
-    // Mobile Bottom Action Bar Bindings
-    document.getElementById('mobileDownloadPngBtn').addEventListener('click', () => {
-      document.getElementById('downloadPngBtn').click();
-    });
-    document.getElementById('mobileCopyBtn').addEventListener('click', () => {
-      document.getElementById('copyClipboardBtn').click();
-    });
-    document.getElementById('mobileSeoBtn').addEventListener('click', () => {
-      document.getElementById('openSeoModalBtn').click();
-    });
+    const mCopyBtn = document.getElementById('mobileCopyBtn');
+    if (mCopyBtn) {
+      mCopyBtn.addEventListener('click', () => {
+        document.getElementById('copyClipboardBtn').click();
+      });
+    }
+    const mSeoBtn = document.getElementById('mobileSeoBtn');
+    if (mSeoBtn) {
+      mSeoBtn.addEventListener('click', () => {
+        document.getElementById('openSeoModalBtn').click();
+      });
+    }
 
     function copySnippet(elementId) {
       const text = document.getElementById(elementId).innerText;
