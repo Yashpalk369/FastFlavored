@@ -1641,11 +1641,6 @@
             <option value="Inter">Inter (Ultra-Minimal Clean)</option>
           </select>
         </div>
-
-        <div class="control-group">
-          <label class="control-label" for="metaPillText">Recipe Time Badge</label>
-          <input type="text" id="metaPillText" value="⏱ READY IN 35 MINS">
-        </div>
       </div>
 
       <!-- 5. Headline Styling & Drag Position -->
@@ -1750,9 +1745,6 @@
           </label>
           <label class="toggle-item">
             <input type="checkbox" id="toggleSubhead" checked> Show Subhead
-          </label>
-          <label class="toggle-item">
-            <input type="checkbox" id="toggleMetaPill" checked> Show Recipe Time
           </label>
           <label class="toggle-item">
             <input type="checkbox" id="toggleWatermark" checked> Show Branding
@@ -2109,7 +2101,6 @@
     const pinSubhead = document.getElementById('pinSubhead');
     const fontSelect = document.getElementById('fontSelect');
     const badgeTextInput = document.getElementById('badgeTextInput');
-    const metaPillText = document.getElementById('metaPillText');
     const textShadowSelect = document.getElementById('textShadowSelect');
     const textBackdropSelect = document.getElementById('textBackdropSelect');
     const headlineOffsetSlider = document.getElementById('headlineOffsetSlider');
@@ -2129,7 +2120,6 @@
     // Toggles
     const toggleBadge = document.getElementById('toggleBadge');
     const toggleSubhead = document.getElementById('toggleSubhead');
-    const toggleMetaPill = document.getElementById('toggleMetaPill');
     const toggleWatermark = document.getElementById('toggleWatermark');
     const toggleCta = document.getElementById('toggleCta');
     const toggleUppercase = document.getElementById('toggleUppercase');
@@ -2227,10 +2217,6 @@
       } else {
         badgeTextInput.value = 'Trending Weeknight Dinner';
       }
-
-      const rawTime = (r.time || '30 mins').trim();
-      const cleanTime = rawTime.toUpperCase().replace(/READY IN\s*/i, '');
-      metaPillText.value = `⏱ READY IN ${cleanTime}`;
       
       updateSeoModalData(r);
       applyHeadlineVariant(0);
@@ -2385,7 +2371,6 @@
         pinSubhead.value = 'Easy & Delicious Weeknight Favorite';
         keywordHighlight.value = 'Custom Recipe';
         badgeTextInput.value = 'Trending Recipe';
-        metaPillText.value = '⏱ READY IN 25 MINS';
         primaryPhotoText.textContent = 'Upload Custom Dish';
         secondaryPhotoText.textContent = '2nd Photo (Optional)';
         updateSeoModalData({
@@ -2574,7 +2559,7 @@
     });
 
     // Inputs & Toggles
-    [pinTitle, keywordHighlight, pinSubhead, fontSelect, badgeTextInput, metaPillText, stickerSelect, document.getElementById('storyBannerStyle')].filter(Boolean).forEach(el => {
+    [pinTitle, keywordHighlight, pinSubhead, fontSelect, badgeTextInput, stickerSelect, document.getElementById('storyBannerStyle')].filter(Boolean).forEach(el => {
       el.addEventListener('input', render);
       el.addEventListener('change', render);
     });
@@ -2584,7 +2569,7 @@
       render();
     });
 
-    [toggleBadge, toggleSubhead, toggleMetaPill, toggleWatermark, toggleCta, toggleUppercase].forEach(el => {
+    [toggleBadge, toggleSubhead, toggleWatermark, toggleCta, toggleUppercase].forEach(el => {
       el.addEventListener('change', render);
     });
 
@@ -2908,10 +2893,6 @@
         drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleHeight + 10, cardW - 80, 36, 'center', '#b4b4c0', null, false);
       }
 
-      if (toggleMetaPill.checked && metaPillText.value) {
-        drawMetaStatsPill(CANVAS_WIDTH / 2, cardY + cardH - 55);
-      }
-
       if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 45);
     }
 
@@ -2943,13 +2924,6 @@
         ctx.fillStyle = '#9e9eb0';
         ctx.font = '500 26px Inter, sans-serif';
         drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36, 'center', '#9e9eb0', null, false);
-      }
-
-      if (toggleMetaPill.checked && metaPillText.value) {
-        ctx.fillStyle = currentBadgeColor;
-        ctx.font = '800 22px Inter, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, headerH - 45);
       }
 
       applyCanvasFilter();
@@ -3053,13 +3027,11 @@
       const titleHeight = titleLinesCount * lineHeight;
 
       const hasSub = toggleSubhead.checked && !!pinSubhead.value;
-      const hasTime = toggleMetaPill.checked && !!metaPillText.value;
       const hasDomain = toggleWatermark.checked;
 
       // Total content group height
       let contentH = titleHeight;
       if (hasSub) contentH += 34 + 14; // subhead + gap
-      if (hasTime) contentH += 40 + 16; // time pill + gap
       if (hasDomain) contentH += 22 + 14; // domain + gap
 
       // Symmetrically center content inside the banner!
@@ -3087,32 +3059,6 @@
       const storyHighlightColor = isAccent ? getContrastingHighlightColor(currentBadgeColor) : currentBadgeColor;
       const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, cursorY, CANVAS_WIDTH - 140, lineHeight, 'center', primaryTextColor, storyHighlightColor, true);
       cursorY += titleH + 16;
-
-      // 3. Recipe Time Badge (Clean, Punchy, No Star Ratings)
-      if (hasTime && cursorY < (bannerY + bannerH - 55)) {
-        ctx.save();
-        const pillW = Math.min(CANVAS_WIDTH - 200, 360);
-        const pillH = 40;
-        const pillX = CANVAS_WIDTH / 2 - (pillW / 2);
-        const pillY = cursorY;
-
-        ctx.fillStyle = isWhite ? 'rgba(0,0,0,0.05)' : (isAccent ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.08)');
-        ctx.strokeStyle = isWhite ? 'rgba(0,0,0,0.12)' : (isAccent ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.14)');
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.roundRect(pillX, pillY, pillW, pillH, 20);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = isWhite ? '#1e1e26' : (isAccent ? '#ffffff' : currentBadgeColor);
-        ctx.font = '700 18px Inter, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.letterSpacing = '1px';
-        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, pillY + (pillH / 2));
-        ctx.restore();
-        cursorY += pillH + 14;
-      }
 
       // 4. Single Website Domain Strip Inside Banner (NO duplicate floating badge!)
       if (hasDomain) {
@@ -3177,13 +3123,6 @@
         ctx.fillStyle = '#cbcbd6';
         ctx.font = '500 italic 26px Cormorant Garamond, serif';
         drawHighlightedWrappedText(ctx, `"${pinSubhead.value}"`, '', CANVAS_WIDTH / 2, textY + titleH + 18, boxW - 120, 38, 'center', '#cbcbd6', null, false);
-      }
-
-      if (toggleMetaPill.checked && metaPillText.value) {
-        ctx.fillStyle = '#ffb300';
-        ctx.font = '700 21px Inter, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(metaPillText.value, CANVAS_WIDTH / 2, boxY + boxH - 45);
       }
 
       if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 45);
@@ -3455,10 +3394,6 @@
       const textY = botCardY + 65 + headlineOffsetY;
       const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, botCardW - 70, 60, 'center', '#FFFFFF', null, true);
 
-      if (toggleMetaPill.checked && metaPillText.value) {
-        drawMetaStatsPill(CANVAS_WIDTH / 2, botCardY + botCardH - 45);
-      }
-
       if (toggleWatermark.checked) drawFooter(CANVAS_HEIGHT - 25);
     }
 
@@ -3492,10 +3427,6 @@
         ctx.fillStyle = '#a6a6bc';
         ctx.font = '500 24px Inter, sans-serif';
         drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36, 'center', '#a6a6bc', null, false);
-      }
-
-      if (toggleMetaPill.checked && metaPillText.value) {
-        drawMetaStatsPill(CANVAS_WIDTH / 2, headerH - 45);
       }
 
       // Bottom Photo (Remaining 64%)
@@ -3693,25 +3624,6 @@
       ctx.textBaseline = 'middle';
       ctx.letterSpacing = '1.5px';
       ctx.fillText(text.toUpperCase(), centerX, centerY + 2);
-      ctx.restore();
-    }
-
-    // Helper: Meta Pill Inside Card
-    function drawMetaStatsPill(centerX, centerY) {
-      ctx.save();
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(centerX - 200, centerY - 20, 400, 40, 20);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.fillStyle = '#ffb300';
-      ctx.font = '700 19px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(metaPillText.value, centerX, centerY);
       ctx.restore();
     }
 
