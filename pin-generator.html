@@ -622,6 +622,72 @@
       width: 100%;
       height: 100%;
       display: block;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+
+    canvas#pinCanvas.dragging {
+      cursor: grabbing;
+    }
+
+    .canvas-drag-indicator {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 15, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      transition: opacity 0.25s ease;
+      z-index: 5;
+    }
+
+    .btn-reset-text {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 9999px;
+      padding: 3px 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    .btn-reset-text:hover {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+      background: var(--chip-bg);
+    }
+    .drag-hint-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      padding: 5px 10px;
+      background: var(--input-bg);
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border-color);
+    }
+    .drag-hint-pill i {
+      color: var(--accent-color);
     }
 
     /* Mobile Feed Simulator Mockup */
@@ -1581,7 +1647,52 @@
         </div>
       </div>
 
-      <!-- 5. High-CTR Visual Stickers & Badges -->
+      <!-- 5. Headline Styling & Drag Position -->
+      <div class="control-card">
+        <div class="card-heading">
+          <div class="card-heading-left">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Headline Styling & Position
+          </div>
+          <button type="button" class="btn-reset-text" id="resetHeadlinePosBtn" title="Reset headline position to default">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="textShadowSelect">Text Drop Shadow</label>
+          <select id="textShadowSelect">
+            <option value="soft" selected>Soft &amp; Natural (High Legibility)</option>
+            <option value="glow">Ambient 360° Glow</option>
+            <option value="deep">High Contrast Deep Shadow</option>
+            <option value="none">Flat (No Shadow)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="textBackdropSelect">Legibility Backdrop</label>
+          <select id="textBackdropSelect">
+            <option value="none" selected>-- No Backdrop --</option>
+            <option value="dark-pill">Translucent Dark Box</option>
+            <option value="glass">Frosted Glass Panel</option>
+            <option value="solid-accent">Solid Accent Ribbon</option>
+            <option value="per-line-badge">Per-Line Badges (TikTok / Pin Style)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="control-label" for="headlineOffsetSlider" style="margin-bottom: 0;">Vertical Position</label>
+            <span class="value-pill" id="headlineOffsetVal">0px</span>
+          </div>
+          <input type="range" id="headlineOffsetSlider" min="-250" max="250" value="0" step="5">
+          <div class="drag-hint-pill">
+            <i class="fa-solid fa-arrows-up-down"></i>
+            <span>Tip: Drag headline directly on canvas with mouse or finger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. High-CTR Visual Stickers & Badges -->
       <div class="control-card">
         <div class="card-heading"><i class="fa-solid fa-certificate"></i> Badges & Stickers</div>
         
@@ -1703,6 +1814,9 @@
           <i class="fa-solid fa-expand"></i> Full Screen
         </button>
         <canvas id="pinCanvas" width="1000" height="1500"></canvas>
+        <div class="canvas-drag-indicator" id="canvasDragIndicator">
+          <i class="fa-solid fa-arrows-up-down"></i> Drag text to reposition
+        </div>
       </div>
 
       <!-- Mobile Simulator View (Toggled) -->
@@ -1970,6 +2084,12 @@
     let currentBadgeColor = '#275c3d';
     let currentFilter = 'none';
     let currentSticker = 'none';
+    let headlineOffsetY = 0;
+    let textShadowStyle = 'soft';
+    let textBackdropStyle = 'none';
+    let isDraggingHeadline = false;
+    let dragStartY = 0;
+    let dragStartOffset = 0;
     let baseImage = null;
     let secondaryImage = null;
     let activeRecipe = null;
@@ -1989,6 +2109,11 @@
     const fontSelect = document.getElementById('fontSelect');
     const badgeTextInput = document.getElementById('badgeTextInput');
     const metaPillText = document.getElementById('metaPillText');
+    const textShadowSelect = document.getElementById('textShadowSelect');
+    const textBackdropSelect = document.getElementById('textBackdropSelect');
+    const headlineOffsetSlider = document.getElementById('headlineOffsetSlider');
+    const headlineOffsetVal = document.getElementById('headlineOffsetVal');
+    const resetHeadlinePosBtn = document.getElementById('resetHeadlinePosBtn');
     const stickerSelect = document.getElementById('stickerSelect');
     const watermarkText = document.getElementById('watermarkText');
     const metaBrandDisplay = document.getElementById('metaBrandDisplay');
@@ -2352,6 +2477,101 @@
       render();
     });
 
+    // Text Shadow, Backdrop & Positioning Controls
+    if (textShadowSelect) {
+      textShadowSelect.addEventListener('change', () => {
+        textShadowStyle = textShadowSelect.value;
+        render();
+      });
+    }
+
+    if (textBackdropSelect) {
+      textBackdropSelect.addEventListener('change', () => {
+        textBackdropStyle = textBackdropSelect.value;
+        render();
+      });
+    }
+
+    if (headlineOffsetSlider) {
+      headlineOffsetSlider.addEventListener('input', () => {
+        headlineOffsetY = parseInt(headlineOffsetSlider.value, 10) || 0;
+        if (headlineOffsetVal) {
+          headlineOffsetVal.textContent = `${headlineOffsetY > 0 ? '+' : ''}${headlineOffsetY}px`;
+        }
+        render();
+      });
+    }
+
+    if (resetHeadlinePosBtn) {
+      resetHeadlinePosBtn.addEventListener('click', () => {
+        headlineOffsetY = 0;
+        if (headlineOffsetSlider) headlineOffsetSlider.value = 0;
+        if (headlineOffsetVal) headlineOffsetVal.textContent = '0px';
+        render();
+      });
+    }
+
+    // Direct Drag-and-Drop Positioning on Canvas (Mouse & Touch)
+    function updateDragFromPointer(clientY) {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.height <= 0) return;
+      const scale = CANVAS_HEIGHT / rect.height;
+      const deltaY = (clientY - dragStartY) * scale;
+      let nextOffset = Math.round(dragStartOffset + deltaY);
+      nextOffset = Math.max(-250, Math.min(250, nextOffset));
+      headlineOffsetY = nextOffset;
+      if (headlineOffsetSlider) headlineOffsetSlider.value = nextOffset;
+      if (headlineOffsetVal) {
+        headlineOffsetVal.textContent = `${nextOffset > 0 ? '+' : ''}${nextOffset}px`;
+      }
+      render();
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDraggingHeadline = true;
+      dragStartY = e.clientY;
+      dragStartOffset = headlineOffsetY;
+      canvas.classList.add('dragging');
+      const dragIndicator = document.getElementById('canvasDragIndicator');
+      if (dragIndicator) dragIndicator.style.opacity = '0';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDraggingHeadline) return;
+      e.preventDefault();
+      updateDragFromPointer(e.clientY);
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDraggingHeadline) {
+        isDraggingHeadline = false;
+        canvas.classList.remove('dragging');
+      }
+    });
+
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        isDraggingHeadline = true;
+        dragStartY = e.touches[0].clientY;
+        dragStartOffset = headlineOffsetY;
+        canvas.classList.add('dragging');
+        const dragIndicator = document.getElementById('canvasDragIndicator');
+        if (dragIndicator) dragIndicator.style.opacity = '0';
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDraggingHeadline || !e.touches || e.touches.length !== 1) return;
+      updateDragFromPointer(e.touches[0].clientY);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      if (isDraggingHeadline) {
+        isDraggingHeadline = false;
+        canvas.classList.remove('dragging');
+      }
+    });
+
     // Inputs & Toggles
     [pinTitle, keywordHighlight, pinSubhead, fontSelect, badgeTextInput, metaPillText, stickerSelect, document.getElementById('storyBannerStyle')].filter(Boolean).forEach(el => {
       el.addEventListener('input', render);
@@ -2410,8 +2630,8 @@
       return '#FFE500'; // Vibrant electric yellow/gold on red, orange, teal, green, purple, dark
     }
 
-    // Helper: Multiline text with Dual-Color Keyword Accent Highlight
-    function drawHighlightedWrappedText(context, text, highlightTerm, x, y, maxWidth, lineHeight, align = 'center', defaultTextColor = '#FFFFFF', overrideHighlightColor = null) {
+    // Helper: Multiline text with Dual-Color Keyword Accent Highlight, Shadows & Backdrops
+    function drawHighlightedWrappedText(context, text, highlightTerm, x, y, maxWidth, lineHeight, align = 'center', defaultTextColor = '#FFFFFF', overrideHighlightColor = null, isHeadline = true) {
       context.textBaseline = 'top';
       const words = text.split(' ');
       let line = '';
@@ -2430,12 +2650,110 @@
       lines.push(line.trim());
 
       const hlClean = (highlightTerm || '').trim().toLowerCase();
-      const highlightColor = overrideHighlightColor || currentBadgeColor;
+      let highlightColor = overrideHighlightColor || currentBadgeColor;
+      let textColor = defaultTextColor;
+
+      // Draw Legibility Backdrop (Behind Headline)
+      if (isHeadline && textBackdropStyle && textBackdropStyle !== 'none') {
+        let maxLineWidth = 0;
+        lines.forEach(l => {
+          const w = context.measureText(l).width;
+          if (w > maxLineWidth) maxLineWidth = w;
+        });
+
+        const padX = 26;
+        const padY = 18;
+        const totalTextH = lines.length * lineHeight;
+        const boxW = Math.min(maxWidth + 40, maxLineWidth + (padX * 2));
+        const boxH = totalTextH + (padY * 2);
+        const boxX = align === 'center' ? x - (boxW / 2) : (align === 'right' ? x - boxW : x - padX);
+        const boxY = y - padY;
+
+        context.save();
+        if (textBackdropStyle === 'dark-pill') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.65)';
+          context.shadowBlur = 24;
+          context.shadowOffsetY = 6;
+          context.fillStyle = 'rgba(12, 14, 20, 0.82)';
+          context.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+          context.lineWidth = 1.5;
+          context.beginPath();
+          context.roundRect(boxX, boxY, boxW, boxH, 20);
+          context.fill();
+          context.stroke();
+        } else if (textBackdropStyle === 'glass') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.7)';
+          context.shadowBlur = 35;
+          context.shadowOffsetY = 10;
+          context.fillStyle = 'rgba(18, 22, 32, 0.92)';
+          context.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+          context.lineWidth = 2;
+          context.beginPath();
+          context.roundRect(boxX, boxY, boxW, boxH, 24);
+          context.fill();
+          context.stroke();
+          context.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+          context.strokeRect(boxX + 6, boxY + 6, boxW - 12, boxH - 12);
+        } else if (textBackdropStyle === 'solid-accent') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.6)';
+          context.shadowBlur = 30;
+          context.shadowOffsetY = 8;
+          context.fillStyle = currentBadgeColor;
+          context.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+          context.lineWidth = 2;
+          context.beginPath();
+          context.roundRect(boxX, boxY, boxW, boxH, 22);
+          context.fill();
+          context.stroke();
+          textColor = '#FFFFFF';
+          highlightColor = getContrastingHighlightColor(currentBadgeColor);
+        } else if (textBackdropStyle === 'per-line-badge') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.6)';
+          context.shadowBlur = 18;
+          context.shadowOffsetY = 4;
+          lines.forEach((l, idx) => {
+            const lineWidth = context.measureText(l).width;
+            const lineX = align === 'center' ? x - (lineWidth / 2) - 18 : x - 18;
+            const curY = y + (idx * lineHeight) - 4;
+            context.fillStyle = 'rgba(12, 14, 22, 0.88)';
+            context.beginPath();
+            context.roundRect(lineX, curY, lineWidth + 36, lineHeight, 12);
+            context.fill();
+          });
+        }
+        context.restore();
+      }
+
+      // Drop Shadow Setup
+      context.save();
+      if (isHeadline && textShadowStyle) {
+        if (textShadowStyle === 'soft') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.85)';
+          context.shadowBlur = 14;
+          context.shadowOffsetX = 0;
+          context.shadowOffsetY = 5;
+        } else if (textShadowStyle === 'glow') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.95)';
+          context.shadowBlur = 32;
+          context.shadowOffsetX = 0;
+          context.shadowOffsetY = 0;
+        } else if (textShadowStyle === 'deep') {
+          context.shadowColor = 'rgba(0, 0, 0, 0.98)';
+          context.shadowBlur = 18;
+          context.shadowOffsetX = 3;
+          context.shadowOffsetY = 8;
+        } else if (textShadowStyle === 'none') {
+          context.shadowColor = 'transparent';
+          context.shadowBlur = 0;
+          context.shadowOffsetX = 0;
+          context.shadowOffsetY = 0;
+        }
+      }
 
       lines.forEach((l, idx) => {
         const curY = y + (idx * lineHeight);
         if (!hlClean) {
-          context.fillStyle = defaultTextColor;
+          context.fillStyle = textColor;
           context.textAlign = align;
           context.fillText(l, x, curY);
         } else {
@@ -2449,12 +2767,13 @@
             const pureW = w.toLowerCase().replace(/[^a-z0-9]/g, '');
             const isMatch = hlClean.includes(pureW) && pureW.length > 2;
 
-            context.fillStyle = isMatch ? highlightColor : defaultTextColor;
+            context.fillStyle = isMatch ? highlightColor : textColor;
             context.fillText(w, startX, curY);
             startX += context.measureText(w + ' ').width;
           });
         }
       });
+      context.restore();
 
       return lines.length * lineHeight;
     }
@@ -2579,13 +2898,13 @@
       ctx.font = `800 56px "${font}", serif`;
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = cardY + 55;
-      const titleHeight = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, cardW - 70, 68);
+      const textY = cardY + 55 + headlineOffsetY;
+      const titleHeight = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, cardW - 70, 68, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#b4b4c0';
         ctx.font = '500 25px Inter, sans-serif';
-        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleHeight + 10, cardW - 80, 36);
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleHeight + 10, cardW - 80, 36, 'center', '#b4b4c0', null, false);
       }
 
       if (toggleMetaPill.checked && metaPillText.value) {
@@ -2616,12 +2935,13 @@
       ctx.font = `800 62px "${font}", serif`;
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, 150, CANVAS_WIDTH - 120, 74);
+      const textY = 150 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 74, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#9e9eb0';
         ctx.font = '500 26px Inter, sans-serif';
-        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, 150 + titleH + 12, CANVAS_WIDTH - 140, 36);
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36, 'center', '#9e9eb0', null, false);
       }
 
       if (toggleMetaPill.checked && metaPillText.value) {
@@ -2743,7 +3063,7 @@
 
       // Symmetrically center content inside the banner!
       const availableSpace = bannerH - contentH;
-      let cursorY = bannerY + Math.max(32, Math.floor(availableSpace / 2));
+      let cursorY = bannerY + Math.max(32, Math.floor(availableSpace / 2)) + headlineOffsetY;
 
       // 1. Pre-title Hook
       if (hasSub) {
@@ -2764,7 +3084,7 @@
       ctx.font = `800 ${fontSize}px "${font}", serif`;
       // When banner is Solid Brand Accent Color, highlight in vibrant gold/yellow so it pops and NEVER disappears!
       const storyHighlightColor = isAccent ? getContrastingHighlightColor(currentBadgeColor) : currentBadgeColor;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, cursorY, CANVAS_WIDTH - 140, lineHeight, 'center', primaryTextColor, storyHighlightColor);
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, cursorY, CANVAS_WIDTH - 140, lineHeight, 'center', primaryTextColor, storyHighlightColor, true);
       cursorY += titleH + 16;
 
       // 3. Recipe Time Badge (Clean, Punchy, No Star Ratings)
@@ -2849,13 +3169,13 @@
       ctx.font = `800 62px "${font}", serif`;
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = boxY + 110;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, boxW - 100, 72);
+      const textY = boxY + 110 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, boxW - 100, 72, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#cbcbd6';
         ctx.font = '500 italic 26px Cormorant Garamond, serif';
-        drawHighlightedWrappedText(ctx, `"${pinSubhead.value}"`, '', CANVAS_WIDTH / 2, textY + titleH + 18, boxW - 120, 38);
+        drawHighlightedWrappedText(ctx, `"${pinSubhead.value}"`, '', CANVAS_WIDTH / 2, textY + titleH + 18, boxW - 120, 38, 'center', '#cbcbd6', null, false);
       }
 
       if (toggleMetaPill.checked && metaPillText.value) {
@@ -2894,13 +3214,13 @@
 
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = CANVAS_HEIGHT - 480;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 78);
+      const textY = CANVAS_HEIGHT - 480 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 78, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#f0f0f5';
         ctx.font = '600 28px Inter, sans-serif';
-        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 16, CANVAS_WIDTH - 140, 38);
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 16, CANVAS_WIDTH - 140, 38, 'center', '#f0f0f5', null, false);
       }
       ctx.restore();
 
@@ -2966,13 +3286,13 @@
       ctx.font = `800 60px "${font}", sans-serif`;
       let title = pinTitle.value || 'Delicious Recipes';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = 275;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 68);
+      const textY = 275 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 68, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#b0b0c2';
         ctx.font = '500 24px Inter, sans-serif';
-        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 34);
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 34, 'center', '#b0b0c2', null, false);
       }
 
       // 4 Listicle Feature Checklist Pills
@@ -3131,8 +3451,8 @@
       ctx.font = `800 52px "${font}", serif`;
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = botCardY + 65;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, botCardW - 70, 60);
+      const textY = botCardY + 65 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, botCardW - 70, 60, 'center', '#FFFFFF', null, true);
 
       if (toggleMetaPill.checked && metaPillText.value) {
         drawMetaStatsPill(CANVAS_WIDTH / 2, botCardY + botCardH - 45);
@@ -3164,13 +3484,13 @@
       ctx.font = `900 66px "${font}", sans-serif`;
       let title = pinTitle.value || 'Delicious Recipe';
       if (toggleUppercase.checked) title = title.toUpperCase();
-      const textY = 150;
-      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 72);
+      const textY = 150 + headlineOffsetY;
+      const titleH = drawHighlightedWrappedText(ctx, title, keywordHighlight.value, CANVAS_WIDTH / 2, textY, CANVAS_WIDTH - 120, 72, 'center', '#FFFFFF', null, true);
 
       if (toggleSubhead.checked && pinSubhead.value) {
         ctx.fillStyle = '#a6a6bc';
         ctx.font = '500 24px Inter, sans-serif';
-        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36);
+        drawHighlightedWrappedText(ctx, pinSubhead.value, '', CANVAS_WIDTH / 2, textY + titleH + 12, CANVAS_WIDTH - 140, 36, 'center', '#a6a6bc', null, false);
       }
 
       if (toggleMetaPill.checked && metaPillText.value) {
