@@ -1,5 +1,31 @@
 [
   {
+    "id": "20-minute-creamy-tuscan-white-bean-soup",
+    "title": "Creamy Tuscan White Bean Soup",
+    "slug": "20-minute-creamy-tuscan-white-bean-soup",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-18",
+    "image": "./assets/images/tuscan-white-bean-soup.jpg",
+    "excerpt": "Velvety cannellini beans simmered with garlic, tender kale, and sun-dried tomatoes in a rich parmesan broth in just 20 minutes."
+  },
+  {
+    "id": "15-minute-crispy-hot-honey-salmon-bites",
+    "title": "Crispy Hot Honey Salmon Bites",
+    "slug": "15-minute-crispy-hot-honey-salmon-bites",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "15 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-18",
+    "image": "./assets/images/hot-honey-salmon-bites.jpg",
+    "excerpt": "Tender, flaky salmon cubes seasoned with smoked spices, air-fried until crispy, and tossed in sweet, spicy garlic hot honey."
+  },
+  {
     "id": "15-minute-creamy-lemon-basil-pasta",
     "title": "15-Minute Creamy Lemon Basil Pasta",
     "slug": "15-minute-creamy-lemon-basil-pasta",
