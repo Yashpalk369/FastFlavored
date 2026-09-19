@@ -1,5 +1,44 @@
 [
   {
+    "id": "15-minute-creamy-coconut-lime-shrimp-curry",
+    "title": "Creamy Coconut Lime Shrimp Curry",
+    "slug": "15-minute-creamy-coconut-lime-shrimp-curry",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "15 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-19",
+    "image": "./assets/images/coconut-lime-shrimp.jpg",
+    "excerpt": "Succulent jumbo shrimp poached in a fragrant coconut milk curry with fresh ginger, baby spinach, and zesty lime in 15 minutes."
+  },
+  {
+    "id": "20-minute-sticky-honey-sesame-chicken-bites",
+    "title": "Sticky Honey Sesame Chicken Bites",
+    "slug": "20-minute-sticky-honey-sesame-chicken-bites",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-19",
+    "image": "./assets/images/honey-sesame-chicken.jpg",
+    "excerpt": "Crispy golden bite-sized chicken glazed in a sticky honey soy garlic sauce with toasted sesame seeds and scallions in 20 minutes."
+  },
+  {
+    "id": "20-minute-creamy-marry-me-chicken-pasta",
+    "title": "Creamy Marry Me Chicken Pasta",
+    "slug": "20-minute-creamy-marry-me-chicken-pasta",
+    "category": "30-Minute Meals",
+    "categories_str": "all 30-minute-meals one-pot-dinners comfort-food",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-19",
+    "image": "./assets/images/marry-me-chicken-pasta.jpg",
+    "excerpt": "Tender golden chicken cutlets and rigatoni tossed in a luscious sun-dried tomato garlic parmesan cream sauce with baby spinach in 20 minutes."
+  },
+  {
     "id": "20-minute-creamy-tuscan-white-bean-soup",
     "title": "Creamy Tuscan White Bean Soup",
     "slug": "20-minute-creamy-tuscan-white-bean-soup",
