@@ -146,19 +146,56 @@ function initDailyHeroRecipe() {
   heroImage.setAttribute('alt', dailyRecipe.imageAlt || dailyRecipe.title);
 }
 
-/* Real-Time Live Search & Category Chip Filter */
+/* Real-Time Live Search, Category Chip Filter & 12-Recipe Pagination Engine */
 function initLiveSearchAndFilter() {
   const searchInput = document.getElementById('articleSearch');
   const catButtons = document.querySelectorAll('.cat-btn');
-  const articleCards = document.querySelectorAll('.article-card');
+  const articleCards = Array.from(document.querySelectorAll('.article-card'));
+  const paginationWrapper = document.getElementById('paginationWrapper');
+  const paginationEl = document.getElementById('pagination');
+  const paginationInfoEl = document.getElementById('paginationInfo');
+  const articleGrid = document.getElementById('articleGrid');
 
   if (!articleCards.length) return;
 
+  const RECIPES_PER_PAGE = 12;
   let currentCategory = 'all';
   let searchQuery = '';
 
-  function filterCards() {
-    articleCards.forEach(card => {
+  // Read initial page from URL param ?page=X if present
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get('page'), 10);
+  if (isNaN(currentPage) || currentPage < 1) {
+    currentPage = 1;
+  }
+
+  function updateURL() {
+    try {
+      const url = new URL(window.location);
+      if (currentPage > 1) {
+        url.searchParams.set('page', currentPage);
+      } else {
+        url.searchParams.delete('page');
+      }
+      window.history.replaceState({}, '', url);
+    } catch (err) {
+      // In case environment restricts replaceState
+    }
+  }
+
+  function goToPage(pageNum) {
+    currentPage = pageNum;
+    updateURL();
+    render();
+    const recipesSection = document.getElementById('recipes');
+    if (recipesSection) {
+      recipesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function render() {
+    // 1. Filter cards by search query and category
+    const matchedCards = articleCards.filter(card => {
       const cardTitle = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
       const cardExcerpt = (card.querySelector('.card-excerpt')?.textContent || '').toLowerCase();
       const cardCategories = (card.getAttribute('data-categories') || '').toLowerCase();
@@ -166,29 +203,151 @@ function initLiveSearchAndFilter() {
       const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardExcerpt.includes(searchQuery);
       const matchesCategory = currentCategory === 'all' || cardCategories.includes(currentCategory.toLowerCase());
 
-      if (matchesSearch && matchesCategory) {
+      return matchesSearch && matchesCategory;
+    });
+
+    const totalMatches = matchedCards.length;
+    const totalPages = Math.ceil(totalMatches / RECIPES_PER_PAGE) || 1;
+
+    // Guard page bounds
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+    if (currentPage < 1) {
+      currentPage = 1;
+    }
+
+    // 2. Slice visible window
+    const startIndex = (currentPage - 1) * RECIPES_PER_PAGE;
+    const endIndex = startIndex + RECIPES_PER_PAGE;
+
+    articleCards.forEach(card => {
+      const matchIndex = matchedCards.indexOf(card);
+      if (matchIndex >= startIndex && matchIndex < endIndex) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
       }
     });
-  }
 
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      filterCards();
+    // 3. Handle No Results feedback
+    let noResultsEl = document.getElementById('noResultsMessage');
+    if (totalMatches === 0) {
+      if (!noResultsEl && articleGrid) {
+        noResultsEl = document.createElement('div');
+        noResultsEl.id = 'noResultsMessage';
+        noResultsEl.className = 'no-results-message';
+        noResultsEl.innerHTML = `
+          <i class="fa-solid fa-utensils"></i>
+          <h3>No Matching Recipes Found</h3>
+          <p>Try searching for a different ingredient, keyword, or select "All Recipes".</p>
+        `;
+        articleGrid.appendChild(noResultsEl);
+      } else if (noResultsEl) {
+        noResultsEl.style.display = 'block';
+      }
+    } else if (noResultsEl) {
+      noResultsEl.style.display = 'none';
+    }
+
+    // 4. Render Pagination Controls
+    if (!paginationWrapper || !paginationEl || !paginationInfoEl) return;
+
+    if (totalMatches <= RECIPES_PER_PAGE) {
+      paginationWrapper.style.display = 'none';
+      paginationEl.innerHTML = '';
+      paginationInfoEl.innerHTML = '';
+      return;
+    }
+
+    paginationWrapper.style.display = 'flex';
+
+    // Info string (e.g. "Showing 1–12 of 29 recipes")
+    const showingStart = startIndex + 1;
+    const showingEnd = Math.min(endIndex, totalMatches);
+    paginationInfoEl.textContent = `Showing ${showingStart}–${showingEnd} of ${totalMatches} recipes (Page ${currentPage} of ${totalPages})`;
+
+    // Generate Buttons
+    let html = '';
+
+    // Prev Button
+    html += `
+      <button type="button" class="page-btn prev-btn" ${currentPage === 1 ? 'disabled' : ''} aria-label="Previous page">
+        <i class="fa-solid fa-chevron-left"></i> Prev
+      </button>
+    `;
+
+    // Numbered Buttons with smart ellipsis
+    for (let i = 1; i <= totalPages; i++) {
+      if (
+        i === 1 ||
+        i === totalPages ||
+        (i >= currentPage - 1 && i <= currentPage + 1)
+      ) {
+        html += `
+          <button type="button" class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}" aria-label="Page ${i}" ${i === currentPage ? 'aria-current="page"' : ''}>
+            ${i}
+          </button>
+        `;
+      } else if (
+        (i === currentPage - 2 && i > 1) ||
+        (i === currentPage + 2 && i < totalPages)
+      ) {
+        html += `<span class="page-dots">&hellip;</span>`;
+      }
+    }
+
+    // Next Button
+    html += `
+      <button type="button" class="page-btn next-btn" ${currentPage === totalPages ? 'disabled' : ''} aria-label="Next page">
+        Next <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    `;
+
+    paginationEl.innerHTML = html;
+
+    // Attach Click Handlers
+    paginationEl.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (btn.classList.contains('prev-btn')) {
+          if (currentPage > 1) goToPage(currentPage - 1);
+        } else if (btn.classList.contains('next-btn')) {
+          if (currentPage < totalPages) goToPage(currentPage + 1);
+        } else {
+          const targetPage = parseInt(btn.getAttribute('data-page'), 10);
+          if (targetPage && targetPage !== currentPage) {
+            goToPage(targetPage);
+          }
+        }
+      });
     });
   }
 
+  // Live Search listener
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      currentPage = 1;
+      updateURL();
+      render();
+    });
+  }
+
+  // Category filter listeners
   catButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       catButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCategory = btn.getAttribute('data-category') || 'all';
-      filterCards();
+      currentPage = 1;
+      updateURL();
+      render();
     });
   });
+
+  // Initial render
+  render();
 }
 
 /* Newsletter Feedback */

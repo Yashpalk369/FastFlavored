@@ -106,7 +106,7 @@
         </div>
       </div>
       <div class="hero-image-wrapper">
-        <img id="heroImage" src="./assets/images/hero-dinner-spread.jpg" alt="Featured weeknight recipe" loading="eager">
+        <img id="heroImage" src="./assets/images/hero-dinner-spread.jpg" alt="Featured weeknight recipe" loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
@@ -860,6 +860,12 @@
       </article>
 
     </div>
+
+    <!-- PAGINATION CONTROLS -->
+    <nav class="pagination-wrapper" id="paginationWrapper" aria-label="Recipe pagination">
+      <div class="pagination" id="pagination"></div>
+      <div class="pagination-info" id="paginationInfo"></div>
+    </nav>
   </main>
 
   <!-- NEWSLETTER -->
