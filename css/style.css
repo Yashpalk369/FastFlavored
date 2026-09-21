@@ -497,6 +497,8 @@ body.dark-theme .theme-toggle .moon-icon { display: none; }
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+}
+
 /* ==========================================================================
    PAGINATION CONTROLS
    ========================================================================== */
