@@ -5,9 +5,10 @@ import re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from recipe_data import RECIPES
 
-ARTICLES_DIR = r"d:\Projects\Blogs\Recipe\articles"
-DB_PATH = r"d:\Projects\Blogs\Recipe\articles_database.json"
-INDEX_PATH = r"d:\Projects\Blogs\Recipe\index.html"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ARTICLES_DIR = os.path.join(BASE_DIR, "articles")
+DB_PATH = os.path.join(BASE_DIR, "articles_database.json")
+INDEX_PATH = os.path.join(BASE_DIR, "index.html")
 
 def generate_article_html(r):
     # Prepare JSON-LD instructions
