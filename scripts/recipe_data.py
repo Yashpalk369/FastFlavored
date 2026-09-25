@@ -4,6 +4,166 @@ import re
 
 RECIPES = [
     {
+        "slug": "20-minute-sheet-pan-chicken-shawarma",
+        "title": "20-Minute Sheet-Pan Crispy Chicken Shawarma Bowls with Garlic White Sauce",
+        "headline": "20-Minute Sheet-Pan Chicken Shawarma Bowls (Halal Cart Style at Home)",
+        "badge": "Sheet Pan Suppers &bull; 20 Mins",
+        "category": "Sheet Pan Suppers",
+        "categories_str": "all sheet-pan-suppers 30-minute-meals",
+        "read_time": "20 min cook",
+        "date": "2026-09-25",
+        "image": "./assets/images/sheet-pan-chicken-shawarma.jpg",
+        "image_file": "sheet-pan-chicken-shawarma.jpg",
+        "excerpt": "Juicy, caramelized spiced chicken thigh strips roasted with charred red onions, cherry tomatoes, warm pita triangles, and drizzled with creamy NYC street-cart garlic white sauce in 20 minutes.",
+        "description": "Recreate NYC halal cart magic at home in 20 minutes: tender chicken thighs rubbed with cumin, coriander, turmeric, and smoked paprika, roasted to crispy charred perfection on one pan with garlic white sauce.",
+        "keywords": "sheet pan chicken shawarma, halal cart chicken, 20 minute chicken dinner, easy sheet pan dinner, street cart white sauce, middle eastern chicken",
+        "prepTime": "PT5M",
+        "cookTime": "PT15M",
+        "totalTime": "PT20M",
+        "recipeYield": "4 servings",
+        "recipeCategory": "Main Course",
+        "recipeCuisine": "Middle Eastern / Mediterranean",
+        "calories": "480 kcal",
+        "protein": "38g",
+        "fat": "24g",
+        "carbs": "28g",
+        "fiber": "3g",
+        "sodium": "640mg",
+        "ratingValue": "4.9",
+        "reviewCount": "188",
+        "quick_answer": "To make 20-minute sheet-pan chicken shawarma, slice 1.5 lbs boneless skinless chicken thighs into thin strips and toss with 2 tbsp olive oil, 1 tsp cumin, 1 tsp coriander, 1 tsp smoked paprika, 1/2 tsp turmeric, 1/2 tsp garlic powder, salt, and juice of 1 lemon. Spread onto a baking sheet alongside 1 sliced red onion and 1 cup cherry tomatoes. Roast at 425\u00b0F (220\u00b0C) for 14 minutes, broiling for the last 2 minutes until edges are deeply charred. Whisk 1/2 cup Greek yogurt, 2 tbsp mayo, 2 grated garlic cloves, 1 tbsp lemon juice, and a pinch of sugar; drizzle over hot chicken and serve with warm pita.",
+        "takeaways": [
+                [
+                        "Chicken Thigh Moisture Shield",
+                        "Boneless skinless chicken thighs have enough intramuscular fat to withstand high-heat 425\u00b0F roasting without drying out, delivering juicy street-cart texture."
+                ],
+                [
+                        "Turmeric & Paprika Char Base",
+                        "Ground turmeric and smoked paprika form a signature golden-orange crust that chars into savory roasted bits under the broiler."
+                ],
+                [
+                        "Yogurt-Mayo White Sauce Emulsion",
+                        "Combining whole milk Greek yogurt with real mayonnaise creates the authentic velvety texture and tang of New York street cart white sauce."
+                ]
+        ],
+        "matrix_title": "Chicken Cut Performance for Sheet-Pan Shawarma",
+        "matrix_headers": [
+                "Chicken Cut",
+                "Juiciness Level",
+                "Char Potential",
+                "Bake Time",
+                "Verdict"
+        ],
+        "matrix_rows": [
+                [
+                        "Boneless Skinless Thighs",
+                        "Maximum (never dries out)",
+                        "Deep, crispy caramelized edges",
+                        "14\u201315 minutes",
+                        "Gold Standard Winner (Recommended)"
+                ],
+                [
+                        "Boneless Chicken Breasts",
+                        "Moderate (watch closely)",
+                        "Good char",
+                        "12 minutes (overcooks fast)",
+                        "Good lean alternative"
+                ],
+                [
+                        "Chicken Tenderloins",
+                        "Tender",
+                        "Moderate",
+                        "10\u201312 minutes",
+                        "Fast weeknight alternative"
+                ],
+                [
+                        "Bone-In Chicken Thighs",
+                        "High",
+                        "Skin crisps nicely",
+                        "25\u201330 minutes",
+                        "Too slow for 20-minute dinner"
+                ]
+        ],
+        "ingredients": [
+                "1.5 lbs boneless skinless chicken thighs, sliced into 1/2-inch strips",
+                "1 medium red onion, sliced into thin wedges",
+                "1.5 cups cherry or grape tomatoes",
+                "2 tbsp extra virgin olive oil (divided)",
+                "Juice of 1 large organic lemon",
+                "4 cloves garlic, minced (divided)",
+                "1.5 tsp ground cumin",
+                "1.5 tsp smoked paprika",
+                "1 tsp ground coriander",
+                "1/2 tsp ground turmeric",
+                "1/4 tsp ground cinnamon & cayenne pepper",
+                "1/2 cup whole-milk Greek yogurt",
+                "2 tbsp real mayonnaise",
+                "1 tbsp white vinegar or fresh lemon juice (for sauce)",
+                "1/2 tsp dried oregano or sumac",
+                "Warm pita bread triangles, for serving",
+                "Fresh flat-leaf parsley, chopped"
+        ],
+        "instructions": [
+                [
+                        "Preheat Oven & Season Chicken",
+                        "Preheat oven to 425\u00b0F (220\u00b0C). Line a large rimmed baking sheet with parchment paper or heavy foil. In a large bowl, toss sliced chicken thighs with 1.5 tbsp olive oil, lemon juice, half the minced garlic, cumin, smoked paprika, coriander, turmeric, cinnamon, cayenne, 1 tsp salt, and 1/2 tsp black pepper until thoroughly coated."
+                ],
+                [
+                        "Arrange on Sheet Pan",
+                        "Spread the seasoned chicken strips in a single layer across the baking sheet. Scatter sliced red onions and whole cherry tomatoes around the chicken. Drizzle vegetables with remaining 1/2 tbsp olive oil and a pinch of salt."
+                ],
+                [
+                        "Roast & Broil to Crispy Char",
+                        "Roast at 425\u00b0F for 12\u201314 minutes until chicken is cooked through (165\u00b0F). Switch oven to High Broil for the final 2 minutes, watching closely until chicken edges are sizzled, crackled, and deeply caramelized."
+                ],
+                [
+                        "Whisk NYC Halal White Sauce",
+                        "While chicken roasts, whisk Greek yogurt, mayonnaise, remaining minced garlic, white vinegar, dried oregano, 1/2 tsp sugar, and a pinch of salt in a small bowl until smooth and pourable."
+                ],
+                [
+                        "Assemble & Serve",
+                        "Tuck warm pita bread triangles onto the sheet pan or platter. Drizzle the creamy garlic white sauce generously over the sizzling chicken and burst tomatoes. Sprinkle with fresh chopped parsley and a dusting of sumac. Serve immediately!"
+                ]
+        ],
+        "pro_tip_title": "Elena\u2019s 2-Minute High-Broil Char Hack",
+        "pro_tip": "Authentic shawarma gets its legendary flavor from the rotating vertical spit that chars the edges of the meat over open fire. To replicate this on a weeknight sheet pan, don't just bake: always switch to HIGH BROIL for the final 120 seconds of cooking! The spices and chicken fat will blister and sizzle into dark, crispy edges that taste identical to a five-star street cart.",
+        "faqs": [
+                [
+                        "Can I make this in the air fryer?",
+                        "Yes! Air fry the chicken strips and onions at 400\u00b0F for 10\u201312 minutes, shaking the basket halfway through until charred and crispy."
+                ],
+                [
+                        "What should I serve with chicken shawarma bowls?",
+                        "Serve over yellow turmeric jasmine rice, spiced basmati rice, or alongside a fresh chopped cucumber tomato salad and warm garlic naan."
+                ],
+                [
+                        "How do I store and reheat leftovers?",
+                        "Store chicken and white sauce in separate airtight glass containers for up to 4 days. Reheat chicken in a skillet or air fryer to restore the crispy charred edges."
+                ]
+        ],
+        "wiki_entities": [
+                [
+                        "Shawarma",
+                        "https://en.wikipedia.org/wiki/Shawarma"
+                ],
+                [
+                        "Halal cart",
+                        "https://en.wikipedia.org/wiki/The_Halal_Guys"
+                ],
+                [
+                        "Tahini",
+                        "https://en.wikipedia.org/wiki/Tahini"
+                ]
+        ],
+        "pinterest": {
+                "board": "Sheet Pan Meals / Mediterranean Recipes",
+                "title": "20-Minute Sheet-Pan Crispy Chicken Shawarma Recipe (Halal Cart Style!)",
+                "desc": "Juicy, caramelized spiced chicken thighs roasted on one sheet pan with charred red onions, burst tomatoes, warm pita, and drizzled with street-cart garlic white sauce in 20 minutes! Save this viral weeknight dinner now!",
+                "tags": "#chickenshawarma #sheetpanmeals #20minutedinner #halalcart #mediterraneandiet #easyweeknightdinner #dinnerideas"
+        }
+},
+
+    {
         "slug": "15-minute-garlic-butter-corn-shrimp-orzo",
         "title": "15-Minute Creamy Garlic Butter Corn and Shrimp Orzo",
         "headline": "15-Minute Creamy Garlic Butter Corn and Shrimp Orzo (One-Skillet Summer Comfort)",

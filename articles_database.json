@@ -1,5 +1,18 @@
 [
   {
+    "id": "20-minute-sheet-pan-chicken-shawarma",
+    "title": "20-Minute Sheet-Pan Crispy Chicken Shawarma Bowls with Garlic White Sauce",
+    "slug": "20-minute-sheet-pan-chicken-shawarma",
+    "category": "Sheet Pan Suppers",
+    "categories_str": "all sheet-pan-suppers 30-minute-meals",
+    "read_time": "20 min cook",
+    "author": "Elena Bennett",
+    "type": "recipe",
+    "date": "2026-09-25",
+    "image": "./assets/images/sheet-pan-chicken-shawarma.jpg",
+    "excerpt": "Juicy, caramelized spiced chicken thigh strips roasted with charred red onions, cherry tomatoes, warm pita triangles, and drizzled with creamy NYC street-cart garlic white sauce in 20 minutes."
+  },
+  {
     "id": "15-minute-garlic-butter-corn-shrimp-orzo",
     "title": "15-Minute Creamy Garlic Butter Corn and Shrimp Orzo",
     "slug": "15-minute-garlic-butter-corn-shrimp-orzo",
