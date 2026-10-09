@@ -1,0 +1,167 @@
+{
+  "total_topics": 25,
+  "source": "FastFlavored \u2014 New Recipe Topics PDF",
+  "categories": {
+    "01_halloween_party": [
+      {
+        "id": 1,
+        "title": "20-Minute Mummy Hot Dog Crescent Bites",
+        "slug": "20-minute-mummy-hot-dog-crescent-bites",
+        "status": "published"
+      },
+      {
+        "id": 2,
+        "title": "15-Minute Spiderweb Taco Dip Skillet",
+        "slug": "15-minute-spiderweb-taco-dip-skillet",
+        "status": "published"
+      },
+      {
+        "id": 3,
+        "title": "20-Minute Mini Pumpkin Cheese Ball Bites",
+        "slug": "20-minute-mini-pumpkin-cheese-ball-bites",
+        "status": "published"
+      },
+      {
+        "id": 4,
+        "title": "15-Minute Crispy Buffalo Chicken Meatballs",
+        "slug": "15-minute-crispy-buffalo-chicken-meatballs",
+        "status": "published"
+      },
+      {
+        "id": 5,
+        "title": "20-Minute Sheet-Pan BBQ Chicken Nachos",
+        "slug": "20-minute-sheet-pan-bbq-chicken-nachos",
+        "status": "published"
+      }
+    ],
+    "02_fall_comfort": [
+      {
+        "id": 6,
+        "title": "20-Minute Roasted Butternut Squash Pasta with Brown Butter Sage",
+        "slug": "20-minute-roasted-butternut-squash-pasta-brown-butter-sage",
+        "status": "published"
+      },
+      {
+        "id": 7,
+        "title": "15-Minute Creamy Butternut Squash Soup",
+        "slug": "15-minute-creamy-butternut-squash-soup",
+        "status": "published"
+      },
+      {
+        "id": 8,
+        "title": "20-Minute One-Pot Lasagna Soup",
+        "slug": "20-minute-one-pot-lasagna-soup",
+        "status": "published"
+      },
+      {
+        "id": 9,
+        "title": "20-Minute One-Pot Creamy Chicken and Wild Rice Soup",
+        "slug": "20-minute-creamy-chicken-wild-rice-soup",
+        "status": "published"
+      },
+      {
+        "id": 10,
+        "title": "20-Minute Creamy Apple Cider Chicken Skillet",
+        "slug": "20-minute-creamy-apple-cider-chicken-skillet",
+        "status": "published"
+      },
+      {
+        "id": 11,
+        "title": "20-Minute Sheet-Pan Sausage with Apples and Brussels Sprouts",
+        "slug": "20-minute-sheet-pan-sausage-apples-brussels-sprouts",
+        "status": "published"
+      },
+      {
+        "id": 12,
+        "title": "20-Minute Sheet-Pan Maple Dijon Salmon and Sweet Potatoes",
+        "slug": "20-minute-sheet-pan-maple-dijon-salmon-sweet-potatoes",
+        "status": "published"
+      },
+      {
+        "id": 13,
+        "title": "20-Minute Creamy Tuscan Sausage and Kale Pasta",
+        "slug": "20-minute-creamy-tuscan-sausage-kale-pasta",
+        "status": "published"
+      }
+    ],
+    "03_cabbage_crush_pinterest_2026": [
+      {
+        "id": 14,
+        "title": "20-Minute Creamy Cabbage Dumpling Soup",
+        "slug": "20-minute-creamy-cabbage-dumpling-soup",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 15,
+        "title": "20-Minute Golumpki-Style Cabbage Roll Skillet",
+        "slug": "20-minute-golumpki-style-cabbage-roll-skillet",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 16,
+        "title": "15-Minute Saut\u00e9ed Bok Choy Garlic Chicken Bowls",
+        "slug": "15-minute-sauteed-bok-choy-garlic-chicken-bowls",
+        "status": "pending_quota_reset"
+      }
+    ],
+    "04_quick_bites_wraps": [
+      {
+        "id": 17,
+        "title": "15-Minute Honey Garlic Butter Shrimp and Sausage Skillet",
+        "slug": "15-minute-honey-garlic-butter-shrimp-sausage-skillet",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 18,
+        "title": "15-Minute Crispy Gochujang Glazed Chicken Bites",
+        "slug": "15-minute-crispy-gochujang-glazed-chicken-bites",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 19,
+        "title": "15-Minute Firecracker Meatball Sliders",
+        "slug": "15-minute-firecracker-meatball-sliders",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 20,
+        "title": "15-Minute Crispy Wonton Taco Bites",
+        "slug": "15-minute-crispy-wonton-taco-bites",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 21,
+        "title": "15-Minute Creamy Pesto Sun-Dried Tomato Chicken Wraps",
+        "slug": "15-minute-creamy-pesto-sundried-tomato-chicken-wraps",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 22,
+        "title": "20-Minute Sheet-Pan Teriyaki Meatballs with Pineapple",
+        "slug": "20-minute-sheet-pan-teriyaki-meatballs-pineapple",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 23,
+        "title": "15-Minute Spicy Honey Garlic Shrimp Tacos",
+        "slug": "15-minute-spicy-honey-garlic-shrimp-tacos",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 24,
+        "title": "20-Minute Creamy Garlic Butter Chicken and Mushroom Orzo",
+        "slug": "20-minute-creamy-garlic-butter-chicken-mushroom-orzo",
+        "status": "pending_quota_reset"
+      },
+      {
+        "id": 25,
+        "title": "20-Minute Creamy White Bean and Kale Soup",
+        "slug": "20-minute-creamy-white-bean-kale-soup",
+        "status": "pending_quota_reset"
+      }
+    ]
+  },
+  "published_count": 13,
+  "remaining_count": 12,
+  "next_batch_eta": "2026-10-09T10:13:55Z"
+}
