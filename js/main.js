@@ -419,21 +419,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initFAQAccordion();
   initPrintButton();
-  initMonetagServiceWorker();
+  cleanupServiceWorkers();
 });
 
-/* Monetag Web Push Service Worker Registration */
-function initMonetagServiceWorker() {
+/* Clean up any legacy service workers */
+function cleanupServiceWorkers() {
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' })
-        .then((registration) => {
-          // Monetag SW active
-        })
-        .catch((err) => {
-          console.warn('Monetag service worker registration note:', err);
-        });
-    });
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      for (const registration of registrations) {
+        registration.unregister();
+      }
+    }).catch(() => {});
   }
 }
 
